@@ -1,7 +1,3 @@
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +8,13 @@
     <meta name="Description" content="Put your description here">
     <meta name="robots" content="noindex">
     <meta name="AdsBot-Google" content="noindex"/>
+
+    <script>
+      let root = document.documentElement;
+      root.style.setProperty('--brandColor', '#a3d162');
+      root.style.setProperty('--secondaryColor', '#a3d162');
+      root.style.setProperty('--sidebarBG', '#2796D3');
+    </script>
 
     <!-- TITLE-->
     <title>Robotify | Schools | international school</title>
@@ -29,6 +32,12 @@
     <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
 
     <link rel="stylesheet" href="styles/school.css">
+    <!-- STYLE :: END-->
+
+    <!-- STYLE :: START-->
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="styles/enabled-content.css">
     <!-- STYLE :: END-->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -112,804 +121,950 @@
   </script>
 </head>
 <body>
-
-<div id="school" class="school" data-name="schoolDetails">
-
-  <div class="school__bg">
-    <img src="https://robotify.s3.amazonaws.com/static/img/img-main-shape-0.svg" alt="">
-    <img src="https://robotify.s3.amazonaws.com/static/img/img-catalog-bg.png" srcset="https://robotify.s3.amazonaws.com/static/img/img-catalog-bg%402x.png 2x" alt="">
-  </div>
-
-  <div class="school__container">
-
-    <div class="school__breadcrumbs">
-      <a href="/" class="">Home</a>
-      <span>/</span>
-      <a href="schools.html" class="">Schools</a>
-      <span>/</span>
-      <p>International school</p>
-    </div>
-
-    <div class="school__header school__header--title">
-      <div>
-        <h1 class="school__title">INTERNATIONAL SCHOOL</h1>
-      </div>
-      <div></div>
-    </div>
-
-    <div class="school__tabs-wrapper">
-      <div class="school__tabs-head">
-
-        <a href="#" school-tab-js data-id="1" class="school__tabs is-active">Admin</a>
-        <a href="#" school-tab-js data-id="2" class="school__tabs">School Subscription</a>
-        <a href="#" school-tab-js data-id="3" class="school__tabs">Teachers</a>
-        <a href="#" school-tab-js data-id="4" class="school__tabs">Sections/Classes</a>
-
-      </div>
-      <div class="school__tabs-body">
-
-        <div class="school__content-wrapper is-open" data-content="1">
-          <div class="school__content">
-
-            <div class="school__add-wrapper">
-              <a href="#createNewAdmin" class="school__add school__add--admin" popup-js data-effect="mfp-zoom-in">
-                <span>Create new Admin</span>
-              </a>
-              <a href="#assignExistingTeacher" class="school__add school__add--blue school__add--admin" style="margin-left: 15px;" popup-js data-effect="mfp-zoom-in">
-                <span>Search Existing Teacher</span>
-              </a>
-              <a href="#" class="school__add school__add--green school__add--admin" style="margin-left: 15px;" id="downloadAdministratorDetails">
-                <span>Download Administrator Details</span>
-              </a>
-            </div>
-
-
-            <div class="school__excel-wrapper">
-
-              <div class="school__excel-head">
-                <div></div>
-                <div>
-                  <p>Name</p>
-                </div>
-                <div>
-                  <p>Username</p>
-                </div>
-                <div>
-                  <p>User ID</p>
-                </div>
-                <div></div>
-              </div>
-              <div class="school__excel-body">
-
-                <div class="school__excel">
-                  <div>
-                    <i class="icon-font icon-teacher-man"></i>
-                  </div>
-                  <div>
-                    <span>Name:</span>
-                    <h4>John Doe</h4>
-                  </div>
-                  <div>
-                    <span>Username:</span>
-                    <h3 class="admin_username">info@info.com</h3>
-                  </div>
-                  <div>
-                    <span>User ID:</span>
-                    <h2>11</h2>
-                  </div>
-                  <div>
-                    <a href="#" class="school__excel-edit removeAdminFromSchoolButton" data-school_id="9" data-user_id="11">
-                      <i class="icon-font icon-remove"></i>
-                    </a>
-                  </div>
-                </div>
-
-
-              </div>
-
-            </div>
-
-
+<div class="body body--start body--sidebar">
+  <!-- SIDENAV BEGIN -->
+  <section id="rd-sidebar" class="rd-sidebar">
+    <div class="rd-sidebar__wrapper">
+      <div class="rd-sidebar__wrapper-top">
+        <div class="rd-sidebar__ava" style='cursor:pointer;' onclick="window.open('/profile/evan', 'mywindow');">
+          <img src="https://robotify.s3.amazonaws.com/static/img/img-rd-user.png" srcset="https://robotify.s3.amazonaws.com/static/img/img-rd-user%402x.png 2x" alt="">
+        </div>
+        <div class="rd-sidebar__level">
+          <div>
+            <i class="icon-font icon-awards"></i>
+            <p><u>Level</u> <span>10</span></p>
           </div>
         </div>
+        <p class="rd-sidebar__name">evan</p>
+        <div class="rd-sidebar__btn">
+          <a href="/projects/create/" class="">
+            <span>CREATE PROJECT</span>
+            <i class="icon-font icon-extension-add"></i>
+          </a>
+        </div>
+      </div>
+      <div class="rd-sidebar__wrapper-middle">
 
-        <div class="school__content-wrapper" data-content="2">
-          <div class="school__content">
 
+        <nav class="rd-sidebar__nav">
 
-            <form method="post" action="/schools/9" class="school__form school__form--full">
-              <input type="hidden" name="csrfmiddlewaretoken" value="H6H38dyaRryuzcm2B9c1qqdkWtY4809XOYjzQfnbhlpjltfI7VYeoVms86825o6R">
-              <div class="school__form-group school__form-group--3">
+          <div class="rd-sidebar__nav-btn-group">
+              <a class="rd-sidebar__nav-btn " href="/organisation/settings">
                 <div>
-                  <div class="school__form-field">
-                    <span class="school__form-label">Number of licenses</span>
-                    <label>
-                      <input id="numLicensesInput" name="num_of_licenses" type="number" value="5">
+                <span>
+                  <i class="icon-font icon-rd-courses"></i>
+                </span>
+                </div>
+                <div>
+                  <p>Home Dashboard</p>
+                </div>
+              </a>
+              <a class="rd-sidebar__nav-subbtn" href="#">
+                <p>Courses</p>
+              </a>
+              <a class="rd-sidebar__nav-subbtn" href="#">
+                <p>Learning Paths</p>
+              </a>
+              <a class="rd-sidebar__nav-subbtn" href="#">
+                <p>Roboduel Administration</p>
+              </a>
+              <a class="rd-sidebar__nav-subbtn" href="#">
+                <p>License Management</p>
+              </a>
+
+          </div>
+
+          <a class="rd-sidebar__nav-btn " href="/">
+            <div>
+              <span>
+                <i class="icon-font icon-rd-courses"></i>
+              </span>
+            </div>
+            <div>
+              <p>Courses</p>
+            </div>
+          </a>
+
+          <a href="#"
+             class="rd-sidebar__nav-btn "
+          >
+            <div>
+              <span>
+                <i class="icon-font icon-rd-my-class"></i>
+              </span>
+            </div>
+            <div>
+              <p>My Class</p>
+            </div>
+          </a>
+
+          <a href="#" class="rd-sidebar__nav-btn ">
+            <div>
+              <span>
+                <i class="icon-font icon-robot"></i>
+              </span>
+            </div>
+            <div>
+              <p>Makecode</p>
+            </div>
+          </a>
+
+          <a href="#" class="rd-sidebar__nav-btn is-active">
+            <div>
+              <span>
+                <i class="icon-font icon-rd-projects"></i>
+              </span>
+            </div>
+            <div>
+              <p>Projects</p>
+              <!-- <u>2</u> -->
+            </div>
+          </a>
+
+          <a href="#" class="rd-sidebar__nav-btn">
+            <div>
+                  <span>
+                    <i class="icon-font icon-rd-community"></i>
+                  </span>
+            </div>
+            <div>
+              <p>Community</p>
+            </div>
+          </a>
+
+          <a href="#" class="rd-sidebar__nav-btn ">
+            <div>
+                  <span>
+                    <i class="icon-font icon-rd-courses"></i>
+                  </span>
+            </div>
+            <div>
+              <p>Roboduel</p>
+              <!-- <u>new!</u> -->
+            </div>
+          </a>
+
+          <a href="#" class="rd-sidebar__nav-btn">
+            <div>
+                  <span>
+                    <i class="icon-font icon-rd-sign-out"></i>
+                  </span>
+            </div>
+            <div>
+              <p>Sign Out</p>
+            </div>
+          </a>
+
+        </nav>
+
+      </div>
+      <div class="rd-sidebar__wrapper-bottom" style="margin-block-start: 60px;">
+
+          <div class="rd-sidebar__btn">
+            <img src="https://robotify-dev.s3.amazonaws.com/static/img/organization_logos/1.png" style="overflow: hidden; max-width: 200px; max-height: 200px; margin-bottom: 8px;">
+          </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- SIDENAV END -->
+  <div id="school" class="school" data-name="schoolDetails">
+
+    <div class="school__bg">
+      <img src="https://robotify.s3.amazonaws.com/static/img/img-main-shape-0.svg" alt="">
+      <img src="https://robotify.s3.amazonaws.com/static/img/img-catalog-bg.png" srcset="https://robotify.s3.amazonaws.com/static/img/img-catalog-bg%402x.png 2x" alt="">
+    </div>
+
+    <div class="school__container">
+
+      <div class="school__breadcrumbs">
+        <a href="/" class="">Home</a>
+        <span>/</span>
+        <a href="schools.html" class="">Schools</a>
+        <span>/</span>
+        <p>International school</p>
+      </div>
+
+      <div class="school__header school__header--title">
+        <div>
+          <h1 class="school__title">INTERNATIONAL SCHOOL</h1>
+        </div>
+        <div></div>
+      </div>
+
+      <div class="school__tabs-wrapper">
+        <div class="school__tabs-head">
+
+          <a href="#" school-tab-js data-id="1" class="school__tabs is-active">Admin</a>
+          <a href="#" school-tab-js data-id="2" class="school__tabs">School Subscription</a>
+          <a href="#" school-tab-js data-id="3" class="school__tabs">Teachers</a>
+          <a href="#" school-tab-js data-id="4" class="school__tabs">Sections/Classes</a>
+
+        </div>
+        <div class="school__tabs-body">
+
+          <div class="school__content-wrapper is-open" data-content="1">
+            <div class="school__content">
+
+              <div class="school__add-wrapper">
+                <a href="#createNewAdmin" class="school__add school__add--admin" popup-js data-effect="mfp-zoom-in">
+                  <span>Create new Admin</span>
+                </a>
+                <a href="#assignExistingTeacher" class="school__add school__add--blue school__add--admin" style="margin-left: 15px;" popup-js data-effect="mfp-zoom-in">
+                  <span>Search Existing Teacher</span>
+                </a>
+                <a href="#" class="school__add school__add--green school__add--admin" style="margin-left: 15px;" id="downloadAdministratorDetails">
+                  <span>Download Administrator Details</span>
+                </a>
+              </div>
+
+
+              <div class="school__excel-wrapper">
+
+                <div class="school__excel-head">
+                  <div></div>
+                  <div>
+                    <p>Name</p>
+                  </div>
+                  <div>
+                    <p>Username</p>
+                  </div>
+                  <div>
+                    <p>User ID</p>
+                  </div>
+                  <div></div>
+                </div>
+                <div class="school__excel-body">
+
+                  <div class="school__excel">
+                    <div>
+                      <i class="icon-font icon-teacher-man"></i>
+                    </div>
+                    <div>
+                      <span>Name:</span>
+                      <h4>John Doe</h4>
+                    </div>
+                    <div>
+                      <span>Username:</span>
+                      <h3 class="admin_username">info@info.com</h3>
+                    </div>
+                    <div>
+                      <span>User ID:</span>
+                      <h2>11</h2>
+                    </div>
+                    <div>
+                      <a href="#" class="school__excel-edit removeAdminFromSchoolButton" data-school_id="9" data-user_id="11">
+                        <i class="icon-font icon-remove"></i>
+                      </a>
+                    </div>
+                  </div>
+
+
+                </div>
+
+              </div>
+
+
+            </div>
+          </div>
+
+          <div class="school__content-wrapper" data-content="2">
+            <div class="school__content">
+
+
+              <form method="post" action="/schools/9" class="school__form school__form--full">
+                <input type="hidden" name="csrfmiddlewaretoken" value="H6H38dyaRryuzcm2B9c1qqdkWtY4809XOYjzQfnbhlpjltfI7VYeoVms86825o6R">
+                <div class="school__form-group school__form-group--3">
+                  <div>
+                    <div class="school__form-field">
+                      <span class="school__form-label">Number of licenses</span>
+                      <label>
+                        <input id="numLicensesInput" name="num_of_licenses" type="number" value="5">
+                      </label>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="school__form-field">
+                      <span class="school__form-label">Subscription end date</span>
+                      <label>
+                        <input id="subscriptionEndDate" type="date" name="subscription_end_date" value="2021-01-14">
+                      </label>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="school__form-field">
+                      <span class="school__form-label">Select subscription status:</span>
+                      <label>
+                        <select name="subscriptionStatus" class="singleFastSelect" required>
+                          <option  value="trial">Trial</option>
+                          <option selected value="subscription">Subscription</option>
+                          <option  value="cancelled">Cancelled</option>
+                        </select>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="school__form-field">
+                  <div class="school__form-checkbox">
+                    <input type="checkbox" name="auto_renew_subscription" id="autoRenewSubscription" >
+                    <label for="autoRenewSubscription">
+                      <i></i>
+                      <span>Auto Renew</span>
                     </label>
                   </div>
                 </div>
+                <div class="school__form-field">
+                  <button type="submit" id="updateSchoolSubStatus">
+                    <span>Update</span>
+                  </button>
+                </div>
+              </form>
+
+
+
+            </div>
+          </div>
+
+          <div class="school__content-wrapper" data-content="3">
+            <div class="school__content">
+
+              <div class="school__teacher-wrapper">
                 <div>
-                  <div class="school__form-field">
-                    <span class="school__form-label">Subscription end date</span>
-                    <label>
-                      <input id="subscriptionEndDate" type="date" name="subscription_end_date" value="2021-01-14">
-                    </label>
+                  <div class="school__teacher">
+                    <div>
+                      <p class="school__teacher-title">Add teacher manually</p>
+                      <p class="school__teacher-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. In mollitia optio pariatur repellat saepe velit!</p>
+                      <a href="#chooseMethod" popup-js data-effect="mfp-zoom-in" class="school__teacher-btn school__teacher-btn--green">
+                        <span>Start Adding</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
                 <div>
-                  <div class="school__form-field">
-                    <span class="school__form-label">Select subscription status:</span>
-                    <label>
-                      <select name="subscriptionStatus" class="singleFastSelect" required>
-                        <option  value="trial">Trial</option>
-                        <option selected value="subscription">Subscription</option>
-                        <option  value="cancelled">Cancelled</option>
-                      </select>
-                    </label>
+                  <div class="school__teacher">
+                    <div>
+                      <p class="school__teacher-title">Auto-generate teacher</p>
+                      <p class="school__teacher-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem blanditiis, dolor nihil quo reiciendis voluptate.</p>
+                      <a href="#createNewTeacher" popup-js data-effect="mfp-zoom-in" class="school__teacher-btn school__teacher-btn--blue">
+                        <span>Start Adding</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="school__form-field">
-                <div class="school__form-checkbox">
-                  <input type="checkbox" name="auto_renew_subscription" id="autoRenewSubscription" >
-                  <label for="autoRenewSubscription">
-                    <i></i>
-                    <span>Auto Renew</span>
+
+              <div class="school__excel-wrapper">
+
+                <div class="school__excel-head">
+                  <div></div>
+                  <div>
+                    <p>Name</p>
+                  </div>
+                  <div>
+                    <p>Username</p>
+                  </div>
+                  <div style="width: 100%;max-width: 100px; flex: unset;text-align: center;">
+                    <p>User ID</p>
+                  </div>
+                  <div style="text-align: center;">
+                    <p>Licenses №</p>
+                  </div>
+                  <div style="text-align: center;">
+                    <p>Consumed Licenses</p>
+                  </div>
+                  <div></div>
+                </div>
+                <div class="school__excel-body">
+
+
+                  <div class="school__excel">
+                    <div>
+                      <i class="icon-font icon-teacher-man"></i>
+                    </div>
+                    <div>
+                      <span>Name:</span>
+                      <h4>John Doe</h4>
+                    </div>
+                    <div>
+                      <span>Username:</span>
+                      <h3>info@info.com</h3>
+                    </div>
+                    <div style="width: 100%;max-width: 100px; flex: unset;text-align: center;">
+                      <span>User ID:</span>
+                      <h2>10</h2>
+                    </div>
+                    <div style="text-align: center;">
+                      <span>Number of licenses with teacher:</span>
+                      <div class="school__form">
+                        <div class="school__form-field">
+                          <label>
+                            <input type="number" placeholder="-" class="teacher_available_licenses_input" data-teacher-pk=10 value="">
+                          </label>
+                        </div>
+                        <div class="school__form-field">
+                          <button data-teacher-pk=10 class="updateTeacherAvailableLicenses">
+                            <span>Update</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div style="text-align: center;">
+                      <span>Consumed Licenses</span>
+                      <div class="school__form">
+                        <div class="school__form-field">
+                          <label>
+                            <input type="number" placeholder="-" class="teacher_consumed_licenses_input" data-teacher-pk=10 value="">
+                          </label>
+                        </div>
+                        <div class="school__form-field">
+                          <button class="updateTeacherConsumedLicenses" data-teacher-pk=10>
+                            <span>Update</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <a href="#" class="school__excel-edit">
+                        <i class="icon-font icon-edit"></i>
+                      </a>
+                    </div>
+                  </div>
+
+
+                </div>
+
+              </div>
+
+              <div class="" style="width: 100%;margin-bottom: 30px;"></div>
+
+              <div class="school__form">
+                <div class="school__form-field">
+                  <p class="school__content-title">Assign Existing Teacher</p>
+                </div>
+
+                <div class="school__form-group school__form-group--2080">
+                  <div>
+                    <div class="school__form-field">
+                      <label>
+                          <input placeholder="Search teacher by username" type="text" name="search_teacher_for_teacher_username">
+                      </label>
+                    </div>
+                </div>
+                <div>
+                  <div class="school__form-field">
+                    <button id="searchExistingTeacherForTeacherButton" href="#">
+                        <span>Search Teacher</span>
+                    </button>
+                  </div>
+                  </div>
+                </div>
+
+                <div class="school__form-field teacher_for_teacher_search_results_div" style="display:none;">
+                  <p class="school__admin-heading">Please click on any of the following teachers to grant admin status:</p>
+                  <ul class="school__admin teacher_for_teacher_search_results_list">
+                  </ul>
+                </div>
+              </div>
+
+              <div class="" style="width: 100%;height: 1px;margin-bottom: 30px;background-color: rgba(0, 0, 0, 0.05);"></div>
+
+              <div class="school__form" style="padding-top: 30px;">
+                <div class="school__form-field">
+                  <p class="school__content-title">Export Teacher login details</p>
+                  <p class="school__content-desc">Click here to download login details of teachers created in bulk from this page.</p>
+                </div>
+                <div class="school__form-field" style="display: flex;justify-content: center;">
+                  <button id="downloadTeacherLoginDetails" style="width: auto;">
+                    <span>Download</span>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="school__content-wrapper" data-content="4">
+  <!--          <p class="school__content-heading">Sections/Classes</p>-->
+            <div class="school__content">
+
+              <div class="school__form school__form--full school__form--add" style="padding-top: 30px;padding-bottom: 15px;">
+                <div></div>
+                <div>
+                  <a href="#createNewSection" class="school__add" popup-js data-effect="mfp-zoom-in">
+                    <span>Create new Section</span>
+                  </a>
+                </div>
+              </div>
+
+
+              <div class="school__option">
+
+                <div>
+                  <div class="school__dropdown-wrapper">
+                    <a href="#" class="school__dropdown-toggle">
+                      <u>
+                        <i class="icon-font icon-close"></i>
+                      </u>
+                      <span data-name="Filters by...">
+                Filters by...
+              </span>
+                      <i></i>
+                    </a>
+                    <div class="school__dropdown">
+                      <a href="#" class="">Comming soon..</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="school__filter">
+                    <i class="icon-font icon-search"></i>
+                    <input type="text" name="" placeholder="Search sections/classes..." search-classes-js>
                   </label>
                 </div>
               </div>
-              <div class="school__form-field">
-                <button type="submit" id="updateSchoolSubStatus">
-                  <span>Update</span>
-                </button>
-              </div>
-            </form>
 
+              <div class="school__excel-wrapper">
 
-
-          </div>
-        </div>
-
-        <div class="school__content-wrapper" data-content="3">
-          <div class="school__content">
-
-            <div class="school__teacher-wrapper">
-              <div>
-                <div class="school__teacher">
+                <div class="school__excel-head">
+                  <div></div>
                   <div>
-                    <p class="school__teacher-title">Add teacher manually</p>
-                    <p class="school__teacher-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. In mollitia optio pariatur repellat saepe velit!</p>
-                    <a href="#chooseMethod" popup-js data-effect="mfp-zoom-in" class="school__teacher-btn school__teacher-btn--green">
-                      <span>Start Adding</span>
-                    </a>
+                    <p>Name</p>
                   </div>
+                  <div></div>
                 </div>
-              </div>
-              <div>
-                <div class="school__teacher">
-                  <div>
-                    <p class="school__teacher-title">Auto-generate teacher</p>
-                    <p class="school__teacher-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem blanditiis, dolor nihil quo reiciendis voluptate.</p>
-                    <a href="#createNewTeacher" popup-js data-effect="mfp-zoom-in" class="school__teacher-btn school__teacher-btn--blue">
-                      <span>Start Adding</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+                <div class="school__excel-body">
 
-            <div class="school__excel-wrapper">
-
-              <div class="school__excel-head">
-                <div></div>
-                <div>
-                  <p>Name</p>
-                </div>
-                <div>
-                  <p>Username</p>
-                </div>
-                <div style="width: 100%;max-width: 100px; flex: unset;text-align: center;">
-                  <p>User ID</p>
-                </div>
-                <div style="text-align: center;">
-                  <p>Licenses №</p>
-                </div>
-                <div style="text-align: center;">
-                  <p>Consumed Licenses</p>
-                </div>
-                <div></div>
-              </div>
-              <div class="school__excel-body">
-
-
-                <div class="school__excel">
-                  <div>
-                    <i class="icon-font icon-teacher-man"></i>
-                  </div>
-                  <div>
-                    <span>Name:</span>
-                    <h4>John Doe</h4>
-                  </div>
-                  <div>
-                    <span>Username:</span>
-                    <h3>info@info.com</h3>
-                  </div>
-                  <div style="width: 100%;max-width: 100px; flex: unset;text-align: center;">
-                    <span>User ID:</span>
-                    <h2>10</h2>
-                  </div>
-                  <div style="text-align: center;">
-                    <span>Number of licenses with teacher:</span>
-                    <div class="school__form">
-                      <div class="school__form-field">
-                        <label>
-                          <input type="number" placeholder="-" class="teacher_available_licenses_input" data-teacher-pk=10 value="">
-                        </label>
-                      </div>
-                      <div class="school__form-field">
-                        <button data-teacher-pk=10 class="updateTeacherAvailableLicenses">
-                          <span>Update</span>
-                        </button>
-                      </div>
+                  <a href="/schools/9/sections/9/" class="school__excel" school-classes-js>
+                    <div>
+                      <i class="icon-font icon-rd-courses"></i>
                     </div>
-                  </div>
-                  <div style="text-align: center;">
-                    <span>Consumed Licenses</span>
-                    <div class="school__form">
-                      <div class="school__form-field">
-                        <label>
-                          <input type="number" placeholder="-" class="teacher_consumed_licenses_input" data-teacher-pk=10 value="">
-                        </label>
-                      </div>
-                      <div class="school__form-field">
-                        <button class="updateTeacherConsumedLicenses" data-teacher-pk=10>
-                          <span>Update</span>
-                        </button>
-                      </div>
+                    <div>
+                      <span>Name:</span>
+                      <h4>Coding</h4>
                     </div>
-                  </div>
-                  <div>
-                    <a href="#" class="school__excel-edit">
-                      <i class="icon-font icon-edit"></i>
-                    </a>
-                  </div>
-                </div>
-
-
-              </div>
-
-            </div>
-
-            <div class="" style="width: 100%;margin-bottom: 30px;"></div>
-
-            <div class="school__form">
-              <div class="school__form-field">
-                <p class="school__content-title">Assign Existing Teacher</p>
-              </div>
-
-              <div class="school__form-group school__form-group--2080">
-                <div>
-                  <div class="school__form-field">
-                    <label>
-                        <input placeholder="Search teacher by username" type="text" name="search_teacher_for_teacher_username">
-                    </label>
-                  </div>
-              </div>
-              <div>
-                <div class="school__form-field">
-                  <button id="searchExistingTeacherForTeacherButton" href="#">
-                      <span>Search Teacher</span>
-                  </button>
-                </div>
-                </div>
-              </div>
-
-              <div class="school__form-field teacher_for_teacher_search_results_div" style="display:none;">
-                <p class="school__admin-heading">Please click on any of the following teachers to grant admin status:</p>
-                <ul class="school__admin teacher_for_teacher_search_results_list">
-                </ul>
-              </div>
-            </div>
-
-            <div class="" style="width: 100%;height: 1px;margin-bottom: 30px;background-color: rgba(0, 0, 0, 0.05);"></div>
-
-            <div class="school__form" style="padding-top: 30px;">
-              <div class="school__form-field">
-                <p class="school__content-title">Export Teacher login details</p>
-                <p class="school__content-desc">Click here to download login details of teachers created in bulk from this page.</p>
-              </div>
-              <div class="school__form-field" style="display: flex;justify-content: center;">
-                <button id="downloadTeacherLoginDetails" style="width: auto;">
-                  <span>Download</span>
-                </button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="school__content-wrapper" data-content="4">
-<!--          <p class="school__content-heading">Sections/Classes</p>-->
-          <div class="school__content">
-
-            <div class="school__form school__form--full school__form--add" style="padding-top: 30px;padding-bottom: 15px;">
-              <div></div>
-              <div>
-                <a href="#createNewSection" class="school__add" popup-js data-effect="mfp-zoom-in">
-                  <span>Create new Section</span>
-                </a>
-              </div>
-            </div>
-
-
-            <div class="school__option">
-
-              <div>
-                <div class="school__dropdown-wrapper">
-                  <a href="#" class="school__dropdown-toggle">
-                    <u>
-                      <i class="icon-font icon-close"></i>
-                    </u>
-                    <span data-name="Filters by...">
-              Filters by...
-            </span>
-                    <i></i>
+                    <div>
+                      <p class="school__excel-edit">
+                        <i class="icon-font icon-right-arrow" style="font-size: 12px;"></i>
+                      </p>
+                    </div>
                   </a>
-                  <div class="school__dropdown">
-                    <a href="#" class="">Comming soon..</a>
-                  </div>
+
                 </div>
+
               </div>
 
-              <div>
-                <label class="school__filter">
-                  <i class="icon-font icon-search"></i>
-                  <input type="text" name="" placeholder="Search sections/classes..." search-classes-js>
+
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="createNewAdmin" class="c-modal mfp-hide mfp-with-anim">
+    <div class="c-modal__header">
+      <p>Create new admin</p>
+    </div>
+    <div class="c-modal__body">
+
+      <div class="school">
+        <form method="get" autocomplete="off" action="/schools/9" class="school__form">
+          <input type="hidden" name="action_type" value="create_new_admin">
+
+          <div class="school__form-group">
+            <div>
+              <div class="school__form-field">
+                <span class="school__form-label">First Name (Optional)</span>
+                <label>
+                  <input required placeholder="" name="first_name" type="text">
                 </label>
               </div>
             </div>
+            <div>
+              <div class="school__form-field">
+                <span class="school__form-label">Last Name (Optional)</span>
+                <label>
+                  <input required placeholder="" name="last_name" type="text">
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="school__form-group">
+            <div>
+              <div class="school__form-field">
+                <span class="school__form-label">Username</span>
+                <label>
+                  <input required placeholder="" name="username" type="text">
+                </label>
+              </div>
+            </div>
+            <div>
+              <div class="school__form-field">
+                <span class="school__form-label">Email</span>
+                <label>
+                  <input required placeholder="" name="email" type="email">
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="school__form-group">
+            <div>
+              <div class="school__form-field">
+                <span class="school__form-label">Password</span>
+                <label>
+                  <input required minlength="8" placeholder="" name="password" type="text" onfocus="this.type='password'">
+                </label>
+              </div>
+            </div>
+            <div>
+              <div class="school__form-field">
+                <span class="school__form-label">Confirm Password</span>
+                <label>
+                  <input required minlength="8" placeholder="" name="confirm_password" type="text" onfocus="this.type='password'">
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="school__form-field">
+            <p class="school__form-info">Please take a note of the password.</p>
+            <p class="school__form-info" style="color:red"></p>
+          </div>
+          <div class="school__form-field">
+            <button type="submit">
+              <span>Create Admin</span>
+            </button>
+          </div>
 
-            <div class="school__excel-wrapper">
+        </form>
+      </div>
 
-              <div class="school__excel-head">
-                <div></div>
+    </div>
+  </div>
+  <div id="manuallyAddTeacher" class="c-modal mfp-hide mfp-with-anim">
+    <div class="c-modal__header">
+      <p>Add teacher manually</p>
+      <a href="#chooseMethod" popup-js data-effect="mfp-zoom-in" class="c-modal__back">×</a>
+    </div>
+    <div class="c-modal__body">
+
+      <div class="school">
+          <div id="addTeacherManually">
+            <div class="school__form-group-wrapper">
+              <div class="school__form-group school__form-group--4">
                 <div>
-                  <p>Name</p>
-                </div>
-                <div></div>
-              </div>
-              <div class="school__excel-body">
-
-                <a href="/schools/9/sections/9/" class="school__excel" school-classes-js>
-                  <div>
-                    <i class="icon-font icon-rd-courses"></i>
+                  <div class="school__form-field">
+                    <span class="school__form-label">First Name (Optional)</span>
+                    <label>
+                      <input required placeholder="" name="first_name" type="text">
+                    </label>
                   </div>
-                  <div>
-                    <span>Name:</span>
-                    <h4>Coding</h4>
+                </div>
+                <div>
+                  <div class="school__form-field">
+                    <span class="school__form-label">Last Name (Optional)</span>
+                    <label>
+                      <input required placeholder="" name="last_name" type="text">
+                    </label>
                   </div>
-                  <div>
-                    <p class="school__excel-edit">
-                      <i class="icon-font icon-right-arrow" style="font-size: 12px;"></i>
-                    </p>
+                </div>
+                <div>
+                  <div class="school__form-field">
+                    <span class="school__form-label">Username</span>
+                    <label>
+                      <input required placeholder="" name="username" type="text" style="text-transform: lowercase;">
+                    </label>
                   </div>
-                </a>
-
+                </div>
+                <div>
+                  <div class="school__form-field">
+                    <span class="school__form-label">Password</span>
+                    <label>
+                      <input required minlength="8" placeholder="" name="password" type="text" onfocus="this.type='password'">
+                    </label>
+                  </div>
+                </div>
+                <button type="button" manually-remove-teacher-js>
+                  <i class="icon-font icon-remove"></i>
+                </button>
               </div>
-
+              <div class="school__content-line"></div>
             </div>
-
-
-
           </div>
-        </div>
+          <div class="school__form-field school__form-field--btn">
+            <button type="button" style="background-color: transparent;border: 2px solid #EE5253;" manually-add-teacher-js>
+              <span style="color: #EE5253;">Add Teacher Row</span>
+            </button>
+            <button id="createTeachersManually">
+              <span>Create Teacher & Enroll</span>
+            </button>
+          </div>
 
       </div>
-    </div>
-
-  </div>
-</div>
-
-<div id="createNewAdmin" class="c-modal mfp-hide mfp-with-anim">
-  <div class="c-modal__header">
-    <p>Create new admin</p>
-  </div>
-  <div class="c-modal__body">
-
-    <div class="school">
-      <form method="get" autocomplete="off" action="/schools/9" class="school__form">
-        <input type="hidden" name="action_type" value="create_new_admin">
-
-        <div class="school__form-group">
-          <div>
-            <div class="school__form-field">
-              <span class="school__form-label">First Name (Optional)</span>
-              <label>
-                <input required placeholder="" name="first_name" type="text">
-              </label>
-            </div>
-          </div>
-          <div>
-            <div class="school__form-field">
-              <span class="school__form-label">Last Name (Optional)</span>
-              <label>
-                <input required placeholder="" name="last_name" type="text">
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="school__form-group">
-          <div>
-            <div class="school__form-field">
-              <span class="school__form-label">Username</span>
-              <label>
-                <input required placeholder="" name="username" type="text">
-              </label>
-            </div>
-          </div>
-          <div>
-            <div class="school__form-field">
-              <span class="school__form-label">Email</span>
-              <label>
-                <input required placeholder="" name="email" type="email">
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="school__form-group">
-          <div>
-            <div class="school__form-field">
-              <span class="school__form-label">Password</span>
-              <label>
-                <input required minlength="8" placeholder="" name="password" type="text" onfocus="this.type='password'">
-              </label>
-            </div>
-          </div>
-          <div>
-            <div class="school__form-field">
-              <span class="school__form-label">Confirm Password</span>
-              <label>
-                <input required minlength="8" placeholder="" name="confirm_password" type="text" onfocus="this.type='password'">
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="school__form-field">
-          <p class="school__form-info">Please take a note of the password.</p>
-          <p class="school__form-info" style="color:red"></p>
-        </div>
-        <div class="school__form-field">
-          <button type="submit">
-            <span>Create Admin</span>
-          </button>
-        </div>
-
-      </form>
-    </div>
-
-  </div>
-</div>
-<div id="manuallyAddTeacher" class="c-modal mfp-hide mfp-with-anim">
-  <div class="c-modal__header">
-    <p>Add teacher manually</p>
-    <a href="#chooseMethod" popup-js data-effect="mfp-zoom-in" class="c-modal__back">×</a>
-  </div>
-  <div class="c-modal__body">
-
-    <div class="school">
-        <div id="addTeacherManually">
-          <div class="school__form-group-wrapper">
-            <div class="school__form-group school__form-group--4">
-              <div>
-                <div class="school__form-field">
-                  <span class="school__form-label">First Name (Optional)</span>
-                  <label>
-                    <input required placeholder="" name="first_name" type="text">
-                  </label>
-                </div>
-              </div>
-              <div>
-                <div class="school__form-field">
-                  <span class="school__form-label">Last Name (Optional)</span>
-                  <label>
-                    <input required placeholder="" name="last_name" type="text">
-                  </label>
-                </div>
-              </div>
-              <div>
-                <div class="school__form-field">
-                  <span class="school__form-label">Username</span>
-                  <label>
-                    <input required placeholder="" name="username" type="text" style="text-transform: lowercase;">
-                  </label>
-                </div>
-              </div>
-              <div>
-                <div class="school__form-field">
-                  <span class="school__form-label">Password</span>
-                  <label>
-                    <input required minlength="8" placeholder="" name="password" type="text" onfocus="this.type='password'">
-                  </label>
-                </div>
-              </div>
-              <button type="button" manually-remove-teacher-js>
-                <i class="icon-font icon-remove"></i>
-              </button>
-            </div>
-            <div class="school__content-line"></div>
-          </div>
-        </div>
-        <div class="school__form-field school__form-field--btn">
-          <button type="button" style="background-color: transparent;border: 2px solid #EE5253;" manually-add-teacher-js>
-            <span style="color: #EE5253;">Add Teacher Row</span>
-          </button>
-          <button id="createTeachersManually">
-            <span>Create Teacher & Enroll</span>
-          </button>
-        </div>
 
     </div>
-
   </div>
-</div>
-<div id="assignExistingTeacher" class="c-modal mfp-hide mfp-with-anim">
-  <div class="c-modal__header">
-    <p>Assign existing teacher as admin</p>
-  </div>
-  <div class="c-modal__body">
-
-    <div class="school">
-        <div class="school__form-group school__form-group--2080">
-          <div>
-            <div class="school__form-field">
-              <span class="school__form-label">Search teacher by username</span>
-              <label>
-                <input placeholder="" type="text" name="search_teacher_username">
-              </label>
-            </div>
-          </div>
-          <div>
-            <div class="school__form-field">
-              <span class="school__form-label"></span>
-              <button id="searchExistingTeacherButton">
-                <span>Search Teacher</span>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="school__form-field teacher_search_results_div" style="display:none;">
-          <p class="school__admin-heading">Please click on any of the following teachers to grant admin status:</p>
-          <ul class="school__admin teacher_search_results_list">
-          </ul>
-        </div>
+  <div id="assignExistingTeacher" class="c-modal mfp-hide mfp-with-anim">
+    <div class="c-modal__header">
+      <p>Assign existing teacher as admin</p>
     </div>
+    <div class="c-modal__body">
 
-  </div>
-</div>
-<div id="createNewTeacher" class="c-modal mfp-hide mfp-with-anim">
-  <div class="c-modal__header">
-    <p>Bulk Create Teachers</p>
-  </div>
-  <div class="c-modal__body">
-
-    <div class="school">
-      <div class="school__form">
-        <div class="school__form-field">
-          <p class="school__content-subtitle">Auto-Create</p>
-          <p class="school__content-desc">Here you can enter a username prefix like 'teacher-test-' and the system will auto-generate teacher accounts by appending a number.</p>
-          <p class="school__content-desc">All the teachers created will then be assigned to this school.</p>
-        </div>
-        <div class="school__form-group">
-          <div>
-            <div class="school__form-field">
-              <span class="school__form-label">Teacher username prefix</span>
-              <label>
-                <input id="autoCreateTeacherUsernamePrefix" type="text" placeholder="">
-              </label>
+      <div class="school">
+          <div class="school__form-group school__form-group--2080">
+            <div>
+              <div class="school__form-field">
+                <span class="school__form-label">Search teacher by username</span>
+                <label>
+                  <input placeholder="" type="text" name="search_teacher_username">
+                </label>
+              </div>
+            </div>
+            <div>
+              <div class="school__form-field">
+                <span class="school__form-label"></span>
+                <button id="searchExistingTeacherButton">
+                  <span>Search Teacher</span>
+                </button>
+              </div>
             </div>
           </div>
-          <div>
-            <div class="school__form-field">
-              <span class="school__form-label">Amount of accounts</span>
-              <label>
-                <input type="number" id="autoCreateTeacherAmount" placeholder="">
-              </label>
-            </div>
-          </div>
-        </div>
 
-        <div class="school__form-field">
-          <button id="autoCreateTeacherAccounts">
-            <span>Submit</span>
-          </button>
-        </div>
+          <div class="school__form-field teacher_search_results_div" style="display:none;">
+            <p class="school__admin-heading">Please click on any of the following teachers to grant admin status:</p>
+            <ul class="school__admin teacher_search_results_list">
+            </ul>
+          </div>
       </div>
+
     </div>
-
   </div>
-</div>
-<div id="uploadNewTeacher" class="c-modal mfp-hide mfp-with-anim">
-  <div class="c-modal__header">
-    <p>Upload File</p>
-    <a href="#chooseMethod" popup-js data-effect="mfp-zoom-in" class="c-modal__back">×</a>
-  </div>
-  <div class="c-modal__body">
-
-    <div class="school">
-      <div class="school__form">
-        <div class="school__form-field">
-          <p class="school__content-desc">Upload a .txt file in format: `first_name,last_name,email,password` without any spaces.</p>
-        </div>
-        <div class="school__form-field">
-          <input type="file" class="my-pond" name="filepond" id="bulkCreateTeacherFileField"/>
-<!--          <div class="school__file">-->
-<!--            <label>-->
-<!--              <input type="file" id="bulkCreateTeacherFileField">-->
-<!--            </label>-->
-<!--          </div>-->
-        </div>
-        <div class="school__form-field">
-          <button id="bulkCreateTeacherFileButton">
-            <span>Upload</span>
-          </button>
-        </div>
-      </div>
+  <div id="createNewTeacher" class="c-modal mfp-hide mfp-with-anim">
+    <div class="c-modal__header">
+      <p>Bulk Create Teachers</p>
     </div>
+    <div class="c-modal__body">
 
-  </div>
-</div>
-<div id="chooseMethod" class="c-modal mfp-hide mfp-with-anim">
-  <div class="c-modal__header">
-    <p>Choose method</p>
-  </div>
-  <div class="c-modal__body">
+      <div class="school">
+        <div class="school__form">
+          <div class="school__form-field">
+            <p class="school__content-subtitle">Auto-Create</p>
+            <p class="school__content-desc">Here you can enter a username prefix like 'teacher-test-' and the system will auto-generate teacher accounts by appending a number.</p>
+            <p class="school__content-desc">All the teachers created will then be assigned to this school.</p>
+          </div>
+          <div class="school__form-group">
+            <div>
+              <div class="school__form-field">
+                <span class="school__form-label">Teacher username prefix</span>
+                <label>
+                  <input id="autoCreateTeacherUsernamePrefix" type="text" placeholder="">
+                </label>
+              </div>
+            </div>
+            <div>
+              <div class="school__form-field">
+                <span class="school__form-label">Amount of accounts</span>
+                <label>
+                  <input type="number" id="autoCreateTeacherAmount" placeholder="">
+                </label>
+              </div>
+            </div>
+          </div>
 
-    <div class="school">
-
-      <div class="school__form">
-        <div class="school__form-field">
-          <p class="school__content-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A autem cupiditate fuga non quas quo.</p>
-        </div>
-        <div class="school__form-field">
-          <a href="#manuallyAddTeacher" popup-js data-effect="mfp-zoom-in" class="green">
-            <span>Manually Add</span>
-          </a>
-        </div>
-        <div class="school__form-field" style="padding-bottom: 0;">
-          <p class="school__content-subtitle">or</p>
-        </div>
-        <div class="school__form-field">
-          <a href="#uploadNewTeacher" popup-js data-effect="mfp-zoom-in" class="blue">
-            <span>Upload File to Add</span>
-          </a>
+          <div class="school__form-field">
+            <button id="autoCreateTeacherAccounts">
+              <span>Submit</span>
+            </button>
+          </div>
         </div>
       </div>
 
     </div>
-
   </div>
-</div>
-<div id="createNewSection" class="c-modal mfp-hide mfp-with-anim">
-  <div class="c-modal__header">
-    <p>Create New Section</p>
-  </div>
-  <div class="c-modal__body">
+  <div id="uploadNewTeacher" class="c-modal mfp-hide mfp-with-anim">
+    <div class="c-modal__header">
+      <p>Upload File</p>
+      <a href="#chooseMethod" popup-js data-effect="mfp-zoom-in" class="c-modal__back">×</a>
+    </div>
+    <div class="c-modal__body">
 
-    <div class="school">
-
-      <form method="post" action="/schools/9" class="school__form">
-        <input type="hidden" name="csrfmiddlewaretoken" value="H6H38dyaRryuzcm2B9c1qqdkWtY4809XOYjzQfnbhlpjltfI7VYeoVms86825o6R">
-        <div class="school__form-field">
-          <p class="school__content-title">Create New Section</p>
+      <div class="school">
+        <div class="school__form">
+          <div class="school__form-field">
+            <p class="school__content-desc">Upload a .txt file in format: `first_name,last_name,email,password` without any spaces.</p>
+          </div>
+          <div class="school__form-field">
+            <input type="file" class="my-pond" name="filepond" id="bulkCreateTeacherFileField"/>
+  <!--          <div class="school__file">-->
+  <!--            <label>-->
+  <!--              <input type="file" id="bulkCreateTeacherFileField">-->
+  <!--            </label>-->
+  <!--          </div>-->
+          </div>
+          <div class="school__form-field">
+            <button id="bulkCreateTeacherFileButton">
+              <span>Upload</span>
+            </button>
+          </div>
         </div>
-        <div class="school__form-field">
-          <span class="school__form-label">Section name</span>
-          <label>
-            <input id="newSectionName" type="text" name="new_section_name" placeholder="" required>
-          </label>
-        </div>
-        <div class="school__form-field">
-          <span class="school__form-label">Assign Teacher</span>
-          <label>
-            <select name="assign_teacher" class="singleFastSelect" required>
-
-                <option value="info@info.com">info@info.com</option>
-
-            </select>
-          </label>
-        </div>
-        <div class="school__form-field">
-          <p class="school__content-title">Choose Grade:</p>
-        </div>
-        <div class="school__form-field">
-          <ul class="school__grade">
-            <li>
-              <label>
-                <input type="radio" name="new_section_grade" value="1">
-                1st Grade
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type="radio" name="new_section_grade" value="2">
-                2nd Grade
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type="radio" name="new_section_grade" value="3">
-                3rd Grade
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type="radio" name="new_section_grade" value="4">
-                4th Grade
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type="radio" name="new_section_grade" value="5">
-                5th Grade
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type="radio" name="new_section_grade" value="6">
-                6th Grade
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type="radio" name="new_section_grade" value="7">
-                7th Grade
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type="radio" name="new_section_grade" value="8">
-                8th Grade
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type="radio" name="new_section_grade" value="9">
-                9th Grade
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type="radio" name="new_section_grade" value="10">
-                10th Grade
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type="radio" name="new_section_grade" value="11">
-                11th Grade
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type="radio" name="new_section_grade" value="12">
-                12th Grade
-              </label>
-            </li>
-          </ul>
-        </div>
-        <div class="school__form-field">
-          <button type="submit">
-            <span>Create Section</span>
-          </button>
-        </div>
-      </form>
+      </div>
 
     </div>
+  </div>
+  <div id="chooseMethod" class="c-modal mfp-hide mfp-with-anim">
+    <div class="c-modal__header">
+      <p>Choose method</p>
+    </div>
+    <div class="c-modal__body">
 
+      <div class="school">
+
+        <div class="school__form">
+          <div class="school__form-field">
+            <p class="school__content-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A autem cupiditate fuga non quas quo.</p>
+          </div>
+          <div class="school__form-field">
+            <a href="#manuallyAddTeacher" popup-js data-effect="mfp-zoom-in" class="green">
+              <span>Manually Add</span>
+            </a>
+          </div>
+          <div class="school__form-field" style="padding-bottom: 0;">
+            <p class="school__content-subtitle">or</p>
+          </div>
+          <div class="school__form-field">
+            <a href="#uploadNewTeacher" popup-js data-effect="mfp-zoom-in" class="blue">
+              <span>Upload File to Add</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <div id="createNewSection" class="c-modal mfp-hide mfp-with-anim">
+    <div class="c-modal__header">
+      <p>Create New Section</p>
+    </div>
+    <div class="c-modal__body">
+
+      <div class="school">
+
+        <form method="post" action="/schools/9" class="school__form">
+          <input type="hidden" name="csrfmiddlewaretoken" value="H6H38dyaRryuzcm2B9c1qqdkWtY4809XOYjzQfnbhlpjltfI7VYeoVms86825o6R">
+          <div class="school__form-field">
+            <p class="school__content-title">Create New Section</p>
+          </div>
+          <div class="school__form-field">
+            <span class="school__form-label">Section name</span>
+            <label>
+              <input id="newSectionName" type="text" name="new_section_name" placeholder="" required>
+            </label>
+          </div>
+          <div class="school__form-field">
+            <span class="school__form-label">Assign Teacher</span>
+            <label>
+              <select name="assign_teacher" class="singleFastSelect" required>
+
+                  <option value="info@info.com">info@info.com</option>
+
+              </select>
+            </label>
+          </div>
+          <div class="school__form-field">
+            <p class="school__content-title">Choose Grade:</p>
+          </div>
+          <div class="school__form-field">
+            <ul class="school__grade">
+              <li>
+                <label>
+                  <input type="radio" name="new_section_grade" value="1">
+                  1st Grade
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="radio" name="new_section_grade" value="2">
+                  2nd Grade
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="radio" name="new_section_grade" value="3">
+                  3rd Grade
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="radio" name="new_section_grade" value="4">
+                  4th Grade
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="radio" name="new_section_grade" value="5">
+                  5th Grade
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="radio" name="new_section_grade" value="6">
+                  6th Grade
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="radio" name="new_section_grade" value="7">
+                  7th Grade
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="radio" name="new_section_grade" value="8">
+                  8th Grade
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="radio" name="new_section_grade" value="9">
+                  9th Grade
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="radio" name="new_section_grade" value="10">
+                  10th Grade
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="radio" name="new_section_grade" value="11">
+                  11th Grade
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="radio" name="new_section_grade" value="12">
+                  12th Grade
+                </label>
+              </li>
+            </ul>
+          </div>
+          <div class="school__form-field">
+            <button type="submit">
+              <span>Create Section</span>
+            </button>
+          </div>
+        </form>
+
+      </div>
+
+    </div>
   </div>
 </div>
-
 </body>
 
 <!-- include FilePond library -->

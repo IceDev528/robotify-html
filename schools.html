@@ -8,6 +8,12 @@
   <meta name="Description" content="Put your description here">
   <meta name="robots" content="noindex">
   <meta name="AdsBot-Google" content="noindex"/>
+  <script>
+    let root = document.documentElement;
+    root.style.setProperty('--brandColor', '#a3d162');
+    root.style.setProperty('--secondaryColor', '#a3d162');
+    root.style.setProperty('--sidebarBG', '#2796D3');
+  </script>
 
   <!-- TITLE-->
   <title>Robotify | Schools</title>
@@ -27,455 +33,589 @@
   <link rel="stylesheet" href="styles/school.css">
   <!-- STYLE :: END-->
 
+  <!-- STYLE :: START-->
+  <link rel="stylesheet" href="css/vendor.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="styles/enabled-content.css">
+  <!-- STYLE :: END-->
+  
   <!-- SCRIPT :: START-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <!-- SCRIPT :: START-->
-
 </head>
 <body>
-  <div>
-    <div id="school" class="school">
-
-      <div class="school__bg">
-        <img src="https://robotify.s3.amazonaws.com/static/img/img-catalog-bg.png" srcset="https://robotify.s3.amazonaws.com/static/img/img-catalog-bg%402x.png 2x" alt="">
-      </div>
-
-      <div class="school__container school__container--big">
-
-        <div class="school__breadcrumbs">
-          <a href="/" class="">Home</a>
-          <span>/</span>
-          <p>The list of Schools</p>
-        </div>
-
-        <div class="school__header">
-          <div>
-            <h1 class="school__title">All Schools</h1>
-
+  <div class="body body--start body--sidebar">
+    <!-- SIDENAV BEGIN -->
+    <section id="rd-sidebar" class="rd-sidebar">
+      <div class="rd-sidebar__wrapper">
+        <div class="rd-sidebar__wrapper-top">
+          <div class="rd-sidebar__ava" style='cursor:pointer;' onclick="window.open('/profile/evan', 'mywindow');">
+            <img src="https://robotify.s3.amazonaws.com/static/img/img-rd-user.png" srcset="https://robotify.s3.amazonaws.com/static/img/img-rd-user%402x.png 2x" alt="">
           </div>
-          <div>
+          <div class="rd-sidebar__level">
+            <div>
+              <i class="icon-font icon-awards"></i>
+              <p><u>Level</u> <span>10</span></p>
+            </div>
+          </div>
+          <p class="rd-sidebar__name">evan</p>
+          <div class="rd-sidebar__btn">
+            <a href="/projects/create/" class="">
+              <span>CREATE PROJECT</span>
+              <i class="icon-font icon-extension-add"></i>
+            </a>
+          </div>
+        </div>
+        <div class="rd-sidebar__wrapper-middle">
 
-            <a href="#createNewSchool" class="school__add" popup-js data-effect="mfp-zoom-in">
-              <span>Create new school</span>
+
+          <nav class="rd-sidebar__nav">
+
+            <div class="rd-sidebar__nav-btn-group">
+                <a class="rd-sidebar__nav-btn " href="/organisation/settings">
+                  <div>
+                  <span>
+                    <i class="icon-font icon-rd-courses"></i>
+                  </span>
+                  </div>
+                  <div>
+                    <p>Home Dashboard</p>
+                  </div>
+                </a>
+                <a class="rd-sidebar__nav-subbtn" href="#">
+                  <p>Courses</p>
+                </a>
+                <a class="rd-sidebar__nav-subbtn" href="#">
+                  <p>Learning Paths</p>
+                </a>
+                <a class="rd-sidebar__nav-subbtn" href="#">
+                  <p>Roboduel Administration</p>
+                </a>
+                <a class="rd-sidebar__nav-subbtn" href="#">
+                  <p>License Management</p>
+                </a>
+
+            </div>
+
+            <a class="rd-sidebar__nav-btn " href="/">
+              <div>
+                <span>
+                  <i class="icon-font icon-rd-courses"></i>
+                </span>
+              </div>
+              <div>
+                <p>Courses</p>
+              </div>
             </a>
 
-          </div>
-        </div>
-
-        <div class="school__option">
-
-          <div>
-            <div style="max-width: 100%;">
-              <select name="filberBySchool" id="filberBySchool" multiple>
-                <optgroup label="Partner">
-
-                </optgroup>
-                <optgroup label="Account Owner">
-
-                  <option value="adam">adam</option>
-
-                  <option value="alex@robotify">alex@robotify</option>
-
-                  <option value="evan">evan</option>
-
-                  <option value="carroll_ronan">carroll_ronan</option>
-
-                  <option value="harryn1611">harryn1611</option>
-
-                </optgroup>
-                <optgroup label="Sub Type">
-                  <option value="Paid">Paid</option>
-                  <option value="Trial">Trial</option>
-                  <option value="Cancelled">Cancelled</option>
-                </optgroup>
-                <optgroup label="State">
-
-                    <option value="Alaska">Alaska</option>
-
-                    <option value="Alabama">Alabama</option>
-
-                </optgroup>
-                <optgroup label="Country">
-
-                    <option value="Afghanistan">Afghanistan</option>
-
-                    <option value="Åland Islands">Åland Islands</option>
-
-                </optgroup>
-              </select>
-            </div>
-          </div>
-
-          <div>
-            <label class="school__filter">
-              <i class="icon-font icon-search"></i>
-              <input type="text" name="" placeholder="Search school..." search-filter-js>
-            </label>
-          </div>
-        </div>
-
-        <div class="school__wrapper">
-
-          <div class="school__wrapper-left">
-
-            <div class="school__list-container">
-              <div class="school__list-header">
-                <div style="justify-content: center;flex: unset;width: 100%;max-width: 50px;padding-left: 0;padding-right: 0;text-align: center;">
-                  <p>№</p>
-                </div>
-                <div>
-                  <p>Name</p>
-                </div>
-                <div>
-                  <p>Partner</p>
-                </div>
-                <div>
-                  <p>Account Owner</p>
-                </div>
-                <div style="flex: unset;width: 100%;max-width: 125px;text-align: center;">
-                  <p>Number <br>Of Licenses</p>
-                </div>
-                <div>
-                  <p>Subscription <br>End Date</p>
-                </div>
-                <div style="flex: unset;width: 100%;max-width: 125px;text-align: center;">
-                  <p>Total Usages</p>
-                </div>
-                <div style="flex: unset;width: 100%;max-width: 125px;text-align: center;">
-                  <p>Sub Type</p>
-                </div>
-                <div>
-                  <p>Country</p>
-                </div>
-                <div>
-                  <p>State</p>
-                </div>
-                <div></div>
+            <a href="#"
+               class="rd-sidebar__nav-btn "
+            >
+              <div>
+                <span>
+                  <i class="icon-font icon-rd-my-class"></i>
+                </span>
               </div>
-              <div class="school__list-wrapper">
-
-                <div class="school_row">
-                                <a href="/schools/97" class="school__list-link" school-list-js="">
-                                  <ul class="school__list">
-                                    <li>
-                                      <input hidden="" name="school_id" value="97">
-                                      <div style="flex: unset;width: 100%;max-width: 50px;padding-left: 0;padding-right: 0;text-align: center;">
-                                        <p>1</p>
-                                      </div>
-                                      <div>
-                                        <p class="school_name"> International School</p>
-                                      </div>
-                                      <div>
-
-                                          <p class="school_partner">Robotify Direct</p>
-
-                                      </div>
-                                      <div>
-
-                                          <p class="school_account_owner">evan</p>
-
-                                      </div>
-                                      <div style="flex: unset;width: 100%;max-width: 125px;text-align: center;">
-
-                                          <p class="school_num_of_licenses">5</p>
-
-                                      </div>
-                                      <div>
-
-                                          <p class="school_expiry_date">Jan. 14, 2021, midnight</p>
-
-                                      </div>
-                                      <div style="flex: unset;width: 100%;max-width: 125px;text-align: center;" class="school_usages" data-school_id="97">
-                                        <p class="">0</p>
-                                      </div>
-                                      <div style="flex: unset;width: 100%;max-width: 125px;text-align: center;">
-
-                                           <p class="school_sub_status">Paid</p>
-
-                                      </div>
-                                      <div>
-
-                                          <p>-</p>
-
-                                      </div>
-                                      <div>
-
-                                          <p>-</p>
-
-                                      </div>
-                                      <div hidden="">
-
-                                      </div>
-                                      <div>
-                                        <button onclick="return false;" type="button" class="removeSchool" data-school_id="97">
-                                          <i class="icon-font icon-remove"></i>
-                                        </button>
-                                        <button type="button" class="editSchoolButton" href="#editSchool" data-school_id="97" popup-js="" data-effect="mfp-zoom-in">
-                                          <i class="icon-font icon-edit"></i>
-                                        </button>
-                                      </div>
-                                    </li>
-                                  </ul>
-                                </a>
-                              </div>
+              <div>
+                <p>My Class</p>
               </div>
+            </a>
+
+            <a href="#" class="rd-sidebar__nav-btn ">
+              <div>
+                <span>
+                  <i class="icon-font icon-robot"></i>
+                </span>
+              </div>
+              <div>
+                <p>Makecode</p>
+              </div>
+            </a>
+
+            <a href="#" class="rd-sidebar__nav-btn is-active">
+              <div>
+                <span>
+                  <i class="icon-font icon-rd-projects"></i>
+                </span>
+              </div>
+              <div>
+                <p>Projects</p>
+                <!-- <u>2</u> -->
+              </div>
+            </a>
+
+            <a href="#" class="rd-sidebar__nav-btn">
+              <div>
+                    <span>
+                      <i class="icon-font icon-rd-community"></i>
+                    </span>
+              </div>
+              <div>
+                <p>Community</p>
+              </div>
+            </a>
+
+            <a href="#" class="rd-sidebar__nav-btn ">
+              <div>
+                    <span>
+                      <i class="icon-font icon-rd-courses"></i>
+                    </span>
+              </div>
+              <div>
+                <p>Roboduel</p>
+                <!-- <u>new!</u> -->
+              </div>
+            </a>
+
+            <a href="#" class="rd-sidebar__nav-btn">
+              <div>
+                    <span>
+                      <i class="icon-font icon-rd-sign-out"></i>
+                    </span>
+              </div>
+              <div>
+                <p>Sign Out</p>
+              </div>
+            </a>
+
+          </nav>
+
+        </div>
+        <div class="rd-sidebar__wrapper-bottom" style="margin-block-start: 60px;">
+
+            <div class="rd-sidebar__btn">
+              <img src="https://robotify-dev.s3.amazonaws.com/static/img/organization_logos/1.png" style="overflow: hidden; max-width: 200px; max-height: 200px; margin-bottom: 8px;">
             </div>
 
-          </div>
         </div>
-        <div>
-
-        </div>
-
-        </div>
-
       </div>
-    </div>
+    </section>
+    <!-- SIDENAV END -->
 
-  <div id="createNewSchool" class="c-modal mfp-hide mfp-with-anim">
-    <div class="c-modal__header">
-      <p>Create new school</p>
-    </div>
-    <div class="c-modal__body">
+    <section id="enabled" class="enabled">
+      <div id="school" class="school">
 
-      <div class="school">
-        <form method="post" action="/schools/" autocomplete="off" class="school__form">
-          <input type="hidden" name="csrfmiddlewaretoken" value="Q3wIAM7wTF1GCgBvITKExhErtCV18n8UXV8eiOWxjzSvoxubeFwRvMNzFf5Z5L5O">
-
-          <div class="school__form-field">
-            <span class="school__form-label">School Name</span>
-            <label>
-              <input type="text" name="new_school_name" placeholder="" required>
-            </label>
+        <!-- <div class="school__bg">
+          <img src="https://robotify.s3.amazonaws.com/static/img/img-catalog-bg.png" srcset="https://robotify.s3.amazonaws.com/static/img/img-catalog-bg%402x.png 2x" alt="">
+        </div> -->
+  
+        <div class="school__container school__container--big">
+  
+          <div class="school__breadcrumbs">
+            <a href="/" class="">Home</a>
+            <span>/</span>
+            <p>The list of Schools</p>
           </div>
-
-          <div class="school__form-group">
+  
+          <div class="school__header">
             <div>
-              <div class="school__form-field">
-                <span class="school__form-label">Partner</span>
-                <label>
-                  <select name="partner" class="singleFastSelect" required>
-
-                  </select>
-                </label>
-              </div>
+              <h1 class="school__title">All Schools</h1>
+  
             </div>
             <div>
-              <div class="school__form-field">
-                <span class="school__form-label">Account Owner</span>
-                <label>
-                  <select name="account_owner" class="singleFastSelect" required>
-
-                      <option value="adam">adam</option>
-
-                      <option value="alex@robotify">alex@robotify</option>
-
-                      <option value="evan">evan</option>
-
-                      <option value="carroll_ronan">carroll_ronan</option>
-
-                      <option value="harryn1611">harryn1611</option>
-
-                  </select>
-                </label>
-              </div>
+  
+              <a href="#createNewSchool" class="school__add" popup-js data-effect="mfp-zoom-in">
+                <span>Create new school</span>
+              </a>
+  
             </div>
           </div>
-
-          <div class="school__form-group">
+  
+          <div class="school__option">
+  
             <div>
-              <div class="school__form-field">
-                <span class="school__form-label">Number of Licenses</span>
-                <label>
-                  <input type="number" name="num_of_licenses" placeholder="" required>
-                </label>
-              </div>
-            </div>
-            <div>
-              <div class="school__form-field">
-                <span class="school__form-label">Subscription End Date</span>
-                <label>
-                  <input type="date" name="subscription_end_date" placeholder="" required>
-                </label>
-              </div>
-            </div>
-          </div>
-
-          <div class="school__form-group">
-            <div style="max-width: calc((100% - 15px) / 3) !important">
-              <div class="school__form-field">
-                <span class="school__form-label">Subscription Type</span>
-                <label>
-                  <select name="subscriptionStatus" class="singleFastSelect" required>
-                    <option value="Full Subscription">Subscription</option>
+              <div style="max-width: 100%;">
+                <select name="filberBySchool" id="filberBySchool" multiple>
+                  <optgroup label="Partner">
+  
+                  </optgroup>
+                  <optgroup label="Account Owner">
+  
+                    <option value="adam">adam</option>
+  
+                    <option value="alex@robotify">alex@robotify</option>
+  
+                    <option value="evan">evan</option>
+  
+                    <option value="carroll_ronan">carroll_ronan</option>
+  
+                    <option value="harryn1611">harryn1611</option>
+  
+                  </optgroup>
+                  <optgroup label="Sub Type">
+                    <option value="Paid">Paid</option>
                     <option value="Trial">Trial</option>
-                  </select>
-                </label>
-              </div>
-            </div>
-            <div style="max-width: calc((100% - 15px) / 3) !important">
-              <div class="school__form-field">
-                <span class="school__form-label">Country</span>
-                <label>
-                  <select name="country" class="singleFastSelect" required>
-
-                      <option value="Afghanistan">Afghanistan</option>
-
-                      <option value="Åland Islands">Åland Islands</option>
-
-                  </select>
-                </label>
-              </div>
-            </div>
-            <div style="max-width: calc((100% - 15px) / 3) !important">
-              <div class="school__form-field">
-                <span class="school__form-label">USA State (Optional)</span>
-                <label>
-                  <select name="usa_state" class="singleFastSelect">
-                    <option value="">---</option>
-
+                    <option value="Cancelled">Cancelled</option>
+                  </optgroup>
+                  <optgroup label="State">
+  
                       <option value="Alaska">Alaska</option>
-
+  
                       <option value="Alabama">Alabama</option>
-
-                  </select>
-                </label>
+  
+                  </optgroup>
+                  <optgroup label="Country">
+  
+                      <option value="Afghanistan">Afghanistan</option>
+  
+                      <option value="Åland Islands">Åland Islands</option>
+  
+                  </optgroup>
+                </select>
               </div>
             </div>
-          </div>
-
-          <div class="school__form-field">
-            <div class="school__form-checkbox">
-              <input type="checkbox" name="auto_renew_subscription" id="auto_renew_subscription">
-              <label for="auto_renew_subscription">
-                <i></i>
-                <span>Auto Renew</span>
+  
+            <div>
+              <label class="school__filter">
+                <i class="icon-font icon-search"></i>
+                <input type="text" name="" placeholder="Search school..." search-filter-js>
               </label>
             </div>
           </div>
-
-          <div class="school__form-field">
-            <button type="submit">
-              <span>Create</span>
-            </button>
-            <p style="font-size:small; color:red" id="createSchoolError"></p>
+  
+          <div class="school__wrapper">
+  
+            <div class="school__wrapper-left">
+  
+              <div class="school__list-container">
+                <div class="school__list-header">
+                  <div class="school__list-row">
+                    <div class="school__list-col" style="justify-content: center;flex: unset;width: 100%;max-width: 50px;padding-left: 0;padding-right: 0;text-align: center;">
+                      <p>№</p>
+                    </div>
+                    <div class="school__list-col" >
+                      <p>Name</p>
+                    </div>
+                    <div class="school__list-col" >
+                      <p>Partner</p>
+                    </div>
+                    <div class="school__list-col" >
+                      <p>Account Owner</p>
+                    </div>
+                    <div class="school__list-col" style="flex: unset;width: 100%;max-width: 125px;text-align: center;">
+                      <p>Number <br>Of Licenses</p>
+                    </div>
+                    <div class="school__list-col" >
+                      <p>Subscription <br>End Date</p>
+                    </div>
+                    <div class="school__list-col" style="flex: unset;width: 100%;max-width: 125px;text-align: center;">
+                      <p>Total Usages</p>
+                    </div>
+                    <div class="school__list-col" style="flex: unset;width: 100%;max-width: 125px;text-align: center;">
+                      <p>Sub Type</p>
+                    </div>
+                    <div class="school__list-col" >
+                      <p>Country</p>
+                    </div>
+                    <div class="school__list-col" >
+                      <p>State</p>
+                    </div>
+                    <div class="school__list-col">
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="school__list-wrapper">
+                  <div class="school__list-row">
+                    <input hidden="" name="school_id" value="97">
+                    <div class="school__list-col" style="justify-content: center;flex: unset;width: 100%;max-width: 50px;padding-left: 0;padding-right: 0;text-align: center;">
+                      <p style="font-size: 14px; font-weight: 600;">0</p>
+                    </div>
+                    <div class="school__list-col" >
+                      <p class="school_name" style="font-size: 14px; font-weight: 600;"> International School</p>
+                    </div>
+                    <div class="school__list-col" >
+                      <p class="school_partner">Robotify Direct</p>
+                    </div>
+                    <div class="school__list-col" >
+                      <p class="school_account_owner">evan</p>
+                    </div>
+                    <div class="school__list-col" style="flex: unset;width: 100%;max-width: 125px;text-align: center;">
+                      <p class="school_num_of_licenses">5</p>
+                    </div>
+                    <div class="school__list-col" >
+                      <p class="school_expiry_date">Jan. 14, 2021, midnight</p>
+                    </div>
+                    <div class="school__list-col" style="flex: unset;width: 100%;max-width: 125px;text-align: center;">
+                      <p class="">0</p>
+                    </div>
+                    <div class="school__list-col" style="flex: unset;width: 100%;max-width: 125px;text-align: center;">
+                      <p class="school_sub_status">Paid</p>
+                    </div>
+                    <div class="school__list-col" >
+                      <p>-</p>
+                    </div>
+                    <div class="school__list-col" >
+                      <p>-</p>
+                    </div>
+                    <div class="school__list-col">
+                      <button onclick="return false;" type="button" class="removeSchool" data-school_id="97">
+                        <i class="icon-font icon-remove"></i>
+                      </button>
+                      <button type="button" class="editSchoolButton" href="#editSchool" data-school_id="97" popup-js="" data-effect="mfp-zoom-in">
+                        <i class="icon-font icon-edit"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+            </div>
           </div>
-        </form>
+          <div>
+  
+          </div>
+  
+          </div>
+  
+        </div>
       </div>
-
-    </div>
-  </div>
-
-  <div id="editSchool" class="c-modal mfp-hide mfp-with-anim">
-    <div class="c-modal__header">
-      <p>Edit school</p>
-    </div>
-    <div class="c-modal__body">
-
-      <div class="school">
-          <div class="school__form-field">
-            <span class="school__form-label">School Name</span>
-            <label>
-              <input type="text" name="new_school_name" placeholder="" required>
-            </label>
-          </div>
-        <input hidden name="school_id" type="text">
-
-          <div class="school__form-group">
-            <div>
-              <div class="school__form-field">
-                <span class="school__form-label">Partner</span>
-                <label>
-                  <select name="partner" required>
-                    <option value="">-</option>
-
-                  </select>
-                </label>
-              </div>
-            </div>
-            <div>
-              <div class="school__form-field">
-                <span class="school__form-label">Account Owner</span>
-                <label>
-                  <select name="account_owner" required>
-                    <option value="">-</option>
-
-                      <option value="adam">adam</option>
-
-                      <option value="alex@robotify">alex@robotify</option>
-
-                      <option value="evan">evan</option>
-
-                      <option value="carroll_ronan">carroll_ronan</option>
-
-                      <option value="harryn1611">harryn1611</option>
-
-                  </select>
-                </label>
-              </div>
-            </div>
-          </div>
-
-          <div class="school__form-group">
-            <div>
-              <div class="school__form-field">
-                <span class="school__form-label">Country</span>
-                <label>
-                  <select name="country" required>
-                    <option value="">-</option>
-
-                      <option value="Afghanistan">Afghanistan</option>
-
-                      <option value="Åland Islands">Åland Islands</option>
-
-                      <option value="Albania">Albania</option>
-
-                      <option value="Algeria">Algeria</option>
-
-                      <option value="American Samoa">American Samoa</option>
-
-                      <option value="Andorra">Andorra</option>
-
-
-                  </select>
-                </label>
-              </div>
-            </div>
-            <div>
-              <div class="school__form-field">
-                <span class="school__form-label">USA State (Optional)</span>
-                <label>
-                  <select name="usa_state">
-                    <option value="">-</option>
-
-                      <option value="Alaska">Alaska</option>
-
-                      <option value="Alabama">Alabama</option>
-
-                  </select>
-                </label>
-              </div>
-            </div>
-          </div>
-
-          <div class="school__form-field">
-            <button id="editSchoolModalSaveButton">
-              <span>Update</span>
-            </button>
-          </div>
+  
+    <div id="createNewSchool" class="c-modal mfp-hide mfp-with-anim">
+      <div class="c-modal__header">
+        <p>Create new school</p>
       </div>
-
+      <div class="c-modal__body">
+  
+        <div class="school">
+          <form method="post" action="/schools/" autocomplete="off" class="school__form">
+            <input type="hidden" name="csrfmiddlewaretoken" value="Q3wIAM7wTF1GCgBvITKExhErtCV18n8UXV8eiOWxjzSvoxubeFwRvMNzFf5Z5L5O">
+  
+            <div class="school__form-field">
+              <span class="school__form-label">School Name</span>
+              <label>
+                <input type="text" name="new_school_name" placeholder="" required>
+              </label>
+            </div>
+  
+            <div class="school__form-group">
+              <div>
+                <div class="school__form-field">
+                  <span class="school__form-label">Partner</span>
+                  <label>
+                    <select name="partner" class="singleFastSelect" required>
+  
+                    </select>
+                  </label>
+                </div>
+              </div>
+              <div>
+                <div class="school__form-field">
+                  <span class="school__form-label">Account Owner</span>
+                  <label>
+                    <select name="account_owner" class="singleFastSelect" required>
+  
+                        <option value="adam">adam</option>
+  
+                        <option value="alex@robotify">alex@robotify</option>
+  
+                        <option value="evan">evan</option>
+  
+                        <option value="carroll_ronan">carroll_ronan</option>
+  
+                        <option value="harryn1611">harryn1611</option>
+  
+                    </select>
+                  </label>
+                </div>
+              </div>
+            </div>
+  
+            <div class="school__form-group">
+              <div>
+                <div class="school__form-field">
+                  <span class="school__form-label">Number of Licenses</span>
+                  <label>
+                    <input type="number" name="num_of_licenses" placeholder="" required>
+                  </label>
+                </div>
+              </div>
+              <div>
+                <div class="school__form-field">
+                  <span class="school__form-label">Subscription End Date</span>
+                  <label>
+                    <input type="date" name="subscription_end_date" placeholder="" required>
+                  </label>
+                </div>
+              </div>
+            </div>
+  
+            <div class="school__form-group">
+              <div style="max-width: calc((100% - 15px) / 3) !important">
+                <div class="school__form-field">
+                  <span class="school__form-label">Subscription Type</span>
+                  <label>
+                    <select name="subscriptionStatus" class="singleFastSelect" required>
+                      <option value="Full Subscription">Subscription</option>
+                      <option value="Trial">Trial</option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+              <div style="max-width: calc((100% - 15px) / 3) !important">
+                <div class="school__form-field">
+                  <span class="school__form-label">Country</span>
+                  <label>
+                    <select name="country" class="singleFastSelect" required>
+  
+                        <option value="Afghanistan">Afghanistan</option>
+  
+                        <option value="Åland Islands">Åland Islands</option>
+  
+                    </select>
+                  </label>
+                </div>
+              </div>
+              <div style="max-width: calc((100% - 15px) / 3) !important">
+                <div class="school__form-field">
+                  <span class="school__form-label">USA State (Optional)</span>
+                  <label>
+                    <select name="usa_state" class="singleFastSelect">
+                      <option value="">---</option>
+  
+                        <option value="Alaska">Alaska</option>
+  
+                        <option value="Alabama">Alabama</option>
+  
+                    </select>
+                  </label>
+                </div>
+              </div>
+            </div>
+  
+            <div class="school__form-field">
+              <div class="school__form-checkbox">
+                <input type="checkbox" name="auto_renew_subscription" id="auto_renew_subscription">
+                <label for="auto_renew_subscription">
+                  <i></i>
+                  <span>Auto Renew</span>
+                </label>
+              </div>
+            </div>
+  
+            <div class="school__form-field">
+              <button type="submit">
+                <span>Create</span>
+              </button>
+              <p style="font-size:small; color:red" id="createSchoolError"></p>
+            </div>
+          </form>
+        </div>
+  
+      </div>
     </div>
-  </div>
+  
+    <div id="editSchool" class="c-modal mfp-hide mfp-with-anim">
+      <div class="c-modal__header">
+        <p>Edit school</p>
+      </div>
+      <div class="c-modal__body">
+  
+        <div class="school">
+            <div class="school__form-field">
+              <span class="school__form-label">School Name</span>
+              <label>
+                <input type="text" name="new_school_name" placeholder="" required>
+              </label>
+            </div>
+          <input hidden name="school_id" type="text">
+  
+            <div class="school__form-group">
+              <div>
+                <div class="school__form-field">
+                  <span class="school__form-label">Partner</span>
+                  <label>
+                    <select name="partner" required>
+                      <option value="">-</option>
+  
+                    </select>
+                  </label>
+                </div>
+              </div>
+              <div>
+                <div class="school__form-field">
+                  <span class="school__form-label">Account Owner</span>
+                  <label>
+                    <select name="account_owner" required>
+                      <option value="">-</option>
+  
+                        <option value="adam">adam</option>
+  
+                        <option value="alex@robotify">alex@robotify</option>
+  
+                        <option value="evan">evan</option>
+  
+                        <option value="carroll_ronan">carroll_ronan</option>
+  
+                        <option value="harryn1611">harryn1611</option>
+  
+                    </select>
+                  </label>
+                </div>
+              </div>
+            </div>
+  
+            <div class="school__form-group">
+              <div>
+                <div class="school__form-field">
+                  <span class="school__form-label">Country</span>
+                  <label>
+                    <select name="country" required>
+                      <option value="">-</option>
+  
+                        <option value="Afghanistan">Afghanistan</option>
+  
+                        <option value="Åland Islands">Åland Islands</option>
+  
+                        <option value="Albania">Albania</option>
+  
+                        <option value="Algeria">Algeria</option>
+  
+                        <option value="American Samoa">American Samoa</option>
+  
+                        <option value="Andorra">Andorra</option>
+  
+  
+                    </select>
+                  </label>
+                </div>
+              </div>
+              <div>
+                <div class="school__form-field">
+                  <span class="school__form-label">USA State (Optional)</span>
+                  <label>
+                    <select name="usa_state">
+                      <option value="">-</option>
+  
+                        <option value="Alaska">Alaska</option>
+  
+                        <option value="Alabama">Alabama</option>
+  
+                    </select>
+                  </label>
+                </div>
+              </div>
+            </div>
+  
+            <div class="school__form-field">
+              <button id="editSchoolModalSaveButton">
+                <span>Update</span>
+              </button>
+            </div>
+        </div>
+  
+      </div>
+    </div>
+    </section>
+    
 
 </body>
 <script>
 $('.removeSchool').on('click', function(){
   var school_id = $(this).data('school_id')
-  var parent = $(this).parents('.school_row')
-  var school_name = parent.find('.school_name').text()
-
+  var school_name = document.getElementsByClassName("school_name")[0].innerHTML; 
+  
   Swal.fire({
     title: 'Are you sure you want to unpublish the school: <span><u>' + school_name + '</u></span>',
     text: 'You can later restore this school by contacting Robotify Admin.',
@@ -492,4 +632,5 @@ $('.removeSchool').on('click', function(){
 </script>
 <script src="assets/js/jquery.magnific-popup.min.js"></script>
 <script src="assets/js/fastselect.standalone.min.js"></script>
+<script src="new-js/school.js"></script>
 </html>

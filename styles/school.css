@@ -114,7 +114,7 @@ picture {
   position: relative;
   padding-top: 50px;
   padding-bottom: 100px;
-  background-color: #fefefe;
+  /* background-color: #fefefe; */
   font-family: 'Montserrat', sans-serif;
   color: #333333; }
   @media screen and (max-width: 767px) {
@@ -422,7 +422,7 @@ picture {
     padding-right: 15px;
     border: none;
     box-shadow: none;
-    background-color: #EE5253;
+    background-color: rgba(238, 82, 83, 0.1);
     border-radius: 8px;
     transition: background-color 0.3s ease-in-out; }
     @media screen and (max-width: 767px) {
@@ -444,10 +444,10 @@ picture {
         .school__add.school__add--blue:hover span {
           color: #0984e3; }
     .school__add:hover {
-      background-color: rgba(238, 82, 83, 0.1);
+      background-color: #EE5253;
       transition: background-color 0.3s ease-in-out; }
       .school__add:hover span {
-        color: #EE5253;
+        color: white;
         transition: color 0.3s ease-in-out; }
     .school__add-wrapper {
       display: flex;
@@ -461,7 +461,7 @@ picture {
             margin: 0 !important;
             margin-bottom: 10px !important; } }
     .school__add span {
-      color: #ffffff;
+      color: #EE5253;
       font-weight: 600;
       font-size: 15px;
       transition: color 0.3s ease-in-out; }
@@ -612,73 +612,9 @@ picture {
         font-weight: 600;
         font-size: 15px;
         transition: color 0.3s ease-in-out; }
-  .school__list {
-    display: flex;
-    width: 100%; }
-    .school__list > li {
-      display: flex;
-      align-items: center;
-      width: 100%; }
-      .school__list > li > div {
-        flex: 1;
-        min-width: 1px;
-        max-width: 100%;
-        min-height: 44px;
-        padding-left: 10px;
-        padding-right: 10px;
-        background-color: transparent;
-        line-height: 44px;
-        transition: background-color 0.3s ease-in-out; }
-        .school__list > li > div.is-sort {
-          background-color: rgba(241, 241, 241, 0.85);
-          transition: background-color 0.3s ease-in-out; }
-        .school__list > li > div:first-of-type p, .school__list > li > div:nth-of-type(2) p {
-          font-size: 14px;
-          font-weight: 600; }
-        .school__list > li > div:first-of-type {
-          border-right: 1px solid rgba(0, 0, 0, 0.05); }
-          .school__list > li > div:first-of-type p {
-            display: flex;
-            align-items: center;
-            justify-content: center; }
-        .school__list > li > div:last-of-type {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex: unset;
-          max-width: unset;
-          width: 75px;
-          padding-left: 0;
-          padding-right: 0;
-          border-left: 1px solid rgba(0, 0, 0, 0.05); }
-          .school__list > li > div:last-of-type button {
-            outline: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 30px;
-            height: 30px;
-            padding: 0;
-            margin-left: 2px;
-            margin-right: 2px;
-            border: none;
-            box-shadow: none;
-            border-radius: 0;
-            background-color: transparent;
-            transform-origin: center;
-            backface-visibility: hidden;
-            transition: transform 0.3s ease-in-out; }
-            .school__list > li > div:last-of-type button:hover {
-              transform: scale(1.15);
-              transition: transform 0.3s ease-in-out; }
-            .school__list > li > div:last-of-type button .icon-font {
-              font-size: 16px;
-              color: #ee5253; }
     .school__list-container {
       overflow: hidden;
       position: relative;
-      border-radius: 15px;
       border: 1px solid rgba(0, 0, 0, 0.05);
       background-color: rgba(255, 255, 255, 0.8);
       box-shadow: 0 10px 50px 0 rgba(51, 51, 51, 0.05); }
@@ -691,55 +627,63 @@ picture {
       .school__list-header, .school__list-wrapper {
         width: 1024px; } }
     .school__list-header {
-      display: flex;
-      align-items: center;
-      height: 65px;
-      background-color: rgba(241, 241, 241, 0.4); }
-      .school__list-header > div {
-        cursor: pointer;
-        position: relative;
+      border-bottom: 1px solid #F1F1F1;
+      }
+      .school__list-header > .school__list-row > .school__list-col > p {
+        font-weight: 700;
+        font-size: 13px;
+        text-transform: uppercase;
+      }
+      .school__list-row {
         display: flex;
-        flex-wrap: wrap;
+        width: 100%;
+        min-height: 55px;
+        padding: 10px 5px 10px 0;
+      }
+      .school__list-col:not(:last-of-type) {
+        border-right: 1px solid #F1F1F1;
+      }
+      .school__list-col {
+        display: flex;
         align-items: center;
         flex: 1;
         min-width: 1px;
         max-width: 100%;
         min-height: 100%;
-        padding-left: 5px;
-        padding-right: 16px;
-        transition: background-color 0.3s ease-in-out; }
-        .school__list-header > div:hover {
-          background-color: rgba(0, 0, 0, 0.05);
-          transition: background-color 0.3s ease-in-out; }
-        .school__list-header > div.is-sort {
-          background-color: rgba(241, 241, 241, 0.85);
-          transition: background-color 0.3s ease-in-out; }
-        .school__list-header > div.is-down:after {
-          border-color: #333333 transparent transparent transparent; }
-        .school__list-header > div.is-up:before {
-          border-color: transparent transparent #333333 transparent; }
-        .school__list-header > div:before, .school__list-header > div:after {
-          content: '';
-          position: absolute;
-          right: 6px;
-          width: 8px;
-          height: 8px;
-          border-width: 4px;
-          border-style: solid; }
-        .school__list-header > div:before {
-          top: 24px;
-          border-color: transparent transparent rgba(51, 51, 51, 0.45) transparent; }
-        .school__list-header > div:after {
-          bottom: 24px;
-          border-color: rgba(51, 51, 51, 0.45) transparent transparent transparent; }
-        .school__list-header > div:first-of-type:before, .school__list-header > div:first-of-type:after, .school__list-header > div:last-of-type:before, .school__list-header > div:last-of-type:after {
-          display: none; }
-        .school__list-header > div:last-of-type {
-          display: flex;
-          align-items: center;
-          flex: unset;
-          max-width: unset;
-          width: 75px; }
+        padding-left: 20px;
+        padding-right: 5px;
+      }
+      .school__list-col button {
+        outline: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        padding: 0;
+        margin-left: 2px;
+        margin-right: 2px;
+        border: none;
+        box-shadow: none;
+        border-radius: 5px;
+        background-color: transparent;
+        transform-origin: center;
+        backface-visibility: hidden;
+        transform: rotate(-90deg);
+        transition: transform 0.3s ease-in-out; 
+        background-color: rgba(238, 82, 83, 0.1); }
+        .school__list-col button:hover {
+          transition: transform 0.3s ease-in-out; 
+          transform: rotate(-90deg);
+          background-color: #ee5253;
+          }
+          .school__list-col button:hover .icon-font {
+            font-size: 16px;
+            color: white; }
+          .school__list-col button .icon-font {
+          font-size: 16px;
+          color: #ee5253; }
       .school__list-header p {
         font-size: 14px;
         font-weight: 600; }
@@ -987,7 +931,9 @@ picture {
       min-height: 20px;
       padding-bottom: 3px;
       font-size: 12px;
-      font-weight: 600; }
+      font-weight: 600;
+      line-height: 1;
+      color: black; }
     .school__form-checkbox {
       position: relative; }
       .school__form-checkbox input {
@@ -1758,9 +1704,12 @@ picture {
     padding-bottom: 10px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
     .c-modal__header p {
-      font-size: 16px;
-      font-weight: 600;
-      text-transform: capitalize; }
+      padding-bottom: 5px;
+      font-size: 22px;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-align: center;
+      color: #333333; }
   .c-modal__body {
     padding: 30px 10px 0; }
     .c-modal__body .school {
