@@ -668,9 +668,7 @@ picture {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 50px;
-        height: 50px;
-        padding: 0;
+        padding: 10px;
         margin-left: 2px;
         margin-right: 2px;
         border: none;
