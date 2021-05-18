@@ -1,0 +1,772 @@
+@charset "UTF-8";
+
+.icon-font {
+  display: flex;
+  line-height: 1;
+}
+
+@font-face {
+  font-family: "iconfont";
+  src: url("../fonts/iconfont.eot");
+  src: url("../fonts/iconfont.eot?#iefix") format("eot"), url("../fonts/iconfont.woff2") format("woff2"), url("../fonts/iconfont.woff") format("woff"), url("../fonts/iconfont.ttf") format("truetype"), url("../fonts/iconfont.svg#iconfont") format("svg");
+}
+
+
+.icon-academic:before, .icon-add-new:before, .icon-add:before, .icon-arrow-down:before, .icon-arrow-left:before, .icon-arrow-long-right:before, .icon-arrow-new:before, .icon-arrow-slider:before, .icon-arrow-top-right:before, .icon-arrow-undo:before, .icon-arrow:before, .icon-atom:before, .icon-awards:before, .icon-bar-chart:before, .icon-bin:before, .icon-black-point:before, .icon-blockly:before, .icon-blockquote:before, .icon-blueprint:before, .icon-book:before, .icon-bookmark:before, .icon-brain-alt:before, .icon-brain:before, .icon-briefcase:before, .icon-calendar:before, .icon-caret:before, .icon-chart-flow-2:before, .icon-chat:before, .icon-checked-1:before, .icon-checked:before, .icon-classes:before, .icon-clock:before, .icon-close-new:before, .icon-close:before, .icon-code-terminal:before, .icon-coding:before, .icon-cogwheels:before, .icon-coin:before, .icon-corner-new:before, .icon-corner:before, .icon-create:before, .icon-data:before, .icon-destination:before, .icon-diamond:before, .icon-dispute:before, .icon-dollar:before, .icon-download-arrow:before, .icon-download:before, .icon-edit-projects:before, .icon-edit:before, .icon-exclamation:before, .icon-expand:before, .icon-extension-add:before, .icon-eye:before, .icon-facebook:before, .icon-fast-forward:before, .icon-file-add:before, .icon-filter:before, .icon-folder-add:before, .icon-forked:before, .icon-gear:before, .icon-gears:before, .icon-google:before, .icon-graduation-hat:before, .icon-happy:before, .icon-heart-fill:before, .icon-heart:before, .icon-help:before, .icon-home-run:before, .icon-home:before, .icon-homework:before, .icon-imac:before, .icon-info:before, .icon-information:before, .icon-insert:before, .icon-instagram:before, .icon-is-error:before, .icon-is-info:before, .icon-is-success:before, .icon-is-warning:before, .icon-jellyfish:before, .icon-liked:before, .icon-list-doc:before, .icon-locations:before, .icon-lock-new:before, .icon-lock:before, .icon-locked-1:before, .icon-locked:before, .icon-logout-new:before, .icon-logout:before, .icon-map:before, .icon-menu-line:before, .icon-menu-sq:before, .icon-merge:before, .icon-minimize:before, .icon-more:before, .icon-move-right:before, .icon-notification:before, .icon-open-book:before, .icon-parents:before, .icon-pen:before, .icon-pin:before, .icon-play-new:before, .icon-play:before, .icon-polygon:before, .icon-position:before, .icon-rd-community:before, .icon-rd-competitions:before, .icon-rd-courses:before, .icon-rd-home:before, .icon-rd-my-class:before, .icon-rd-projects:before, .icon-rd-resources:before, .icon-rd-sign-out:before, .icon-remove:before, .icon-reset:before, .icon-resize:before, .icon-responsible-energy-use:before, .icon-restaurant:before, .icon-right-arrow-1:before, .icon-right-arrow-new:before, .icon-right-arrow:before, .icon-robot:before, .icon-route:before, .icon-save:before, .icon-sea:before, .icon-search-1:before, .icon-search:before, .icon-seo-and-web:before, .icon-solution:before, .icon-sort:before, .icon-space:before, .icon-star:before, .icon-teacher-man:before, .icon-teacher:before, .icon-team-group:before, .icon-technology:before, .icon-time:before, .icon-transportation:before, .icon-triangle:before, .icon-trophy:before, .icon-twitter:before, .icon-unlock-new:before, .icon-unlock:before, .icon-unlocked-1:before, .icon-unlocked:before, .icon-upload:before, .icon-whiteboard:before {
+  font-family: "iconfont", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: none;
+}
+
+
+.icon-academic:before {
+  content: "";
+}
+
+
+.icon-add-new:before {
+  content: "";
+}
+
+
+.icon-add:before {
+  content: "";
+}
+
+
+.icon-arrow-down:before {
+  content: "";
+}
+
+
+.icon-arrow-left:before {
+  content: "";
+}
+
+
+.icon-arrow-long-right:before {
+  content: "";
+}
+
+
+.icon-arrow-new:before {
+  content: "";
+}
+
+
+.icon-arrow-slider:before {
+  content: "";
+}
+
+
+.icon-arrow-top-right:before {
+  content: "";
+}
+
+
+.icon-arrow-undo:before {
+  content: "";
+}
+
+
+.icon-arrow:before {
+  content: "";
+}
+
+
+.icon-atom:before {
+  content: "";
+}
+
+
+.icon-awards:before {
+  content: "";
+}
+
+
+.icon-bar-chart:before {
+  content: "";
+}
+
+
+.icon-bin:before {
+  content: "";
+}
+
+
+.icon-black-point:before {
+  content: "";
+}
+
+
+.icon-blockly:before {
+  content: "";
+}
+
+
+.icon-blockquote:before {
+  content: "";
+}
+
+
+.icon-blueprint:before {
+  content: "";
+}
+
+
+.icon-book:before {
+  content: "";
+}
+
+
+.icon-bookmark:before {
+  content: "";
+}
+
+
+.icon-brain-alt:before {
+  content: "";
+}
+
+
+.icon-brain:before {
+  content: "";
+}
+
+
+.icon-briefcase:before {
+  content: "";
+}
+
+
+.icon-calendar:before {
+  content: "";
+}
+
+
+.icon-caret:before {
+  content: "";
+}
+
+
+.icon-chart-flow-2:before {
+  content: "";
+}
+
+
+.icon-chat:before {
+  content: "";
+}
+
+
+.icon-checked-1:before {
+  content: "";
+}
+
+
+.icon-checked:before {
+  content: "";
+}
+
+
+.icon-classes:before {
+  content: "";
+}
+
+
+.icon-clock:before {
+  content: "";
+}
+
+
+.icon-close-new:before {
+  content: "";
+}
+
+
+.icon-close:before {
+  content: "";
+}
+
+
+.icon-code-terminal:before {
+  content: "";
+}
+
+
+.icon-coding:before {
+  content: "";
+}
+
+
+.icon-cogwheels:before {
+  content: "";
+}
+
+
+.icon-coin:before {
+  content: "";
+}
+
+
+.icon-corner-new:before {
+  content: "";
+}
+
+
+.icon-corner:before {
+  content: "";
+}
+
+
+.icon-create:before {
+  content: "";
+}
+
+
+.icon-data:before {
+  content: "";
+}
+
+
+.icon-destination:before {
+  content: "";
+}
+
+
+.icon-diamond:before {
+  content: "";
+}
+
+
+.icon-dispute:before {
+  content: "";
+}
+
+
+.icon-dollar:before {
+  content: "";
+}
+
+
+.icon-download-arrow:before {
+  content: "";
+}
+
+
+.icon-download:before {
+  content: "";
+}
+
+
+.icon-edit-projects:before {
+  content: "";
+}
+
+
+.icon-edit:before {
+  content: "";
+}
+
+
+.icon-exclamation:before {
+  content: "";
+}
+
+
+.icon-expand:before {
+  content: "";
+}
+
+
+.icon-extension-add:before {
+  content: "";
+}
+
+
+.icon-eye:before {
+  content: "";
+}
+
+
+.icon-facebook:before {
+  content: "";
+}
+
+
+.icon-fast-forward:before {
+  content: "";
+}
+
+
+.icon-file-add:before {
+  content: "";
+}
+
+
+.icon-filter:before {
+  content: "";
+}
+
+
+.icon-folder-add:before {
+  content: "";
+}
+
+
+.icon-forked:before {
+  content: "";
+}
+
+
+.icon-gear:before {
+  content: "";
+}
+
+
+.icon-gears:before {
+  content: "";
+}
+
+
+.icon-google:before {
+  content: "";
+}
+
+
+.icon-graduation-hat:before {
+  content: "";
+}
+
+
+.icon-happy:before {
+  content: "";
+}
+
+
+.icon-heart-fill:before {
+  content: "";
+}
+
+
+.icon-heart:before {
+  content: "";
+}
+
+
+.icon-help:before {
+  content: "";
+}
+
+
+.icon-home-run:before {
+  content: "";
+}
+
+
+.icon-home:before {
+  content: "";
+}
+
+
+.icon-homework:before {
+  content: "";
+}
+
+
+.icon-imac:before {
+  content: "";
+}
+
+
+.icon-info:before {
+  content: "";
+}
+
+
+.icon-information:before {
+  content: "";
+}
+
+
+.icon-insert:before {
+  content: "";
+}
+
+
+.icon-instagram:before {
+  content: "";
+}
+
+
+.icon-is-error:before {
+  content: "";
+}
+
+
+.icon-is-info:before {
+  content: "";
+}
+
+
+.icon-is-success:before {
+  content: "";
+}
+
+
+.icon-is-warning:before {
+  content: "";
+}
+
+
+.icon-jellyfish:before {
+  content: "";
+}
+
+
+.icon-liked:before {
+  content: "";
+}
+
+
+.icon-list-doc:before {
+  content: "";
+}
+
+
+.icon-locations:before {
+  content: "";
+}
+
+
+.icon-lock-new:before {
+  content: "";
+}
+
+
+.icon-lock:before {
+  content: "";
+}
+
+
+.icon-locked-1:before {
+  content: "";
+}
+
+
+.icon-locked:before {
+  content: "";
+}
+
+
+.icon-logout-new:before {
+  content: "";
+}
+
+
+.icon-logout:before {
+  content: "";
+}
+
+
+.icon-map:before {
+  content: "";
+}
+
+
+.icon-menu-line:before {
+  content: "";
+}
+
+
+.icon-menu-sq:before {
+  content: "";
+}
+
+
+.icon-merge:before {
+  content: "";
+}
+
+
+.icon-minimize:before {
+  content: "";
+}
+
+
+.icon-more:before {
+  content: "";
+}
+
+
+.icon-move-right:before {
+  content: "";
+}
+
+
+.icon-notification:before {
+  content: "";
+}
+
+
+.icon-open-book:before {
+  content: "";
+}
+
+
+.icon-parents:before {
+  content: "";
+}
+
+
+.icon-pen:before {
+  content: "";
+}
+
+
+.icon-pin:before {
+  content: "";
+}
+
+
+.icon-play-new:before {
+  content: "";
+}
+
+
+.icon-play:before {
+  content: "";
+}
+
+
+.icon-polygon:before {
+  content: "";
+}
+
+
+.icon-position:before {
+  content: "";
+}
+
+
+.icon-rd-community:before {
+  content: "";
+}
+
+
+.icon-rd-competitions:before {
+  content: "";
+}
+
+
+.icon-rd-courses:before {
+  content: "";
+}
+
+
+.icon-rd-home:before {
+  content: "";
+}
+
+
+.icon-rd-my-class:before {
+  content: "";
+}
+
+
+.icon-rd-projects:before {
+  content: "";
+}
+
+
+.icon-rd-resources:before {
+  content: "";
+}
+
+
+.icon-rd-sign-out:before {
+  content: "";
+}
+
+
+.icon-remove:before {
+  content: "";
+}
+
+
+.icon-reset:before {
+  content: "";
+}
+
+
+.icon-resize:before {
+  content: "";
+}
+
+
+.icon-responsible-energy-use:before {
+  content: "";
+}
+
+
+.icon-restaurant:before {
+  content: "";
+}
+
+
+.icon-right-arrow-1:before {
+  content: "";
+}
+
+
+.icon-right-arrow-new:before {
+  content: "";
+}
+
+
+.icon-right-arrow:before {
+  content: "";
+}
+
+
+.icon-robot:before {
+  content: "";
+}
+
+
+.icon-route:before {
+  content: "";
+}
+
+
+.icon-save:before {
+  content: "";
+}
+
+
+.icon-sea:before {
+  content: "";
+}
+
+
+.icon-search-1:before {
+  content: "";
+}
+
+
+.icon-search:before {
+  content: "";
+}
+
+
+.icon-seo-and-web:before {
+  content: "";
+}
+
+
+.icon-solution:before {
+  content: "";
+}
+
+
+.icon-sort:before {
+  content: "";
+}
+
+
+.icon-space:before {
+  content: "";
+}
+
+
+.icon-star:before {
+  content: "";
+}
+
+
+.icon-teacher-man:before {
+  content: "";
+}
+
+
+.icon-teacher:before {
+  content: "";
+}
+
+
+.icon-team-group:before {
+  content: "";
+}
+
+
+.icon-technology:before {
+  content: "";
+}
+
+
+.icon-time:before {
+  content: "";
+}
+
+
+.icon-transportation:before {
+  content: "";
+}
+
+
+.icon-triangle:before {
+  content: "";
+}
+
+
+.icon-trophy:before {
+  content: "";
+}
+
+
+.icon-twitter:before {
+  content: "";
+}
+
+
+.icon-unlock-new:before {
+  content: "";
+}
+
+
+.icon-unlock:before {
+  content: "";
+}
+
+
+.icon-unlocked-1:before {
+  content: "";
+}
+
+
+.icon-unlocked:before {
+  content: "";
+}
+
+
+.icon-upload:before {
+  content: "";
+}
+
+
+.icon-whiteboard:before {
+  content: "";
+}
+
+.icon-google-classroom {
+    content: url('../../../icons/google-classroom-48.png');
+    height: 28px;
+    width: 28px;
+    margin-left: 8px;
+    float: right;
+}

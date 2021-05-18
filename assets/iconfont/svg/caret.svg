@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="11px" height="7px" viewBox="0 0 11 7" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>caret</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Projects" transform="translate(-567.000000, -141.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="Group" transform="translate(567.000000, 141.000000)">
+                <path d="M5.8931592,0.191110511 L10.3644272,5.88181531 C10.535034,6.09895111 10.4973147,6.41327861 10.2801789,6.58388531 C10.1920861,6.65310101 10.0833,6.69072611 9.9712681,6.69072611 L1.02873192,6.69072611 C0.75258955,6.69072611 0.52873192,6.46686851 0.52873192,6.19072611 C0.52873192,6.07869411 0.566357,5.96990811 0.63557275,5.88181531 L5.1068408,0.191110511 C5.2774475,-0.0260252893 5.591775,-0.0637445893 5.8089108,0.106862111 C5.8402511,0.131486611 5.8685346,0.159770211 5.8931592,0.191110511 Z" id="caret" transform="translate(5.500011, 3.345363) scale(-1, 1) rotate(-180.000000) translate(-5.500011, -3.345363) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

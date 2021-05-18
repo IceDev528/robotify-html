@@ -1,0 +1,760 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- META TAGS-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="Description" content="Put your description here">
+    <meta name="robots" content="noindex">
+    <meta name="AdsBot-Google" content="noindex"/>
+
+    <!-- TITLE-->
+    <title>Robotify | Schools | international school | Coding</title>
+
+    <!-- FONTS :: START-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="assets/iconfont/css/iconfont.css">
+
+    <!-- STYLE :: START-->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="styles/school.css">
+    <!-- STYLE :: END-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+    $(function () {
+        if (''){
+        Swal.fire('')
+        }
+
+        $('.unenroll_student').on('click', function(){
+            var student_id = $(this).attr('data-student-id')
+            var parent = $(this).parents('.school__excel')
+
+            Swal.fire({
+                title: 'Are you sure you want to remove this student in the current section?',
+                showDenyButton: true,
+                confirmButtonText: `Yes`,
+                denyButtonText: `Cancel`,
+                animation: false,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    console.log('confirm');
+                }
+            })
+
+
+        })
+
+
+        $('.teacher_search_results_div').on('click', '.teacher_search_results_row', function(){
+            Swal.fire({
+                title: 'Are you sure you want to add this teacher to the current section?',
+                showDenyButton: true,
+                confirmButtonText: `Yes`,
+                denyButtonText: `Cancel`,
+                animation: false,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                  console.log('confirm');
+                }
+            })
+        })
+
+        $('.user_search_results_list').on('click', '.user_search_results_row', function () {
+            Swal.fire({
+                title: 'Are you sure you want to add this user to the current section as a student?',
+                showDenyButton: true,
+                confirmButtonText: `Yes`,
+                denyButtonText: `Cancel`,
+                animation: false,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                  console.log('confirm');
+                }
+            })
+        })
+
+        $('#addStudentRow').on('click', function () {
+            $('#manual_add_student_list').append(`
+               <div class="manual_add_student_row">
+                        <div class="school__form-group school__form-group--4">
+                            <div>
+                                <div class="school__form-field">
+                                    <span class="school__form-label">First Name</span>
+                                    <label>
+                                        <input placeholder="" name="first_name" type="text" class="student_first_name_field">
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="school__form-field">
+                                    <span class="school__form-label">Last Name</span>
+                                    <label>
+                                        <input placeholder="" name="confirm_password" type="text" class="student_last_name_field">
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="school__form-field">
+                                    <span class="school__form-label">Email</span>
+                                    <label>
+                                        <input placeholder="" name="email" type="text" class="student_email_field" style="text-transform: lowercase;">
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="school__form-field">
+                                    <span class="school__form-label">Password</span>
+                                    <label>
+                                        <input placeholder="" name="password" type="text" onfocus="this.type='password'" class="student_password_field">
+                                    </label>
+                                </div>
+                            </div>
+                            <button class="removeStudentRowButton" onclick="removeRowButton(this)">
+                                <i class="icon-font icon-remove"></i>
+                            </button>
+                        </div>
+                        <div class="school__content-line"></div>
+                    </div>
+            `)
+        })
+
+        $('#searchExistingTeacherButton').on('click', function(){
+            var search_teacher_username = $('input[name=search_teacher_username]').val()
+            var payload = {
+              "search_teacher_username": search_teacher_username,
+              csrfmiddlewaretoken: "srhygXntQewNC4SgY1LDB2prhV144wihzjT4YZcug8nColLWuNxQzxyztyb21Ufb",
+            }
+            $('.teacher_search_results_list').empty()
+            $('.teacher_search_results_div').css('display', 'none')
+        })
+
+        $('#searchExistingUserButton').on('click', function(){
+            var search_username = $('input[name=search_user_username]').val()
+            var payload = {
+              "search_username": search_username,
+              "section_id": '8439',
+              csrfmiddlewaretoken: "srhygXntQewNC4SgY1LDB2prhV144wihzjT4YZcug8nColLWuNxQzxyztyb21Ufb",
+            }
+            $('.user_search_results_list').empty()
+            $('.user_search_results_div').css('display', 'none')
+        })
+
+        $('#autoCreateStudentButton').on('click', function(){
+            var prefix = $('#autoCreateStudentUsernamePrefix').val()
+            var amount = parseInt($('#autoCreateStudentAmount').val())
+            if (prefix && amount){
+                if (amount > 0){
+                    $('#manual_add_student_list').empty()
+                    for (var i=0; i<amount; i++){
+                        $('#manual_add_student_list').append(`
+                           <div class="manual_add_student_row">
+                                    <div class="school__form-group school__form-group--4">
+                                        <div>
+                                            <div class="school__form-field">
+                                                <span class="school__form-label">First Name</span>
+                                                <label>
+                                                    <input placeholder="" name="first_name" type="text" class="student_first_name_field">
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="school__form-field">
+                                                <span class="school__form-label">Last Name</span>
+                                                <label>
+                                                    <input placeholder="" name="confirm_password" type="text" class="student_last_name_field">
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="school__form-field">
+                                                <span class="school__form-label">Email</span>
+                                                <label>
+                                                    <input placeholder="" name="email" type="text" style="text-transform: lowercase;" class="student_email_field" value="` + prefix + "_" + String(i) + `">
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="school__form-field">
+                                                <span class="school__form-label">Password</span>
+                                                <label>
+                                                    <input placeholder="" name="password" type="text" onfocus="this.type='password'" class="student_password_field" value="` + getRandomPassword() + `">
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <button class="removeStudentRowButton" onclick="removeRowButton(this)">
+                                            <i class="icon-font icon-remove"></i>
+                                        </button>
+                                    </div>
+                                    <div class="school__content-line"></div>
+                                </div>
+                        `)
+                    }
+                    $(this).parents('#autoCreateNewTeacher').find('.mfp-close').click()
+                    setTimeout(function(){$('#showCreateStudentModalButton').click()}, 1000)
+                }
+            }
+
+        })
+
+        $('#createStudents').on('click', function () {
+            var i = 0, payload = {
+              'students': [],
+              'class_id': '8439',
+              csrfmiddlewaretoken: "srhygXntQewNC4SgY1LDB2prhV144wihzjT4YZcug8nColLWuNxQzxyztyb21Ufb",
+            };
+            const studentRows = $('#manual_add_student_list .manual_add_student_row');
+            var student_usernames_array = []
+
+            // Generate payload
+            for (i = 0; i < studentRows.length; i++) {
+              var row = $(studentRows[i]);
+              var email = row.find('input.student_email_field').val();
+              if (!email) {
+                continue;
+              }
+
+              payload['students'].push({
+                'first_name': row.find('input.student_first_name_field').val(),
+                'last_name': row.find('input.student_last_name_field').val(),
+                'email': email,
+                'password': row.find('input.student_password_field').val(),
+              })
+              student_usernames_array.push(email)
+            }
+
+            // Detect duplication
+            var duplicates = returnDuplicates(student_usernames_array)
+            if (duplicates.length) {
+              Swal.fire('Please remove duplicate emails.')
+              return;
+            }
+
+            if (payload.students.length) {
+              console.log('confirm');
+            }
+            else{
+                Swal.fire('Please enter student data!')
+            }
+        })
+
+    })
+
+    function removeRowButton(button) {
+      $(button).closest('.manual_add_student_row').remove()
+    }
+
+    function getRandomInt(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function getRandomPassword(){
+      var sampleAnimals = ['Bear', 'Cat', 'Deer', 'Dog', 'Dolphin', 'Elephant', 'Horse', 'Kangaroo',
+            'Panda', 'Sheep', 'Chicken', 'Dove', 'Duck', 'Eagle', 'Hawk', 'Owl', 'Parrot', 'Swan', 'Shark']
+      var sampleColors = [ 'yellow', 'orange', 'red', 'pink', 'violet', 'blue', 'green', 'brown', 'gray']
+      var randomAnimal = sampleAnimals[getRandomInt(0,sampleAnimals.length-1)];
+      var randomColor = sampleColors[getRandomInt(0,sampleColors.length-1)];
+      var randomNumber = getRandomInt(11, 99);
+      var password = randomColor + randomAnimal + randomNumber
+      return password
+    }
+    </script>
+</head>
+<body>
+
+<div id="school" class="school" data-name="schoolDetailsInner">
+
+    <div class="school__bg">
+        <img src="https://robotify.s3.amazonaws.com/static/img/img-main-shape-0.svg" alt="">
+        <img src="https://robotify.s3.amazonaws.com/static/img/img-catalog-bg.png" srcset="https://robotify.s3.amazonaws.com/static/img/img-catalog-bg%402x.png 2x" alt="">
+    </div>
+
+    <div class="school__container">
+
+        <div class="school__breadcrumbs">
+            <a href="#" class="">Home</a>
+            <span>/</span>
+            <a href="schools.html" class="">Schools</a>
+            <span>/</span>
+            <a href="school_detail.html" class="">international school</a>
+            <span>/</span>
+            <p>Coding</p>
+        </div>
+
+        <div class="school__header school__header--title">
+            <div>
+                <h1 class="school__title">CODING</h1>
+            </div>
+            <div></div>
+        </div>
+
+        <div class="school__tabs-wrapper">
+            <div class="school__tabs-head">
+
+                <a href="#" school-tab-js data-id="1" class="school__tabs is-active">Teachers</a>
+                <a href="#" school-tab-js data-id="2" class="school__tabs">Students</a>
+
+            </div>
+            <div class="school__tabs-body">
+
+                <div class="school__content-wrapper is-open" data-content="1">
+<!--                    <div class="school__content-heading">Teachers</div>-->
+                    <div class="school__content">
+
+                        <p class="school__content-title">Total Licenses used: 0/5</p>
+
+                        <div class="school__form school__form--full school__form--add" style="padding-bottom: 30px;">
+                            <div></div>
+                            <div>
+                                <a href="#createNewTeacher" class="school__add" popup-js data-effect="mfp-zoom-in">
+                                    <span>Create Teacher</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="school__excel-wrapper">
+
+                            <div class="school__excel-head">
+                                <div></div>
+                                <div>
+                                    <p>Name</p>
+                                </div>
+                                <div>
+                                    <p>Username</p>
+                                </div>
+                                <div style="width: 100%;max-width: 100px; flex: unset;text-align: center;">
+                                    <p>User ID</p>
+                                </div>
+                                <div style="text-align: center;">
+                                    <p>Licenses №</p>
+                                </div>
+                                <div style="text-align: center;">
+                                    <p>Consumed Licenses</p>
+                                </div>
+                                <div></div>
+                            </div>
+                            <div class="school__excel-body">
+
+                                <div class="school__excel">
+                                    <div>
+                                        <i class="icon-font icon-teacher-man"></i>
+                                    </div>
+                                    <div>
+                                        <span>Name:</span>
+                                        <h4>John Doe</h4>
+                                    </div>
+                                    <div>
+                                        <span>Username:</span>
+                                        <h3>info@info.com</h3>
+                                    </div>
+                                    <div style="width: 100%;max-width: 100px; flex: unset;text-align: center;">
+                                        <span>User ID:</span>
+                                        <h2>11</h2>
+                                    </div>
+                                    <div style="text-align: center;">
+                                        <span>Number of licenses with teacher:</span>
+                                        <div class="school__form">
+                                            <div class="school__form-field">
+                                                <label>
+                                                    <input type="number" placeholder="-" class="teacher_available_licenses_input" data-teacher-pk=17 value="">
+                                                </label>
+                                            </div>
+                                            <div class="school__form-field">
+                                                <button data-teacher-pk=17 class="updateTeacherAvailableLicenses">
+                                                    <span>Update</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="text-align: center;">
+                                        <span>Consumed Licenses</span>
+                                        <div class="school__form">
+                                            <div class="school__form-field">
+                                                <label>
+                                                    <input type="number" placeholder="-" class="teacher_consumed_licenses_input" data-teacher-pk=17 value="">
+                                                </label>
+                                            </div>
+                                            <div class="school__form-field">
+                                                <button class="updateTeacherConsumedLicenses" data-teacher-pk=17>
+                                                    <span>Update</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <a href="#" class="school__excel-edit">
+                                            <i class="icon-font icon-edit"></i>
+                                        </a>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                        <div class="school__content-line"></div>
+
+                        <div class="school__form">
+                            <input hidden name="action_type" value="search_teacher">
+
+                            <div class="school__form-field">
+                                <p class="school__content-title">Assign Existing Teacher</p>
+                            </div>
+
+                            <div class="school__form-group school__form-group--2080">
+                                <div>
+                                    <div class="school__form-field">
+                                        <label>
+                                            <input placeholder="Search teacher by username" type="text" name="search_teacher_username">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="school__form-field">
+                                        <button id="searchExistingTeacherButton" href="#">
+                                            <span>Search Teacher</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="school__form-field teacher_search_results_div" style="display:none;">
+                              <p class="school__admin-heading">Please click on any of the following teachers to grant admin status:</p>
+                              <ul class="school__admin teacher_search_results_list">
+                              </ul>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="school__content-wrapper" data-content="2">
+<!--                    <div class="school__content-heading">Students</div>-->
+                    <div class="school__content">
+
+                        <div class="school__box-wrapper">
+                            <div>
+                                <div class="school__box">
+                                    <div>
+                                        <p>Add existing student account</p>
+                                    </div>
+                                    <div>
+                                        <a href="#addExistingStudent" class="" popup-js data-effect="mfp-zoom-in">
+                                            <span>Add Student</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="school__box">
+                                    <div>
+                                        <p>Autogenerate students</p>
+                                    </div>
+                                    <div>
+                                        <a href="#autoCreateNewTeacher" class="" popup-js data-effect="mfp-zoom-in">
+                                            <span>Add Student</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="school__box">
+                                    <div>
+                                        <p>Manually create new students</p>
+                                    </div>
+                                    <div>
+                                        <a href="#createNewStudent" class="" popup-js data-effect="mfp-zoom-in" id="showCreateStudentModalButton">
+                                            <span>Add Student</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <ul class="school__admin school__admin--empty">
+                            <li>
+                                <p class="school__admin-empty">
+                                    <i class="icon-font icon-search"></i>
+                                    <span>No students</span>
+                                </p>
+                            </li>
+                        </ul>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+    </div>
+
+</div>
+</div>
+
+<div id="createNewTeacher" class="c-modal mfp-hide mfp-with-anim">
+    <div class="c-modal__header">
+        <p>Create new Teacher</p>
+    </div>
+    <div class="c-modal__body">
+
+        <div class="school">
+
+            <form class="school__form"
+                  method="get"
+                  action="/schools/97/sections/8439/"
+                  autocomplete="off">
+
+                <input hidden name="action_type" value="create_new_teacher">
+
+                <div class="school__form-group">
+                    <div>
+                        <div class="school__form-field">
+                            <span class="school__form-label">First Name (Optional)</span>
+                            <label>
+                                <input placeholder="" name="first_name" type="text">
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="school__form-field">
+                            <span class="school__form-label">Last Name (Optional)</span>
+                            <label>
+                                <input placeholder="" name="last_name" type="text">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="school__form-group">
+                    <div>
+                        <div class="school__form-field">
+                            <span class="school__form-label">Username</span>
+                            <label>
+                                <input placeholder="" name="username" type="text" required>
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="school__form-field">
+                            <span class="school__form-label">Email</span>
+                            <label>
+                                <input placeholder="" name="email" type="email" required>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="school__form-group">
+                    <div>
+                        <div class="school__form-field">
+                            <span class="school__form-label">Password</span>
+                            <label>
+                                <input placeholder="" name="password" type="text" minlength="8" required onfocus="this.type='password'">
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="school__form-field">
+                            <span class="school__form-label">Confirm Password</span>
+                            <label>
+                                <input placeholder="" name="confirm_password" type="text" minlength="8" required onfocus="this.type='password'">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="school__form-field">
+                    <p class="school__content-subtitle">Please take a note of the password.</p>
+                    <p class="school__form-info" password-info-js style="color:red"></p>
+                </div>
+
+                <div class="school__form-field">
+                    <button type="submit">
+                        <span>Create Teacher</span>
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+</div>
+<div id="addExistingStudent" class="c-modal mfp-hide mfp-with-anim">
+    <div class="c-modal__header">
+        <p>Add existing student account</p>
+    </div>
+    <div class="c-modal__body">
+
+        <div class="school">
+                <div class="school__form-group school__form-group--2080">
+                    <div>
+                        <div class="school__form-field">
+                            <span class="school__form-label">Search user by username</span>
+                            <label>
+                                <input placeholder="" type="text" name="search_user_username">
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="school__form-field">
+                            <span class="school__form-label"></span>
+                            <button type="submit" id="searchExistingUserButton">
+                                <span>Search User</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="school__form-field user_search_results_div" style="display:none;">
+                  <p class="school__admin-heading">Please click on any of the following users to add them as students to this section.</p>
+                  <ul class="school__admin user_search_results_list">
+                  </ul>
+                </div>
+        </div>
+
+    </div>
+</div>
+<div id="createNewStudent" class="c-modal mfp-hide mfp-with-anim">
+    <div class="c-modal__header">
+        <p>Manually create new students</p>
+    </div>
+    <div class="c-modal__body">
+
+        <div class="school">
+
+            <div id="schoolNewStudent">
+                <input hidden name="action_type" value="create_new_students">
+
+                <div class="school__form " id="manual_add_student_list">
+                    <div class="manual_add_student_row">
+                        <div class="school__form-group school__form-group--4">
+                            <div>
+                                <div class="school__form-field">
+                                    <span class="school__form-label">First Name</span>
+                                    <label>
+                                        <input placeholder="" name="first_name" type="text" class="student_first_name_field">
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="school__form-field">
+                                    <span class="school__form-label">Last Name</span>
+                                    <label>
+                                        <input placeholder="" name="confirm_password" type="text" class="student_last_name_field">
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="school__form-field">
+                                    <span class="school__form-label">Email</span>
+                                    <label>
+                                        <input placeholder="" name="email" type="text" class="student_email_field" style="text-transform: lowercase;">
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="school__form-field">
+                                    <span class="school__form-label">Password</span>
+                                    <label>
+                                        <input placeholder="" name="password" type="text" onfocus="this.type='password'" class="student_password_field">
+                                    </label>
+                                </div>
+                            </div>
+                            <button class="removeStudentRowButton" onclick="removeRowButton(this)">
+                                <i class="icon-font icon-remove"></i>
+                            </button>
+                        </div>
+                        <div class="school__content-line"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="school__form">
+
+                <div class="school__form-group school__form-group--8020" style="padding-right: 0;">
+                    <div>
+                        <div class="school__form-field">
+                            <button id="addStudentRow" style="background-color: transparent;border: 2px solid #EE5253;">
+                                <span style="color: #EE5253;">Add Student Row</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="school__form-field">
+                            <button id="createStudents">
+                                <span>Create Accounts & Enroll</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<div id="autoCreateNewTeacher" class="c-modal mfp-hide mfp-with-anim">
+    <div class="c-modal__header">
+        <p>Bulk Create Students</p>
+    </div>
+    <div class="c-modal__body">
+
+        <div class="school">
+            <div class="school__form">
+                <div class="school__form-field">
+                    <p class="school__content-subtitle">Auto-Create</p>
+                    <p class="school__content-desc">Here you can enter a username prefix like 'student-test-' and the system will auto-generate student accounts by appending a number.</p>
+                    <p class="school__content-desc">All the students created will then be assigned to this school.</p>
+                </div>
+                <div class="school__form-group">
+                    <div>
+                        <div class="school__form-field">
+                            <span class="school__form-label">Student username prefix</span>
+                            <label>
+                                <input id="autoCreateStudentUsernamePrefix" type="text" placeholder="">
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="school__form-field">
+                            <span class="school__form-label">Amount of accounts</span>
+                            <label>
+                                <input type="number" id="autoCreateStudentAmount" placeholder="">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="school__form-field">
+                    <button id="autoCreateStudentButton">
+                        <span>Submit</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+<script src="assets/js/jquery.magnific-popup.min.js"></script>
+<script src="new-js/school.js"></script>
+</html>

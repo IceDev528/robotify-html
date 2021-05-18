@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="34px" height="38px" viewBox="0 0 34 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Polygon</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Class-Hub--Student-Analytics" transform="translate(-605.000000, -590.000000)" fill="#EE5253" stroke="#EE5253">
+            <g id="Top" transform="translate(398.000000, 540.000000)">
+                <g transform="translate(192.000000, 0.000000)" id="1">
+                    <g transform="translate(13.000000, 50.000000)">
+                        <path d="M21.5,1.44337567 L32.9544827,8.05662433 C34.5014881,8.9497883 35.4544827,10.6004234 35.4544827,12.3867513 L35.4544827,25.6132487 C35.4544827,27.3995766 34.5014881,29.0502117 32.9544827,29.9433757 L21.5,36.5566243 C19.9529946,37.4497883 18.0470054,37.4497883 16.5,36.5566243 L5.04551733,29.9433757 C3.49851194,29.0502117 2.54551733,27.3995766 2.54551733,25.6132487 L2.54551733,12.3867513 C2.54551733,10.6004234 3.49851194,8.9497883 5.04551733,8.05662433 L16.5,1.44337567 C18.0470054,0.550211698 19.9529946,0.550211698 21.5,1.44337567 Z" id="Polygon"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

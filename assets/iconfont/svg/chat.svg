@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>chat</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="UI" transform="translate(-20.000000, -560.000000)" fill="#FFFFFF">
+            <g id="UL">
+                <g id="Main]" transform="translate(0.000000, 233.000000)">
+                    <g id="li-inactive" transform="translate(2.000000, 309.000000)">
+                        <g id="Text" transform="translate(18.000000, 18.000000)">
+                            <g id="chat">
+                                <path d="M23.2142877,0 L2.78571234,0 C1.24720477,0 0,1.24721492 0,2.78573501 L0,17.6430066 C0,19.1815267 1.24720477,20.4287416 2.78571234,20.4287416 L6.08215675,20.4287416 L5.57702875,24.9694896 C5.52071602,25.4792465 5.88829946,25.9380767 6.39805218,25.9943899 C6.66128023,26.0234442 6.92439947,25.9387296 7.12124922,25.7615742 L13.0473626,20.4287416 L23.2142877,20.4287416 C24.7527952,20.4287416 26,19.1815267 26,17.6430066 L26,2.78573501 C26,1.24721492 24.7527952,0 23.2142877,0 Z" id="Path"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

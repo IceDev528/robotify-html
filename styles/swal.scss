@@ -1,0 +1,100 @@
+@import "_utilities/mixin";
+@import "_utilities/main-setting-reset";
+
+body {
+	.swal2 {
+		&-icon {
+			margin: 15px auto 30px;
+		}
+
+		&-title {
+			font-size: 22px;
+			font-weight: 600;
+		}
+
+		&-content {
+			textarea.swal2-input {
+				outline: none;
+				resize: none;
+				min-height: 120px;
+				padding: 5px 10px;
+				font-size: 14px;
+				font-weight: 500;
+				line-height: 1.6;
+				box-shadow: none;
+				border: 1px solid #D7D7D7;
+
+				&:hover,
+				&:focus {
+					box-shadow: none;
+					border: 1px solid #D7D7D7;
+				}
+			}
+		}
+
+		&-input {
+			outline: none;
+			height: 45px;
+			padding: 5px 10px;
+			font-size: 14px;
+			font-weight: 500;
+			box-shadow: none;
+			border: 1px solid #D7D7D7;
+
+			&:hover,
+			&:focus {
+				box-shadow: none;
+				border: 1px solid #D7D7D7;
+			}
+		}
+
+		&-actions {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		&-confirm.swal2-styled,
+		&-deny.swal2-styled {
+			outline: none;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 45px;
+			margin: 0 5px;
+			padding: 0 30px;
+			font-size: 16px;
+
+			&:focus {
+				box-shadow: none;
+			}
+
+			&:hover,
+			&:active {
+				background-image: none !important;
+			}
+		}
+
+		&-confirm.swal2-styled {
+			background: #2ed573;
+			@include transition(background);
+
+			&:hover,
+			&:active {
+				background: darken(#2ed573, 5%);
+				@include transition(background);
+			}
+		}
+
+		&-deny.swal2-styled {
+			background: #ee5253;
+			@include transition(background);
+
+			&:hover,
+			&:active {
+				background: darken(#ee5253, 5%);
+				@include transition(background);
+			}
+		}
+	}
+}

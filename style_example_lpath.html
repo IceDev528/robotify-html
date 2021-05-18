@@ -1,0 +1,1933 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- META TAGS-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=0">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="Description" content="Put your description here">
+  <meta name="robots" content="noindex">
+  <meta name="AdsBot-Google" content="noindex"/>
+
+  <!-- TITLE-->
+  <title>Robotify | Enabled Content | Learning Path</title>
+
+  <!-- FONTS :: START-->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://robotify.s3.amazonaws.com/static/assets/css/fonts.css">
+  <link rel="stylesheet" href="https://robotify.s3.amazonaws.com/static/assets/iconfont/css/iconfont.css">
+
+  <!-- STYLE :: START-->
+  <link rel="stylesheet" href="https://robotify.s3.amazonaws.com/static/assets/css/reset.css">
+  <link rel="stylesheet" href="https://robotify.s3.amazonaws.com/static/assets/css/normalize.css">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://robotify.s3.amazonaws.com/static/assets/css/magnific-popup.css">
+
+  <link rel="stylesheet" href="css/app.css">
+
+  <link rel="stylesheet" href="styles/enabled-content.css">
+
+  <!-- SCRIPT :: START-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <!-- SCRIPT :: START-->
+
+
+
+<script>
+    let root = document.documentElement;
+    root.style.setProperty('--brandColor', '#a3d162');
+    root.style.setProperty('--secondaryColor', '#a3d162');
+    root.style.setProperty('--sidebarBG', '#2796D3');
+</script>
+
+  <script>
+  $(function(){
+    $('#addCourseButton').on('click', function(){
+      var payload = {
+        csrfmiddlewaretoken: "DfcBOvDf6GGoqeu7zhuWC6dfORxNdadVKtyYItfqZo9NebDLWW8rzYTCD3JX0ww9",
+        "unit_id": $('#addCourseToUnitId').val(),
+        "course_id": $('#courseIdToAdd').val()
+      }
+      $('#addCourseButton').toggleClass('saving saved');
+      $('.checkmark').toggle();
+      $.ajax('/content/admin/learning_paths/ajax/add_course_to_unit', {
+        type: 'POST',
+        data: payload,
+        success: function (data, status, xhr) {
+          $('#addCourseButton').toggleClass('saving saved');
+          $('.checkmark').toggle();
+          Swal.fire("Course added successfully!")
+          var course_id = data.course_id
+          var course_name = data.course_name
+          var course_thumbnail = data.course_thumbnail
+          var unit_id = data.unit_id
+          var new_course = `
+            <div drag-path-js class="enabled-learning__content" data-course-id="${course_id}">
+              <div>
+                <img src="${course_thumbnail}" alt="">
+              </div>
+              <div>
+                <p>${course_name}</p>
+              </div>
+              <div>
+                <a href="" data-effect="mfp-slide-in" popup-js="" class="removeCourseFromUnitModalShow">
+                  <i class="icon-font icon-remove"></i>
+                </a>
+              </div>
+            </div>
+          `
+          $('div.unit[data-id=' + unit_id + ']').append(new_course)
+          $('#addCourseModalCancelButton').trigger('click')
+        },
+          error: function (jqXhr, textStatus, errorMessage) {
+            $('#addCourseButton').toggleClass('saving saved');
+            $('.checkmark').toggle();
+            if (jqXhr.responseJSON.message){
+              Swal.fire(jqXhr.responseJSON.message)
+            }
+            else{
+              Swal.fire('An error occurred')
+            }
+          }
+        });
+      })
+
+      $('body').on('click', '.addCourseToUnitModalShow', function(){
+        var unit_id = $(this).parents('.unit').attr('data-id')
+        $('#addCourseToUnitId').val(unit_id)
+      })
+
+      $('body').on('click', '.addUnitModalShow', function(){
+        var learning_path_id = $(this).parents('.learning-path_container').attr('data-id')
+        $('#addUnitLearningPathId').val(learning_path_id)
+        $('#addUnitIsPublicField').prop('checked', false)
+
+        var all_units = $(this).parents('.learning-path_container').find('.unit');
+        var maximum = 0;
+        all_units.each(function() {
+          var value = parseFloat($(this).attr('data-order'));
+          maximum = (value > maximum) ? value : maximum;
+        });
+        $('#addUnitOrderfield').val(maximum + 1)
+      })
+
+
+      $('body').on('click', '#addUnitToLPButton', function(){
+        var learning_path_id = $('#addUnitLearningPathId').val()
+        var unit_name = $('#addUnitTitleField').val()
+        var is_public = $('#addUnitIsPublicField').prop('checked')
+        var unit_order = $('#addUnitOrderfield').val()
+        var payload = {
+          csrfmiddlewaretoken: "DfcBOvDf6GGoqeu7zhuWC6dfORxNdadVKtyYItfqZo9NebDLWW8rzYTCD3JX0ww9",
+          "unit_name": unit_name,
+          "learning_path_id": learning_path_id,
+          "is_public": is_public,
+          "unit_order": unit_order,
+        }
+        $('#addUnitToLPButton').toggleClass('saving saved');
+        $('.checkmark').toggle();
+        $.ajax('/content/admin/learning_paths/ajax/add_unit_to_learning_path', {
+        type: 'POST',
+        data: payload,
+        success: function (data, status, xhr) {
+          $('#addUnitToLPButton').toggleClass('saving saved');
+          $('.checkmark').toggle();
+          Swal.fire("Unit added successfully!")
+          var unit_id = data.unit_id
+          var unit_name = data.unit_name
+          var learning_path_id = data.learning_path_id
+          var unit_is_public = data.unit_is_public
+          var unit_order = data.unit_order
+          var new_unit = `
+            <div class="unit" data-id="${unit_id}" data-order="${unit_order}">
+              <div class="enabled-learning__box-header">
+                <div>
+                  <p class="unit-name">${unit_name}</p>
+                  <p hidden class="unit-is-public">${unit_is_public}</p>
+                </div>
+                <div>
+                  <a href="#addNewCourse" data-effect="mfp-slide-in" popup-js class="addCourseToUnitModalShow">
+                    <i class="icon-font icon-add"></i>
+                  </a>
+                  <a href="#changeTitleUnit" data-effect="mfp-slide-in" popup-js class="changeUnitTitleModalShow">
+                    <i class="icon-font icon-edit"></i>
+                  </a>
+                </div>
+              </div>
+          `
+          $('div.learning-path_container[data-id=' + learning_path_id + ']').find('div.all-units-container').append(new_unit)
+          $('#closeAddUnitModal').trigger('click')
+          initPopups();
+        },
+          error: function (jqXhr, textStatus, errorMessage) {
+            $('#addUnitToLPButton').toggleClass('saving saved');
+			$('.checkmark').toggle();
+            if (jqXhr.responseJSON.message){
+              Swal.fire(jqXhr.responseJSON.message)
+            }
+            else{
+              Swal.fire('An error occurred')
+            }
+          }
+        });
+      })
+
+      $('body').on('click', '.removeCourseFromUnitModalShow', function(){
+        Swal.fire({
+            title: 'Are you sure?',
+              text: 'Are you sure you want to remove selected course from this unit?',
+            showDenyButton: true,
+            confirmButtonText: `Yes`,
+            denyButtonText: `Cancel`,
+            animation: false,
+          }).then((result) => {
+            if (result.isConfirmed) {
+
+              var course_id = $(this).parents('.enabled-learning__content').attr('data-course-id')
+              var unit_id = $(this).parents('.unit').attr('data-id')
+              var payload = {
+                csrfmiddlewaretoken: "DfcBOvDf6GGoqeu7zhuWC6dfORxNdadVKtyYItfqZo9NebDLWW8rzYTCD3JX0ww9",
+                "course_id": course_id,
+                "unit_id": unit_id,
+              }
+
+              $.ajax('/content/admin/learning_paths/ajax/remove_course_from_unit', {
+                  type: 'POST',
+                  data: payload,
+                  success: function (data, status, xhr) {
+                    var unit_id = data.unit_id
+                    var course_id = data.course_id
+                    $('div.unit[data-id=' + unit_id + ']').find('div.enabled-learning__content[data-course-id=' + course_id + ']').remove()
+                    Swal.fire("Successfully removed course!")
+                  },
+                  error: function (jqXhr, textStatus, errorMessage) {
+                    if (jqXhr.responseJSON.message){
+                      Swal.fire(jqXhr.responseJSON.message)
+                    }
+                    else{
+                      Swal.fire('An error occurred')
+                    }
+                  }
+              });
+            }
+        })
+      })
+
+      $('body').on('click', '.changeUnitTitleModalShow', function(){
+        var unit_id = $(this).parents('.unit').attr('data-id')
+        $('#changeUnitTitleUnitId').val(unit_id)
+        var unit_name = $(this).parents('.unit').find('.unit-name').text()
+        $('#changeUnitTitleInputField').val(unit_name)
+
+        var unit_is_public = $(this).parents('.unit').find('.unit-is-public').text()
+        if (unit_is_public == "True" || unit_is_public == "true"){
+          $('#editUnitIsPublicField').prop('checked', true)
+        }
+        else if (unit_is_public == "False" || unit_is_public == "false"){
+          $('#editUnitIsPublicField').prop('checked', false)
+        }
+
+        var unit_order = $(this).parents('.unit').attr('data-order')
+        $('#changeUnitOrderfield').val(unit_order)
+
+      })
+
+      $('body').on('click', '#changeUnitTitleModalSaveButton', function(){
+        var unit_name = $('#changeUnitTitleInputField').val()
+        var unit_is_public = $('#editUnitIsPublicField').prop('checked')
+        var unit_id = $('#changeUnitTitleUnitId').val()
+        var unit_order = $('#changeUnitOrderfield').val()
+        var payload = {
+          csrfmiddlewaretoken: "DfcBOvDf6GGoqeu7zhuWC6dfORxNdadVKtyYItfqZo9NebDLWW8rzYTCD3JX0ww9",
+          "unit_name": unit_name,
+          "unit_is_public": unit_is_public,
+          "unit_order": unit_order,
+          "unit_id": unit_id,
+        }
+
+        $('#changeUnitTitleModalSaveButton').toggleClass('saving saved');
+        $('.checkmark').toggle();
+
+        $.ajax('/content/admin/learning_paths/ajax/edit_unit', {
+            type: 'POST',
+            data: payload,
+            success: function (data, status, xhr) {
+              $('#changeUnitTitleModalSaveButton').toggleClass('saving saved');
+              $('.checkmark').toggle();
+              var unit_id = data.unit_id
+              var unit_name = data.unit_name
+              var unit_is_public = data.unit_is_public
+              var unit_order = data.unit_order
+              $('div.unit[data-id=' + unit_id + ']').attr('data-order', unit_order)
+              $('div.unit[data-id=' + unit_id + ']').find('p.unit-name').text(unit_name)
+              $('div.unit[data-id=' + unit_id + ']').find('p.unit-is-public').text(unit_is_public)
+              $('div#changeTitleUnit .mfp-close').trigger('click')
+              Swal.fire("Successfully edited unit!")
+              var learning_path_id = $('div.unit[data-id=' + unit_id + ']').parents('.learning-path_container').attr('data-id')
+              var all_units_container_selector = 'div.learning-path_container[data-id=' + learning_path_id + '] .all-units-container'
+              sortUnits(all_units_container_selector)
+              initPopups();
+            },
+            error: function (jqXhr, textStatus, errorMessage) {
+              $('#changeUnitTitleModalSaveButton').toggleClass('saving saved');
+              $('.checkmark').toggle();
+              if (jqXhr.responseJSON.message){
+                Swal.fire(jqXhr.responseJSON.message)
+              }
+              else{
+                Swal.fire('An error occurred')
+              }
+            }
+        });
+      })
+
+      $('body').on('click', '#changeUnitTitleModalDeleteButton', function(){
+        var unit_id = $('#changeUnitTitleUnitId').val()
+        var payload = {
+          csrfmiddlewaretoken: "DfcBOvDf6GGoqeu7zhuWC6dfORxNdadVKtyYItfqZo9NebDLWW8rzYTCD3JX0ww9",
+          "unit_id": unit_id,
+        }
+
+        $('#changeUnitTitleModalDeleteButton').toggleClass('saving saved');
+        $('.close-button.checkmark').toggle();
+
+        $.ajax('/content/admin/learning_paths/ajax/delete_unit', {
+            type: 'POST',
+            data: payload,
+            success: function (data, status, xhr) {
+              $('#changeUnitTitleModalDeleteButton').toggleClass('saving saved');
+              $('.close-button.checkmark').toggle();
+              var unit_id = data.unit_id
+              $('div.unit[data-id=' + unit_id + ']').remove()
+              $('div#changeTitleUnit .mfp-close').trigger('click')
+              Swal.fire("Successfully deleted unit!")
+            },
+            error: function (jqXhr, textStatus, errorMessage) {
+              $('#changeUnitTitleModalDeleteButton').toggleClass('saving saved');
+              $('.close-button.checkmark').toggle();
+              if (jqXhr.responseJSON.message){
+                Swal.fire(jqXhr.responseJSON.message)
+              }
+              else{
+                Swal.fire('An error occurred')
+              }
+            }
+        });
+      })
+
+      $('#addLearnigPathModalSaveButton').on('click', function(){
+        $('form#addNewLearningPathForm').trigger('submit')
+        $('#addLearnigPathModalSaveButton').toggleClass('saving saved');
+        $('.checkmark').toggle();
+
+      })
+
+      $('form#addNewLearningPathForm').submit(function(e){
+        e.preventDefault();
+        var formData = new FormData(this);
+        $.ajax({
+          url: "/content/admin/learning_paths/ajax/create_learning_path",
+          type: 'POST',
+          data: formData,
+          success: function (data) {
+              $('#addLearnigPathModalSaveButton').toggleClass('saving saved');
+              $('.checkmark').toggle();
+              window.location.reload()
+          },
+          cache: false,
+          contentType: false,
+          processData: false
+        });
+      })
+
+      $('body').on('click', '.enabled-learning__block-edit', function(){
+        var learning_path_id = $(this).parents('.learning-path_container').attr('data-id')
+        var learning_path_order = $(this).parents('.learning-path_container').attr('data-order')
+        var learning_path_name = $(this).parents('.learning-path_container').attr('data-name')
+        var learning_path_is_public = $(this).parents('.learning-path_container').attr('data-is-public')
+
+        $('#editLearnigPathModalLPId').val(learning_path_id)
+        $('#editLearnigPathModalPathNameInputfield').val(learning_path_name)
+        $('#editLearnigPathModalOrderfield').val(learning_path_order)
+        if (learning_path_is_public == "True" || learning_path_is_public == "true"){
+          $('#editLearnigPathModalIsPublicField').prop('checked', true)
+        }
+        else if (learning_path_is_public == "False" || learning_path_is_public == "false"){
+          $('#editLearnigPathModalIsPublicField').prop('checked', false)
+        }
+
+      })
+
+      $('#editLearningPathModalSaveButton').on('click', function(){
+        $('form#editLearningPathForm').trigger('submit')
+        $('#editLearningPathModalSaveButton').toggleClass('saving saved');
+        $('.checkmark').toggle();
+      })
+
+      $('form#editLearningPathForm').submit(function(e){
+        e.preventDefault();
+        var formData = new FormData(this);
+        $.ajax({
+          url: "/content/admin/learning_paths/ajax/edit_learning_path",
+          type: 'POST',
+          data: formData,
+          success: function (data) {
+              $('#editLearningPathModalSaveButton').toggleClass('saving saved');
+              $('.checkmark').toggle();
+              window.location.reload()
+          },
+          cache: false,
+          contentType: false,
+          processData: false
+        });
+      })
+
+
+      $('.saveOrder').on('click', function(){
+        var learning_path_object = $(this).parents('.learning-path_container')
+        var learning_path_id = learning_path_object.attr('data-id')
+        var all_units = learning_path_object.find('div.unit')
+        var unt_course_order_mapping = {}
+        for (var unit_index = 0; unit_index<all_units.length; unit_index++){
+          var ordered_course_ids = []
+          var all_courses = $(all_units[unit_index]).find('.enabled-learning__content')
+
+          for (var course_index=0; course_index<all_courses.length; course_index++){
+            ordered_course_ids.push($(all_courses[course_index]).attr('data-course-id'))
+          }
+
+          unt_course_order_mapping[$(all_units[unit_index]).attr('data-id')] = ordered_course_ids
+        }
+        console.log(unt_course_order_mapping)
+
+        var payload = {
+          csrfmiddlewaretoken: "DfcBOvDf6GGoqeu7zhuWC6dfORxNdadVKtyYItfqZo9NebDLWW8rzYTCD3JX0ww9",
+          "learning_path_id": learning_path_id,
+          "unit_course_order_mapping": JSON.stringify(unt_course_order_mapping)
+        }
+        $(this).addClass('is-disabled')
+        $.ajax('/content/admin/learning_paths/ajax/edit_learning_path_courses_order', {
+            type: 'POST',
+            data: payload,
+            success: function (data, status, xhr) {
+              Swal.fire("Order saved successfully!")
+            },
+            error: function (jqXhr, textStatus, errorMessage) {
+              $(this).removeClass('is-disabled')
+              if (jqXhr.responseJSON.message){
+                Swal.fire(jqXhr.responseJSON.message)
+              }
+              else{
+                Swal.fire('An error occurred')
+              }
+            }
+        });
+      })
+
+      $('#addNewPathButton').on('click', function(){
+        var all_learning_paths = $('.learning-path_container')
+        var maximum = 0;
+        all_learning_paths.each(function() {
+          var value = parseFloat($(this).attr('data-order'));
+          maximum = (value > maximum) ? value : maximum;
+        });
+        $('#addLearnigPathModalOrderfield').val(maximum + 1)
+      })
+    })
+  function sortUnits(all_units_container_selector){
+    var all_units = $(all_units_container_selector + " div.unit")
+    if (all_units.length < 1) {return}
+    var id_order_map = []
+    for(var i = 0; i < all_units.length; i++){
+      var unit_order = $(all_units[i]).attr('data-order')
+      var unit_id = $(all_units[i]).attr('data-id')
+      var dict = {"id": unit_id, "order": unit_order}
+      id_order_map.push(dict)
+    }
+    id_order_map.sort(function(a,b) {
+        return a.order - b.order
+    });
+    var new_units_html = ``
+    for (var i=0; i<id_order_map.length; i++){
+      var unit_html = $('div.unit[data-id=' + id_order_map[i].id + ']')[0].outerHTML
+      new_units_html += unit_html
+    }
+    $(all_units_container_selector).empty()
+    $(all_units_container_selector).append(new_units_html)
+  }
+  </script>
+</head>
+<body>
+
+<div class="body body--start body--sidebar">
+
+
+
+  <section id="rd-sidebar" class="rd-sidebar">
+    <div class="rd-sidebar__wrapper">
+      <div class="rd-sidebar__wrapper-top">
+        <div class="rd-sidebar__ava" style='cursor:pointer;' onclick="window.open('/profile/evan', 'mywindow');">
+          <img src="https://robotify.s3.amazonaws.com/static/img/img-rd-user.png" srcset="https://robotify.s3.amazonaws.com/static/img/img-rd-user%402x.png 2x" alt="">
+        </div>
+        <div class="rd-sidebar__level">
+          <div>
+            <i class="icon-font icon-awards"></i>
+            <p><u>Level</u> <span>10</span></p>
+          </div>
+        </div>
+        <p class="rd-sidebar__name">evan</p>
+        <div class="rd-sidebar__btn">
+          <a href="/projects/create/" class="">
+            <span>CREATE PROJECT</span>
+            <i class="icon-font icon-extension-add"></i>
+          </a>
+        </div>
+      </div>
+      <div class="rd-sidebar__wrapper-middle">
+
+
+        <nav class="rd-sidebar__nav">
+
+          <div class="rd-sidebar__nav-btn-group">
+              <a class="rd-sidebar__nav-btn  is-active " href="/organisation/settings">
+                <div>
+                <span>
+                  <i class="icon-font icon-rd-courses"></i>
+                </span>
+                </div>
+                <div>
+                  <p>Home Dashboard</p>
+                </div>
+              </a>
+
+
+
+
+              <a class="rd-sidebar__nav-subbtn " href="/content/admin/courses">
+                <p>Courses</p>
+              </a>
+              <a class="rd-sidebar__nav-subbtn is-active" href="/content/admin/learning_paths">
+                <p>Learning Paths</p>
+              </a>
+
+
+
+              <a class="rd-sidebar__nav-subbtn" href="/roboduel/admin">
+                <p>Roboduel Administration</p>
+              </a>
+
+
+
+              <a class="rd-sidebar__nav-subbtn" href="/schools/">
+                <p>License Management</p>
+              </a>
+
+          </div>
+
+          <a class="rd-sidebar__nav-btn " href="/">
+            <div>
+              <span>
+                <i class="icon-font icon-rd-courses"></i>
+              </span>
+            </div>
+            <div>
+              <p>Courses</p>
+            </div>
+          </a>
+
+
+          <a href="/teacher/dash/"
+             class="rd-sidebar__nav-btn "
+          >
+            <div>
+              <span>
+                <i class="icon-font icon-rd-my-class"></i>
+              </span>
+            </div>
+            <div>
+              <p>My Class</p>
+            </div>
+          </a>
+
+
+
+
+          <a href="/makecode" class="rd-sidebar__nav-btn ">
+            <div>
+              <span>
+                <i class="icon-font icon-robot"></i>
+              </span>
+            </div>
+            <div>
+              <p>Makecode</p>
+            </div>
+          </a>
+
+
+
+          <a href="/projects/" class="rd-sidebar__nav-btn ">
+            <div>
+              <span>
+                <i class="icon-font icon-rd-projects"></i>
+              </span>
+            </div>
+            <div>
+              <p>Projects</p>
+              <!-- <u>2</u> -->
+            </div>
+          </a>
+          <!-- <a href="#" class="rd-sidebar__nav-btn">
+            <div>
+                <span>
+                  <i class="icon-font icon-rd-competitions"></i>
+                </span>
+            </div>
+            <div>
+              <p>Competitions</p>
+            </div>
+          </a> -->
+
+
+          <a href="https://community.robotify.com" class="rd-sidebar__nav-btn">
+            <div>
+                  <span>
+                    <i class="icon-font icon-rd-community"></i>
+                  </span>
+            </div>
+            <div>
+              <p>Community</p>
+            </div>
+          </a>
+
+
+
+          <a href="/roboduel" class="rd-sidebar__nav-btn ">
+            <div>
+                  <span>
+                    <i class="icon-font icon-rd-courses"></i>
+                  </span>
+            </div>
+            <div>
+              <p>Roboduel</p>
+              <!-- <u>new!</u> -->
+            </div>
+          </a>
+
+          <a href="/logout/" class="rd-sidebar__nav-btn">
+            <div>
+                  <span>
+                    <i class="icon-font icon-rd-sign-out"></i>
+                  </span>
+            </div>
+            <div>
+              <p>Sign Out</p>
+            </div>
+          </a>
+
+        </nav>
+
+      </div>
+      <div class="rd-sidebar__wrapper-bottom" style="margin-block-start: 60px;">
+
+          <div class="rd-sidebar__btn">
+            <img src="https://robotify-dev.s3.amazonaws.com/static/img/organization_logos/1.png" style="overflow: hidden; max-width: 200px; max-height: 200px; margin-bottom: 8px;">
+          </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <section id="enabled" class="enabled">
+    <div class="enabled__container">
+
+      <div class="enabled__wrapper">
+
+        <div class="enabled__content">
+          <h1 class="enabled__title">Enabled Content. <span>Learning Path</span></h1>
+          <p class="enabled__desc">Create, view and edit your Robotify Learning Paths!</p>
+          <div class="enabled__btn">
+            <a href="#addNewPath" data-effect="mfp-slide-in" popup-js id="addNewPathButton">
+              <span>Add New Path</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="enabled-learning">
+
+          <div class="enabled-learning__filter">
+            <label>
+              <input type="text" name="" placeholder="Search Learning Path...." course-filter-js>
+            </label>
+          </div>
+
+          <div class="enabled-learning__block-wrapper">
+
+              <div class="learning-path_container" data-id="16" data-order="0" data-name="Test 3" data-is-public="True">
+                <div class="enabled-learning__block" data-id="1">
+                  <div class="enabled-learning__block-left">
+
+                    <div class="enabled-learning__block-preview">
+                      <img src="None" alt="">
+                    </div>
+
+                  </div>
+                  <div class="enabled-learning__block-middle">
+                    <p>Test 3</p>
+                  </div>
+                  <div class="enabled-learning__block-right">
+                    <a href="#editPath" data-effect="mfp-slide-in" popup-js class="enabled-learning__block-edit">
+                      <i class="icon-font icon-edit"></i>
+                    </a>
+                    <div class="enabled-learning__block-toggle">
+                      <i class="icon-font icon-corner"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="enabled-learning__box">
+                  <div>
+
+                    <div class="all-units-container">
+
+                        <div class="unit" data-id="29" data-order="1">
+                          <div class="enabled-learning__box-header">
+                            <div>
+                              <p class="unit-name">Semester 1</p>
+                              <p hidden class="unit-is-public">True</p>
+                            </div>
+                            <div>
+                              <a href="#addNewCourse" data-effect="mfp-slide-in" popup-js class="addCourseToUnitModalShow">
+                                <i class="icon-font icon-add"></i>
+                              </a>
+                              <a href="#changeTitleUnit" data-effect="mfp-slide-in" popup-js class="changeUnitTitleModalShow">
+                                <i class="icon-font icon-edit"></i>
+                              </a>
+                            </div>
+                          </div>
+
+                            <div class="enabled-learning__box-body" data-len="1"  drag-parent-js>
+
+                                <div drag-path-js class="enabled-learning__content" data-course-id="38">
+                                  <div>
+                                    <img src="https://robotify-live-83f43e29a3304ac5876d00c85-b2d7ee2.divio-media.net/filer_public/f6/9f/f69f3e0b-0ad1-4b6b-816a-9f474ca3b9fa/onboarding2_1.jpg" alt="">
+                                  </div>
+                                  <div>
+                                    <p>Onboarder</p>
+                                  </div>
+                                  <div>
+                                    <a href="" data-effect="mfp-slide-in" popup-js="" class="removeCourseFromUnitModalShow">
+                                      <i class="icon-font icon-remove"></i>
+                                    </a>
+                                  </div>
+      <!--                            <div>-->
+      <!--                              <a href="#editUnit" data-effect="mfp-slide-in" popup-jst="mfp-slide-in" popup-js>-->
+      <!--                                <i class="icon-font icon-gear"></i>-->
+      <!--                              </a>-->
+      <!--                            </div>-->
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                  </div>
+                  <div class="enabled__btn enabled__btn--end">
+                    <a href="#" class="green saveOrder is-disabled">
+                      <span>Save Order</span>
+                    </a>
+                    <a href="#addTitleUnit" data-effect="mfp-slide-in" popup-js class="addUnitModalShow">
+                      <span>Add Unit</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+              <div class="learning-path_container" data-id="6" data-order="1" data-name="Phobos: Mission to Mars" data-is-public="True">
+                <div class="enabled-learning__block" data-id="1">
+                  <div class="enabled-learning__block-left">
+
+                    <div class="enabled-learning__block-preview">
+                      <img src="https://robotify-production-media.s3-eu-west-1.amazonaws.com/phobos/thumbnails/phobos.jpg" alt="">
+                    </div>
+
+                  </div>
+                  <div class="enabled-learning__block-middle">
+                    <p>Phobos: Mission to Mars</p>
+                  </div>
+                  <div class="enabled-learning__block-right">
+                    <a href="#editPath" data-effect="mfp-slide-in" popup-js class="enabled-learning__block-edit">
+                      <i class="icon-font icon-edit"></i>
+                    </a>
+                    <div class="enabled-learning__block-toggle">
+                      <i class="icon-font icon-corner"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="enabled-learning__box">
+                  <div>
+
+                    <div class="all-units-container">
+
+                        <div class="unit" data-id="7" data-order="0">
+                          <div class="enabled-learning__box-header">
+                            <div>
+                              <p class="unit-name">Semester 1</p>
+                              <p hidden class="unit-is-public">True</p>
+                            </div>
+                            <div>
+                              <a href="#addNewCourse" data-effect="mfp-slide-in" popup-js class="addCourseToUnitModalShow">
+                                <i class="icon-font icon-add"></i>
+                              </a>
+                              <a href="#changeTitleUnit" data-effect="mfp-slide-in" popup-js class="changeUnitTitleModalShow">
+                                <i class="icon-font icon-edit"></i>
+                              </a>
+                            </div>
+                          </div>
+
+                            <div class="enabled-learning__box-body" data-len="4"  drag-parent-js>
+
+                                <div drag-path-js class="enabled-learning__content" data-course-id="264">
+                                  <div>
+                                    <img src="" alt="">
+                                  </div>
+                                  <div>
+                                    <p>Phobos Episode 3</p>
+                                  </div>
+                                  <div>
+                                    <a href="" data-effect="mfp-slide-in" popup-js="" class="removeCourseFromUnitModalShow">
+                                      <i class="icon-font icon-remove"></i>
+                                    </a>
+                                  </div>
+      <!--                            <div>-->
+      <!--                              <a href="#editUnit" data-effect="mfp-slide-in" popup-jst="mfp-slide-in" popup-js>-->
+      <!--                                <i class="icon-font icon-gear"></i>-->
+      <!--                              </a>-->
+      <!--                            </div>-->
+                                </div>
+
+                                <div drag-path-js class="enabled-learning__content" data-course-id="36">
+                                  <div>
+                                    <img src="https://robotify-live-83f43e29a3304ac5876d00c85-b2d7ee2.divio-media.net/filer_public/a9/0b/a90b3a32-10b9-47ad-a7fc-220cb1850c17/testingcourse.png" alt="">
+                                  </div>
+                                  <div>
+                                    <p>evan&#39;s testing course</p>
+                                  </div>
+                                  <div>
+                                    <a href="" data-effect="mfp-slide-in" popup-js="" class="removeCourseFromUnitModalShow">
+                                      <i class="icon-font icon-remove"></i>
+                                    </a>
+                                  </div>
+      <!--                            <div>-->
+      <!--                              <a href="#editUnit" data-effect="mfp-slide-in" popup-jst="mfp-slide-in" popup-js>-->
+      <!--                                <i class="icon-font icon-gear"></i>-->
+      <!--                              </a>-->
+      <!--                            </div>-->
+                                </div>
+
+                                <div drag-path-js class="enabled-learning__content" data-course-id="265">
+                                  <div>
+                                    <img src="https://robotify-production-media.s3-eu-west-1.amazonaws.com/phobos/thumbnails/vikingValley.jpg" alt="">
+                                  </div>
+                                  <div>
+                                    <p>Phobos Episode 0</p>
+                                  </div>
+                                  <div>
+                                    <a href="" data-effect="mfp-slide-in" popup-js="" class="removeCourseFromUnitModalShow">
+                                      <i class="icon-font icon-remove"></i>
+                                    </a>
+                                  </div>
+      <!--                            <div>-->
+      <!--                              <a href="#editUnit" data-effect="mfp-slide-in" popup-jst="mfp-slide-in" popup-js>-->
+      <!--                                <i class="icon-font icon-gear"></i>-->
+      <!--                              </a>-->
+      <!--                            </div>-->
+                                </div>
+
+                                <div drag-path-js class="enabled-learning__content" data-course-id="262">
+                                  <div>
+                                    <img src="https://robotify-dev.s3.amazonaws.com/enabled-images/81FCDR9PDFL._SL1500_.jpg" alt="">
+                                  </div>
+                                  <div>
+                                    <p>Phobos Episode 1</p>
+                                  </div>
+                                  <div>
+                                    <a href="" data-effect="mfp-slide-in" popup-js="" class="removeCourseFromUnitModalShow">
+                                      <i class="icon-font icon-remove"></i>
+                                    </a>
+                                  </div>
+      <!--                            <div>-->
+      <!--                              <a href="#editUnit" data-effect="mfp-slide-in" popup-jst="mfp-slide-in" popup-js>-->
+      <!--                                <i class="icon-font icon-gear"></i>-->
+      <!--                              </a>-->
+      <!--                            </div>-->
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                  </div>
+                  <div class="enabled__btn enabled__btn--end">
+                    <a href="#" class="green saveOrder is-disabled">
+                      <span>Save Order</span>
+                    </a>
+                    <a href="#addTitleUnit" data-effect="mfp-slide-in" popup-js class="addUnitModalShow">
+                      <span>Add Unit</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+              <div class="learning-path_container" data-id="2" data-order="2" data-name="Drone Park" data-is-public="True">
+                <div class="enabled-learning__block" data-id="1">
+                  <div class="enabled-learning__block-left">
+
+                    <div class="enabled-learning__block-preview">
+                      <img src="https://robotify-production-media.s3-eu-west-1.amazonaws.com/course_thumnbnails/drone-racer-scout.jpg" alt="">
+                    </div>
+
+                  </div>
+                  <div class="enabled-learning__block-middle">
+                    <p>Drone Park</p>
+                  </div>
+                  <div class="enabled-learning__block-right">
+                    <a href="#editPath" data-effect="mfp-slide-in" popup-js class="enabled-learning__block-edit">
+                      <i class="icon-font icon-edit"></i>
+                    </a>
+                    <div class="enabled-learning__block-toggle">
+                      <i class="icon-font icon-corner"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="enabled-learning__box">
+                  <div>
+
+                    <div class="all-units-container">
+
+                        <div class="unit" data-id="6" data-order="0">
+                          <div class="enabled-learning__box-header">
+                            <div>
+                              <p class="unit-name">Semester 1</p>
+                              <p hidden class="unit-is-public">True</p>
+                            </div>
+                            <div>
+                              <a href="#addNewCourse" data-effect="mfp-slide-in" popup-js class="addCourseToUnitModalShow">
+                                <i class="icon-font icon-add"></i>
+                              </a>
+                              <a href="#changeTitleUnit" data-effect="mfp-slide-in" popup-js class="changeUnitTitleModalShow">
+                                <i class="icon-font icon-edit"></i>
+                              </a>
+                            </div>
+                          </div>
+
+                            <div class="enabled-learning__box-body" data-len="5"  drag-parent-js>
+
+                                <div drag-path-js class="enabled-learning__content" data-course-id="154">
+                                  <div>
+                                    <img src="https://robotify-production-media.s3-eu-west-1.amazonaws.com/thumbnails/drone-park-camera.png" alt="">
+                                  </div>
+                                  <div>
+                                    <p>Camera</p>
+                                  </div>
+                                  <div>
+                                    <a href="" data-effect="mfp-slide-in" popup-js="" class="removeCourseFromUnitModalShow">
+                                      <i class="icon-font icon-remove"></i>
+                                    </a>
+                                  </div>
+      <!--                            <div>-->
+      <!--                              <a href="#editUnit" data-effect="mfp-slide-in" popup-jst="mfp-slide-in" popup-js>-->
+      <!--                                <i class="icon-font icon-gear"></i>-->
+      <!--                              </a>-->
+      <!--                            </div>-->
+                                </div>
+
+                                <div drag-path-js class="enabled-learning__content" data-course-id="246">
+                                  <div>
+                                    <img src="https://robotify-production-media.s3-eu-west-1.amazonaws.com/thumbnails/drone-park-control.png" alt="">
+                                  </div>
+                                  <div>
+                                    <p>Control</p>
+                                  </div>
+                                  <div>
+                                    <a href="" data-effect="mfp-slide-in" popup-js="" class="removeCourseFromUnitModalShow">
+                                      <i class="icon-font icon-remove"></i>
+                                    </a>
+                                  </div>
+      <!--                            <div>-->
+      <!--                              <a href="#editUnit" data-effect="mfp-slide-in" popup-jst="mfp-slide-in" popup-js>-->
+      <!--                                <i class="icon-font icon-gear"></i>-->
+      <!--                              </a>-->
+      <!--                            </div>-->
+                                </div>
+
+                                <div drag-path-js class="enabled-learning__content" data-course-id="293">
+                                  <div>
+                                    <img src="" alt="">
+                                  </div>
+                                  <div>
+                                    <p>Drone Control (Severus)</p>
+                                  </div>
+                                  <div>
+                                    <a href="" data-effect="mfp-slide-in" popup-js="" class="removeCourseFromUnitModalShow">
+                                      <i class="icon-font icon-remove"></i>
+                                    </a>
+                                  </div>
+      <!--                            <div>-->
+      <!--                              <a href="#editUnit" data-effect="mfp-slide-in" popup-jst="mfp-slide-in" popup-js>-->
+      <!--                                <i class="icon-font icon-gear"></i>-->
+      <!--                              </a>-->
+      <!--                            </div>-->
+                                </div>
+
+                                <div drag-path-js class="enabled-learning__content" data-course-id="294">
+                                  <div>
+                                    <img src="" alt="">
+                                  </div>
+                                  <div>
+                                    <p>Camera (Severus)</p>
+                                  </div>
+                                  <div>
+                                    <a href="" data-effect="mfp-slide-in" popup-js="" class="removeCourseFromUnitModalShow">
+                                      <i class="icon-font icon-remove"></i>
+                                    </a>
+                                  </div>
+      <!--                            <div>-->
+      <!--                              <a href="#editUnit" data-effect="mfp-slide-in" popup-jst="mfp-slide-in" popup-js>-->
+      <!--                                <i class="icon-font icon-gear"></i>-->
+      <!--                              </a>-->
+      <!--                            </div>-->
+                                </div>
+
+                                <div drag-path-js class="enabled-learning__content" data-course-id="271">
+                                  <div>
+                                    <img src="" alt="">
+                                  </div>
+                                  <div>
+                                    <p>Camera (updated)</p>
+                                  </div>
+                                  <div>
+                                    <a href="" data-effect="mfp-slide-in" popup-js="" class="removeCourseFromUnitModalShow">
+                                      <i class="icon-font icon-remove"></i>
+                                    </a>
+                                  </div>
+      <!--                            <div>-->
+      <!--                              <a href="#editUnit" data-effect="mfp-slide-in" popup-jst="mfp-slide-in" popup-js>-->
+      <!--                                <i class="icon-font icon-gear"></i>-->
+      <!--                              </a>-->
+      <!--                            </div>-->
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                  </div>
+                  <div class="enabled__btn enabled__btn--end">
+                    <a href="#" class="green saveOrder is-disabled">
+                      <span>Save Order</span>
+                    </a>
+                    <a href="#addTitleUnit" data-effect="mfp-slide-in" popup-js class="addUnitModalShow">
+                      <span>Add Unit</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+              <div class="learning-path_container" data-id="11" data-order="5" data-name="Maze Puzzles" data-is-public="True">
+                <div class="enabled-learning__block" data-id="1">
+                  <div class="enabled-learning__block-left">
+
+                    <div class="enabled-learning__block-preview">
+                      <img src="https://robotify-production-media.s3-eu-west-1.amazonaws.com/Random/Bitmap.png" alt="">
+                    </div>
+
+                  </div>
+                  <div class="enabled-learning__block-middle">
+                    <p>Maze Puzzles</p>
+                  </div>
+                  <div class="enabled-learning__block-right">
+                    <a href="#editPath" data-effect="mfp-slide-in" popup-js class="enabled-learning__block-edit">
+                      <i class="icon-font icon-edit"></i>
+                    </a>
+                    <div class="enabled-learning__block-toggle">
+                      <i class="icon-font icon-corner"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="enabled-learning__box">
+                  <div>
+
+                    <div class="all-units-container">
+
+                        <div class="unit" data-id="3" data-order="0">
+                          <div class="enabled-learning__box-header">
+                            <div>
+                              <p class="unit-name">Semester 1</p>
+                              <p hidden class="unit-is-public">False</p>
+                            </div>
+                            <div>
+                              <a href="#addNewCourse" data-effect="mfp-slide-in" popup-js class="addCourseToUnitModalShow">
+                                <i class="icon-font icon-add"></i>
+                              </a>
+                              <a href="#changeTitleUnit" data-effect="mfp-slide-in" popup-js class="changeUnitTitleModalShow">
+                                <i class="icon-font icon-edit"></i>
+                              </a>
+                            </div>
+                          </div>
+
+                            <div class="enabled-learning__box-body" data-len="1"  drag-parent-js>
+
+                                <div drag-path-js class="enabled-learning__content" data-course-id="279">
+                                  <div>
+                                    <img src="https://robotify-production-media.s3-eu-west-1.amazonaws.com/Random/Bitmap.png" alt="">
+                                  </div>
+                                  <div>
+                                    <p>Human Alien Maze</p>
+                                  </div>
+                                  <div>
+                                    <a href="" data-effect="mfp-slide-in" popup-js="" class="removeCourseFromUnitModalShow">
+                                      <i class="icon-font icon-remove"></i>
+                                    </a>
+                                  </div>
+      <!--                            <div>-->
+      <!--                              <a href="#editUnit" data-effect="mfp-slide-in" popup-jst="mfp-slide-in" popup-js>-->
+      <!--                                <i class="icon-font icon-gear"></i>-->
+      <!--                              </a>-->
+      <!--                            </div>-->
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="unit" data-id="13" data-order="0">
+                          <div class="enabled-learning__box-header">
+                            <div>
+                              <p class="unit-name">Semester 2</p>
+                              <p hidden class="unit-is-public">True</p>
+                            </div>
+                            <div>
+                              <a href="#addNewCourse" data-effect="mfp-slide-in" popup-js class="addCourseToUnitModalShow">
+                                <i class="icon-font icon-add"></i>
+                              </a>
+                              <a href="#changeTitleUnit" data-effect="mfp-slide-in" popup-js class="changeUnitTitleModalShow">
+                                <i class="icon-font icon-edit"></i>
+                              </a>
+                            </div>
+                          </div>
+
+                            <div class="enabled-learning__box-body" data-len="2"  drag-parent-js>
+
+                                <div drag-path-js class="enabled-learning__content" data-course-id="147">
+                                  <div>
+                                    <img src="" alt="">
+                                  </div>
+                                  <div>
+                                    <p>Underwater Demo</p>
+                                  </div>
+                                  <div>
+                                    <a href="" data-effect="mfp-slide-in" popup-js="" class="removeCourseFromUnitModalShow">
+                                      <i class="icon-font icon-remove"></i>
+                                    </a>
+                                  </div>
+      <!--                            <div>-->
+      <!--                              <a href="#editUnit" data-effect="mfp-slide-in" popup-jst="mfp-slide-in" popup-js>-->
+      <!--                                <i class="icon-font icon-gear"></i>-->
+      <!--                              </a>-->
+      <!--                            </div>-->
+                                </div>
+
+                                <div drag-path-js class="enabled-learning__content" data-course-id="38">
+                                  <div>
+                                    <img src="https://robotify-live-83f43e29a3304ac5876d00c85-b2d7ee2.divio-media.net/filer_public/f6/9f/f69f3e0b-0ad1-4b6b-816a-9f474ca3b9fa/onboarding2_1.jpg" alt="">
+                                  </div>
+                                  <div>
+                                    <p>Onboarder</p>
+                                  </div>
+                                  <div>
+                                    <a href="" data-effect="mfp-slide-in" popup-js="" class="removeCourseFromUnitModalShow">
+                                      <i class="icon-font icon-remove"></i>
+                                    </a>
+                                  </div>
+      <!--                            <div>-->
+      <!--                              <a href="#editUnit" data-effect="mfp-slide-in" popup-jst="mfp-slide-in" popup-js>-->
+      <!--                                <i class="icon-font icon-gear"></i>-->
+      <!--                              </a>-->
+      <!--                            </div>-->
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="unit" data-id="21" data-order="0">
+                          <div class="enabled-learning__box-header">
+                            <div>
+                              <p class="unit-name">Semester 3</p>
+                              <p hidden class="unit-is-public">True</p>
+                            </div>
+                            <div>
+                              <a href="#addNewCourse" data-effect="mfp-slide-in" popup-js class="addCourseToUnitModalShow">
+                                <i class="icon-font icon-add"></i>
+                              </a>
+                              <a href="#changeTitleUnit" data-effect="mfp-slide-in" popup-js class="changeUnitTitleModalShow">
+                                <i class="icon-font icon-edit"></i>
+                              </a>
+                            </div>
+                          </div>
+
+                        </div>
+
+                        <div class="unit" data-id="23" data-order="1">
+                          <div class="enabled-learning__box-header">
+                            <div>
+                              <p class="unit-name">Semester 6</p>
+                              <p hidden class="unit-is-public">True</p>
+                            </div>
+                            <div>
+                              <a href="#addNewCourse" data-effect="mfp-slide-in" popup-js class="addCourseToUnitModalShow">
+                                <i class="icon-font icon-add"></i>
+                              </a>
+                              <a href="#changeTitleUnit" data-effect="mfp-slide-in" popup-js class="changeUnitTitleModalShow">
+                                <i class="icon-font icon-edit"></i>
+                              </a>
+                            </div>
+                          </div>
+
+                            <div class="enabled-learning__box-body" data-len="1"  drag-parent-js>
+
+                                <div drag-path-js class="enabled-learning__content" data-course-id="264">
+                                  <div>
+                                    <img src="" alt="">
+                                  </div>
+                                  <div>
+                                    <p>Phobos Episode 3</p>
+                                  </div>
+                                  <div>
+                                    <a href="" data-effect="mfp-slide-in" popup-js="" class="removeCourseFromUnitModalShow">
+                                      <i class="icon-font icon-remove"></i>
+                                    </a>
+                                  </div>
+      <!--                            <div>-->
+      <!--                              <a href="#editUnit" data-effect="mfp-slide-in" popup-jst="mfp-slide-in" popup-js>-->
+      <!--                                <i class="icon-font icon-gear"></i>-->
+      <!--                              </a>-->
+      <!--                            </div>-->
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="unit" data-id="22" data-order="2">
+                          <div class="enabled-learning__box-header">
+                            <div>
+                              <p class="unit-name">Semester 5</p>
+                              <p hidden class="unit-is-public">True</p>
+                            </div>
+                            <div>
+                              <a href="#addNewCourse" data-effect="mfp-slide-in" popup-js class="addCourseToUnitModalShow">
+                                <i class="icon-font icon-add"></i>
+                              </a>
+                              <a href="#changeTitleUnit" data-effect="mfp-slide-in" popup-js class="changeUnitTitleModalShow">
+                                <i class="icon-font icon-edit"></i>
+                              </a>
+                            </div>
+                          </div>
+
+                            <div class="enabled-learning__box-body" data-len="2"  drag-parent-js>
+
+                                <div drag-path-js class="enabled-learning__content" data-course-id="38">
+                                  <div>
+                                    <img src="https://robotify-live-83f43e29a3304ac5876d00c85-b2d7ee2.divio-media.net/filer_public/f6/9f/f69f3e0b-0ad1-4b6b-816a-9f474ca3b9fa/onboarding2_1.jpg" alt="">
+                                  </div>
+                                  <div>
+                                    <p>Onboarder</p>
+                                  </div>
+                                  <div>
+                                    <a href="" data-effect="mfp-slide-in" popup-js="" class="removeCourseFromUnitModalShow">
+                                      <i class="icon-font icon-remove"></i>
+                                    </a>
+                                  </div>
+      <!--                            <div>-->
+      <!--                              <a href="#editUnit" data-effect="mfp-slide-in" popup-jst="mfp-slide-in" popup-js>-->
+      <!--                                <i class="icon-font icon-gear"></i>-->
+      <!--                              </a>-->
+      <!--                            </div>-->
+                                </div>
+
+                                <div drag-path-js class="enabled-learning__content" data-course-id="90">
+                                  <div>
+                                    <img src="https://robotify-live-83f43e29a3304ac5876d00c85-b2d7ee2.divio-media.net/filer_public/21/38/213869f2-31c7-4c2b-b64a-05101193ee49/thumb.png" alt="">
+                                  </div>
+                                  <div>
+                                    <p>CoderDojo</p>
+                                  </div>
+                                  <div>
+                                    <a href="" data-effect="mfp-slide-in" popup-js="" class="removeCourseFromUnitModalShow">
+                                      <i class="icon-font icon-remove"></i>
+                                    </a>
+                                  </div>
+      <!--                            <div>-->
+      <!--                              <a href="#editUnit" data-effect="mfp-slide-in" popup-jst="mfp-slide-in" popup-js>-->
+      <!--                                <i class="icon-font icon-gear"></i>-->
+      <!--                              </a>-->
+      <!--                            </div>-->
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                  </div>
+                  <div class="enabled__btn enabled__btn--end">
+                    <a href="#" class="green saveOrder is-disabled">
+                      <span>Save Order</span>
+                    </a>
+                    <a href="#addTitleUnit" data-effect="mfp-slide-in" popup-js class="addUnitModalShow">
+                      <span>Add Unit</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+              <div class="learning-path_container" data-id="24" data-order="8" data-name="LP new order two" data-is-public="True">
+                <div class="enabled-learning__block" data-id="1">
+                  <div class="enabled-learning__block-left">
+
+                    <div class="enabled-learning__block-preview">
+                      <img src="None" alt="">
+                    </div>
+
+                  </div>
+                  <div class="enabled-learning__block-middle">
+                    <p>LP new order two</p>
+                  </div>
+                  <div class="enabled-learning__block-right">
+                    <a href="#editPath" data-effect="mfp-slide-in" popup-js class="enabled-learning__block-edit">
+                      <i class="icon-font icon-edit"></i>
+                    </a>
+                    <div class="enabled-learning__block-toggle">
+                      <i class="icon-font icon-corner"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="enabled-learning__box">
+                  <div>
+
+                    <div class="all-units-container">
+
+                  </div>
+                  <div class="enabled__btn enabled__btn--end">
+                    <a href="#" class="green saveOrder is-disabled">
+                      <span>Save Order</span>
+                    </a>
+                    <a href="#addTitleUnit" data-effect="mfp-slide-in" popup-js class="addUnitModalShow">
+                      <span>Add Unit</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- MODALS -->
+  <div id="addNewPath" class="c-modal mfp-hide mfp-with-anim">
+    <div class="c-modal__head">
+      <p class="c-modal__title">New Path</p>
+    </div>
+    <div class="c-modal__body">
+      <form action="" autocomplete="off" class="c-modal__form" id="addNewLearningPathForm" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="csrfmiddlewaretoken" value="DfcBOvDf6GGoqeu7zhuWC6dfORxNdadVKtyYItfqZo9NebDLWW8rzYTCD3JX0ww9">
+        <div class="c-modal__form-field">
+          <label>
+            <span>Path Name</span>
+            <input type="text" placeholder="Enter title..." id="addLearnigPathModalPathNameInputfield" name="name" required>
+          </label>
+        </div>
+        <div class="c-modal__form-field">
+          <label>
+            <span>Order</span>
+            <input type="number" placeholder="Enter order..." name="order" min="0" id="addLearnigPathModalOrderfield">
+          </label>
+        </div>
+        <div class="c-modal__form-field">
+          <label>
+            <span>Thumbnail</span>
+            <input type="file" placeholder="" id="addLearnigPathModalThumbnailfield" name="thumbnail_file">
+          </label>
+        </div>
+        <div class="c-modal__form-field">
+          <label class="checkbox">
+            <div>
+              <label>
+                <input type="checkbox" id="addLearnigPathModalIsPublicField" name="is_public"> Is Public?
+              </label>
+            </div>
+          </label>
+        </div>
+      </form>
+    </div>
+    <div class="c-modal__footer">
+      <a href="#" class="c-modal__btn silver" popup-close-js id="addLearnigPathModalCancelButton">
+        <span>Cancel</span>
+      </a>
+      <button class="red editor__header__button__green saved" id="addLearnigPathModalSaveButton" type="button">
+        <span class="editer__header__button__text">Save</span>
+        <div class="checkmark draw"></div>
+      </button>
+    </div>
+  </div>
+  <div id="editPath" class="c-modal mfp-hide mfp-with-anim">
+    <div class="c-modal__head">
+      <p class="c-modal__title">Edit Path</p>
+    </div>
+    <div class="c-modal__body">
+      <form action="" autocomplete="off" class="c-modal__form" id="editLearningPathForm" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="csrfmiddlewaretoken" value="DfcBOvDf6GGoqeu7zhuWC6dfORxNdadVKtyYItfqZo9NebDLWW8rzYTCD3JX0ww9">
+        <input hidden name="learning_path_id" type="text" id="editLearnigPathModalLPId">
+        <div class="c-modal__form-field">
+          <label>
+            <span>Path Name</span>
+            <input type="text" placeholder="Enter title..." id="editLearnigPathModalPathNameInputfield" name="name">
+          </label>
+        </div>
+        <div class="c-modal__form-field">
+          <label>
+            <span>Order</span>
+            <input type="number" placeholder="Enter order..." name="order" min="0" id="editLearnigPathModalOrderfield">
+          </label>
+        </div>
+        <div class="c-modal__form-field">
+          <label>
+            <span>Thumbnail</span>
+            <input type="file" placeholder="" name="thumbnail_file" id="editLearnigPathModalThumbnailfield">
+          </label>
+        </div>
+        <div class="c-modal__form-field">
+          <label class="checkbox">
+            <div>
+              <label>
+                <input type="checkbox" name="is_public" id="editLearnigPathModalIsPublicField"> Is Public?
+              </label>
+            </div>
+          </label>
+        </div>
+      </form>
+    </div>
+    <div class="c-modal__footer">
+      <a href="#" class="c-modal__btn silver" popup-close-js id="editLearningPathModalCancelButton">
+        <span>Cancel</span>
+      </a>
+      <button href="#" class="red editor__header__button__green saved" id="editLearningPathModalSaveButton">
+        <span>Save</span>
+      </button>
+    </div>
+  </div>
+  <div id="addNewCourse" class="c-modal mfp-hide mfp-with-anim">
+    <div class="c-modal__head">
+      <p class="c-modal__title">Select Course to Add</p>
+    </div>
+    <div class="c-modal__body">
+      <form action="" autocomplete="off" class="c-modal__form">
+        <input id="addCourseToUnitId" name="add_course_to_unit_id" hidden>
+        <select name="course_id_to_add" class="selectFilter" id="courseIdToAdd">
+
+            <option value="43">Code Cracker</option>
+
+            <option value="147">Underwater Demo</option>
+
+            <option value="90">CoderDojo</option>
+
+            <option value="38">Onboarder</option>
+
+            <option value="264">Phobos Episode 3</option>
+
+            <option value="93">Navigation Imagination Redesign</option>
+
+            <option value="95">Creature Lab</option>
+
+            <option value="37">Get Moving New</option>
+
+            <option value="45">Launch Pack</option>
+
+            <option value="40">stuartTestEnvironment</option>
+
+            <option value="350">LED Control</option>
+
+            <option value="50">pressureTest</option>
+
+            <option value="42">Laboratory Escape!</option>
+
+            <option value="151">Phobos [deprecated]</option>
+
+            <option value="92">Treasure Hunter</option>
+
+            <option value="109">Drone Park 1</option>
+
+            <option value="52">A-Test</option>
+
+            <option value="152">Drone Park Testing Split</option>
+
+            <option value="53">basics testing</option>
+
+            <option value="46">Robotify Basics</option>
+
+            <option value="49">paul_test</option>
+
+            <option value="87">Avishkaar IRC</option>
+
+            <option value="89">Rover Save</option>
+
+            <option value="91">Jacks Test Environment</option>
+
+            <option value="86">Mars Triangulate</option>
+
+            <option value="41">Navigation Imagination - Hour of Code</option>
+
+            <option value="268">Advanced Movement (updated)</option>
+
+            <option value="269">Pinger (updated)</option>
+
+            <option value="154">Camera</option>
+
+            <option value="39">Navigation Imagination!</option>
+
+            <option value="436">wachanga boys 9</option>
+
+            <option value="443">wb 15</option>
+
+            <option value="449">123test</option>
+
+            <option value="1">Get Moving</option>
+
+            <option value="267">Marine Explorer (updated)</option>
+
+            <option value="270">Control (updated)</option>
+
+            <option value="2">Laboratory Escape [old]</option>
+
+            <option value="153">Drone Park Demo</option>
+
+            <option value="440">wb 13</option>
+
+            <option value="290">Bridge to Freedom (updated)</option>
+
+            <option value="336">Text (Severus)</option>
+
+            <option value="349">IR Sensors</option>
+
+            <option value="446">qwe12e</option>
+
+            <option value="434">wachanga boys 7 </option>
+
+            <option value="441">wb 14</option>
+
+            <option value="447">23123</option>
+
+            <option value="435">wachanga boys 8 </option>
+
+            <option value="448">123</option>
+
+            <option value="266">Training (updated)</option>
+
+            <option value="451">test course today</option>
+
+            <option value="88">YSI</option>
+
+            <option value="148">YSI 1</option>
+
+            <option value="149">YSI 2</option>
+
+            <option value="351">Pen Colour</option>
+
+            <option value="437">wachanga boys 10</option>
+
+            <option value="444">wb 15</option>
+
+            <option value="450">123</option>
+
+            <option value="150">YSI 3</option>
+
+            <option value="156">Get Started</option>
+
+            <option value="246">Control</option>
+
+            <option value="333">underwater test</option>
+
+            <option value="337">Lists (Severus)</option>
+
+            <option value="242">Text</option>
+
+            <option value="339">Functions (Severus)</option>
+
+            <option value="341">Pinger (Severus)</option>
+
+            <option value="344">Human Alien Comp</option>
+
+            <option value="271">Camera (updated)</option>
+
+            <option value="276">Loops (updated)</option>
+
+            <option value="281">Lists (updated)</option>
+
+            <option value="284">Explore (updated)</option>
+
+            <option value="345">Lift and Lower Pen</option>
+
+            <option value="285">Desktop Mayhem (updated)</option>
+
+            <option value="287">Key Collector (updated)</option>
+
+            <option value="291">Navigation Imagination Module 1 (updated)</option>
+
+            <option value="292">Navigation Imagination Module 2 (updated)</option>
+
+            <option value="293">Drone Control (Severus)</option>
+
+            <option value="294">Camera (Severus)</option>
+
+            <option value="327">Route (Severus)</option>
+
+            <option value="330">Sensing (Severus)</option>
+
+            <option value="332">Logic (Severus)</option>
+
+            <option value="346">Move and Rotate</option>
+
+            <option value="353">testingModule</option>
+
+            <option value="343">GBR Tag and Track</option>
+
+            <option value="279">Human Alien Maze</option>
+
+            <option value="36">evan&#39;s testing course</option>
+
+            <option value="273">Movement (updated)</option>
+
+            <option value="261">Triangulation Algorithm</option>
+
+            <option value="260">Obstacle Avoidance</option>
+
+            <option value="259">Beacons</option>
+
+            <option value="258">More Science</option>
+
+            <option value="272">Routes (updated)</option>
+
+            <option value="277">Math (updated)</option>
+
+            <option value="278">Text (updated)</option>
+
+            <option value="280">Multiplayer Tutorial</option>
+
+            <option value="282">Variables (updated)</option>
+
+            <option value="286">Golf It (updated)</option>
+
+            <option value="288">Platform Navigation (updated)</option>
+
+            <option value="328">Explore (Severus)</option>
+
+            <option value="331">Loops (Severus)</option>
+
+            <option value="257">Science</option>
+
+            <option value="256">User Interface</option>
+
+            <option value="255">Science Pod</option>
+
+            <option value="254">Arm</option>
+
+            <option value="338">Variables (Severus)</option>
+
+            <option value="340">Advanced Movement (Severus)</option>
+
+            <option value="342">Marine Explorer (Severus)</option>
+
+            <option value="334">Training (Severus)</option>
+
+            <option value="250">Training</option>
+
+            <option value="347">Arc Movement</option>
+
+            <option value="438">wb 11</option>
+
+            <option value="249">Explore</option>
+
+            <option value="248">Race</option>
+
+            <option value="247">Routes</option>
+
+            <option value="243">Lists</option>
+
+            <option value="241">Math</option>
+
+            <option value="240">Loops</option>
+
+            <option value="239">Logic</option>
+
+            <option value="275">Logic (updated)</option>
+
+            <option value="283">Functions (updated)</option>
+
+            <option value="289">Go Sidnee Go (updated)</option>
+
+            <option value="335">Math (Severus)</option>
+
+            <option value="348">Differential Drive</option>
+
+            <option value="439">wb 12</option>
+
+            <option value="445">qwew</option>
+
+            <option value="236">Conveyor Shape</option>
+
+            <option value="235">Conveyor Color</option>
+
+            <option value="234">Passwords</option>
+
+            <option value="233">Go Sidnee Go</option>
+
+            <option value="232">Platform Navigation</option>
+
+            <option value="231">Bridge To Freedom</option>
+
+            <option value="230">Key Collector</option>
+
+            <option value="228">Desktop Mayhem</option>
+
+            <option value="227">Center Field</option>
+
+            <option value="229">Golf It</option>
+
+            <option value="237">Movement</option>
+
+            <option value="253">Marine Explorer</option>
+
+            <option value="274">Sensing (updated)</option>
+
+            <option value="265">Phobos Episode 0</option>
+
+            <option value="329">Movement (Severus)</option>
+
+            <option value="245">Functions</option>
+
+            <option value="244">Variables</option>
+
+            <option value="262">Phobos Episode 1</option>
+
+            <option value="252">Pinger</option>
+
+            <option value="263">Phobos Episode 2</option>
+
+            <option value="251">Advanced Movement</option>
+
+            <option value="238">logic</option>
+
+        </select>
+      </form>
+    </div>
+    <div class="c-modal__footer">
+      <a href="#" class="c-modal__btn silver" popup-close-js id="addCourseModalCancelButton">
+        <span>Cancel</span>
+      </a>
+      <button type="button" class="red editor__header__button__green saved" id="addCourseButton">
+        <span class="editer__header__button__text">Add Course</span>
+        <div class="checkmark draw"></div>
+      </button>
+<!--      <a href="#" class="c-modal__btn green" id="addCourseButton">-->
+<!--        <span>Add Course</span>-->
+<!--      </a>-->
+    </div>
+  </div>
+  <div id="editCourse" class="c-modal mfp-hide mfp-with-anim">
+    <div class="c-modal__head">
+      <p class="c-modal__title">[Course Name] Setting</p>
+    </div>
+    <div class="c-modal__body">
+      <form action="" autocomplete="off" class="c-modal__form">
+        <div class="c-modal__form-field">
+          <label>
+            <span>Thumbnail</span>
+            <input type="file" placeholder="">
+          </label>
+        </div>
+      </form>
+    </div>
+    <div class="c-modal__footer">
+      <a href="#" class="c-modal__btn red" popup-close-js>
+        <span>Remove from Path</span>
+      </a>
+      <a href="#" class="c-modal__btn green">
+        <span>Save</span>
+      </a>
+    </div>
+  </div>
+  <div id="editUnit" class="c-modal mfp-hide mfp-with-anim">
+    <div class="c-modal__head">
+      <p class="c-modal__title">[Path Name] Path Setting</p>
+    </div>
+    <div class="c-modal__body">
+      <form action="" autocomplete="off" class="c-modal__form">
+        <div class="c-modal__form-field">
+          <label class="checkbox">
+            <p>Is Public?</p>
+            <div>
+              <label>
+                <input type="radio" name="is_public"> Yes
+              </label>
+              <label>
+                <input type="radio" name="is_public" checked> No
+              </label>
+            </div>
+          </label>
+        </div>
+        <div class="c-modal__form-field">
+          <label class="checkbox">
+            <p>Is Featured Analytics?</p>
+            <div>
+              <label>
+                <input type="radio" name="featured_analytics"> Yes
+              </label>
+              <label>
+                <input type="radio" name="featured_analytics" checked> No
+              </label>
+            </div>
+          </label>
+        </div>
+        <div class="c-modal__form-field">
+          <label>
+            <span>Thumbnail</span>
+            <input type="file" placeholder="">
+          </label>
+        </div>
+      </form>
+    </div>
+    <div class="c-modal__footer">
+      <a href="#" class="c-modal__btn red" popup-close-js>
+        <span>Remove Path</span>
+      </a>
+      <a href="#" class="c-modal__btn green">
+        <span>Save</span>
+      </a>
+    </div>
+  </div>
+
+  <div id="addTitleUnit" class="c-modal mfp-hide mfp-with-anim">
+    <div class="c-modal__head">
+      <p class="c-modal__title">New Unit</p>
+    </div>
+    <div class="c-modal__body">
+      <form action="" autocomplete="off" class="c-modal__form">
+        <input hidden id="addUnitLearningPathId">
+        <div class="c-modal__form-field">
+          <label>
+            <span>Title</span>
+            <input type="text" placeholder="Enter title..." id="addUnitTitleField">
+          </label>
+        </div>
+        <div class="c-modal__form-field">
+          <label>
+            <span>Order</span>
+            <input type="number" placeholder="Enter order..." name="order" min="0" id="addUnitOrderfield">
+          </label>
+        </div>
+        <div class="c-modal__form-field">
+          <label class="checkbox">
+            <div>
+              <label>
+                <input type="checkbox" id="addUnitIsPublicField"> Is Public?
+              </label>
+            </div>
+          </label>
+        </div>
+      </form>
+    </div>
+    <div class="c-modal__footer">
+      <a href="#" class="c-modal__btn silver" popup-close-js id="closeAddUnitModal">
+        <span>Cancel</span>
+      </a>
+      <button type="button" class="red editor__header__button__green saved" id="addUnitToLPButton">
+        <span class="editer__header__button__text">Save</span>
+        <div class="checkmark draw"></div>
+      </button>
+<!--      <a href="#" class="c-modal__btn green" id="addUnitToLPButton">-->
+<!--        <span>Save</span>-->
+<!--      </a>-->
+    </div>
+  </div>
+  <div id="changeTitleUnit" class="c-modal mfp-hide mfp-with-anim">
+    <div class="c-modal__head">
+      <p class="c-modal__title">Change Unit Title</p>
+    </div>
+    <div class="c-modal__body">
+      <form action="" autocomplete="off" class="c-modal__form">
+        <input hidden id="changeUnitTitleUnitId">
+        <div class="c-modal__form-field">
+          <label>
+            <span>Title</span>
+            <input type="text" placeholder="Enter new title..." id="changeUnitTitleInputField">
+          </label>
+        </div>
+        <div class="c-modal__form-field">
+          <label>
+            <span>Order</span>
+            <input type="number" placeholder="Enter order..." name="order" min="0" id="changeUnitOrderfield">
+          </label>
+        </div>
+        <div class="c-modal__form-field">
+          <label class="checkbox">
+            <div>
+              <label>
+                <input type="checkbox" id="editUnitIsPublicField"> Is Public?
+              </label>
+            </div>
+          </label>
+        </div>
+      </form>
+    </div>
+    <div class="c-modal__footer">
+      <button href="#" class="red editor__header__button saved" id="changeUnitTitleModalDeleteButton">
+        <span class="editer__header__button__text">Delete Unit</span>
+        <div class="close-button checkmark draw"></div>
+      </button>
+      <button type="button" class="red editor__header__button__green saved" id="changeUnitTitleModalSaveButton">
+        <span class="editer__header__button__text">Save</span>
+        <div class="checkmark draw"></div>
+      </button>
+<!--      <a href="#" class="c-modal__btn green" id="changeUnitTitleModalSaveButton">-->
+<!--        <span>Save</span>-->
+<!--      </a>-->
+    </div>
+  </div>
+
+</div>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.12/lib/draggable.bundle.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<script src="https://robotify.s3.amazonaws.com/static/assets/js/jquery.magnific-popup.min.js"></script>
+<script src="https://robotify.s3.amazonaws.com/static/new-js/enabled-content.js"></script>
+
+</html>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="43px" height="57px" viewBox="0 0 43 57" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61 (89581) - https://sketch.com -->
+    <title>play</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Custom-Preset-8" transform="translate(-1745.000000, -933.000000)" fill="#FFFFFF">
+            <g id="Code-Buttons" transform="translate(1470.000000, 906.000000)">
+                <g id="Run-Code" transform="translate(238.000000, 0.000000)">
+                    <g id="play" transform="translate(37.000000, 27.000000)">
+                        <path d="M39.8316715,23.2070473 L8.02788404,1.53184876 C6.55912562,0.530148862 5.07924376,0 3.84917597,0 C1.4710758,0 0,1.90004614 0,5.08047791 L0,51.9269045 C0,55.1036451 1.46922189,57 3.84176034,57 C5.07368204,57 6.52992658,56.4693897 8.00192933,55.4649214 L39.8205481,33.7901843 C41.8667987,32.3939872 43,30.5151655 43,28.4974623 C43.0004633,26.4811433 41.8802396,24.602783 39.8316715,23.2070473 Z" id="Path"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

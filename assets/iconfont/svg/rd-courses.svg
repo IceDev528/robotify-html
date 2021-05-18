@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="26" viewBox="0 0 24 26">
+  <g id="rd-courses" transform="translate(-4 -159)">
+    <path id="Path_1888" data-name="Path 1888" d="M27,167H22v-3a1,1,0,0,0-1-1H14v-3a1,1,0,0,0-1-1H5a1,1,0,0,0-1,1v24a1,1,0,0,0,1,1H27a1,1,0,0,0,1-1V168A1,1,0,0,0,27,167Zm-5,6h4v1H22Zm0,3h4v7H22Zm4-7v2H22v-2ZM6,167h6v10H6Zm6-6v4H6v-4ZM6,183v-4h6v4Zm8-18h6v18H14Z" fill="#fff"/>
+    <path id="Path_1889" data-name="Path 1889" d="M17,166a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0v-1A1,1,0,0,0,17,166Z" fill="#fff"/>
+    <path id="Path_1890" data-name="Path 1890" d="M17,179a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0v-1A1,1,0,0,0,17,179Z" fill="#fff"/>
+    <path id="Path_1891" data-name="Path 1891" d="M17,170a1,1,0,0,0-1,1v6a1,1,0,0,0,2,0v-6A1,1,0,0,0,17,170Z" fill="#fff"/>
+  </g>
+</svg>

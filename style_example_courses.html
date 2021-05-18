@@ -1,0 +1,1140 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- META TAGS-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=0">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="Description" content="Put your description here">
+  <meta name="robots" content="noindex">
+  <meta name="AdsBot-Google" content="noindex"/>
+
+  <!-- TITLE-->
+  <title>Robotify | Enabled Content | Courses</title>
+
+  <!-- FONTS :: START-->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://robotify.s3.amazonaws.com/static/assets/css/fonts.css">
+  <link rel="stylesheet" href="https://robotify.s3.amazonaws.com/static/assets/iconfont/css/iconfont.css">
+
+  <!-- STYLE :: START-->
+  <link rel="stylesheet" href="https://robotify.s3.amazonaws.com/static/assets/css/reset.css">
+  <link rel="stylesheet" href="https://robotify.s3.amazonaws.com/static/assets/css/normalize.css">
+  <link rel="stylesheet" href="https://robotify.s3.amazonaws.com/static/assets/css/magnific-popup.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/app.css">
+
+  <link rel="stylesheet" href="styles/enabled-content.css">
+  <style>
+    .course-list--learningpath{
+      display: block;
+    }
+    .highlightCourse{
+      border-color: red;
+      border-width: 5px;
+      border-style: solid;
+      border-radius: 5px;
+      border-bottom-width: 5px !important;
+      border-bottom-color: red !important;
+    }
+  </style>
+
+  <!-- SCRIPT :: START-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+<script>
+    let root = document.documentElement;
+    root.style.setProperty('--brandColor', '#a3d162');
+    root.style.setProperty('--secondaryColor', '#a3d162');
+    root.style.setProperty('--sidebarBG', '#2796D3');
+</script>
+  <!-- SCRIPT :: START-->
+</head>
+<body>
+
+<div class="body body--start body--sidebar">
+
+
+
+  <section id="rd-sidebar" class="rd-sidebar">
+    <div class="rd-sidebar__wrapper">
+      <div class="rd-sidebar__wrapper-top">
+        <div class="rd-sidebar__ava" style='cursor:pointer;' onclick="window.open('/profile/evan', 'mywindow');">
+          <img src="https://robotify.s3.amazonaws.com/static/img/img-rd-user.png" srcset="https://robotify.s3.amazonaws.com/static/img/img-rd-user%402x.png 2x" alt="">
+        </div>
+        <div class="rd-sidebar__level">
+          <div>
+            <i class="icon-font icon-awards"></i>
+            <p><u>Level</u> <span>10</span></p>
+          </div>
+        </div>
+        <p class="rd-sidebar__name">evan</p>
+        <div class="rd-sidebar__btn">
+          <a href="/projects/create/" class="">
+            <span>CREATE PROJECT</span>
+            <i class="icon-font icon-extension-add"></i>
+          </a>
+        </div>
+      </div>
+      <div class="rd-sidebar__wrapper-middle">
+
+
+        <nav class="rd-sidebar__nav">
+
+          <div class="rd-sidebar__nav-btn-group">
+              <a class="rd-sidebar__nav-btn  is-active " href="/organisation/settings">
+                <div>
+                <span>
+                  <i class="icon-font icon-rd-courses"></i>
+                </span>
+                </div>
+                <div>
+                  <p>Home Dashboard</p>
+                </div>
+              </a>
+
+
+
+
+              <a class="rd-sidebar__nav-subbtn is-active" href="/content/admin/courses">
+                <p>Courses</p>
+              </a>
+              <a class="rd-sidebar__nav-subbtn " href="/content/admin/learning_paths">
+                <p>Learning Paths</p>
+              </a>
+
+
+
+              <a class="rd-sidebar__nav-subbtn" href="/roboduel/admin">
+                <p>Roboduel Administration</p>
+              </a>
+
+
+
+              <a class="rd-sidebar__nav-subbtn" href="/schools/">
+                <p>License Management</p>
+              </a>
+
+          </div>
+
+          <a class="rd-sidebar__nav-btn " href="/">
+            <div>
+              <span>
+                <i class="icon-font icon-rd-courses"></i>
+              </span>
+            </div>
+            <div>
+              <p>Courses</p>
+            </div>
+          </a>
+
+
+          <a href="/teacher/dash/"
+             class="rd-sidebar__nav-btn "
+          >
+            <div>
+              <span>
+                <i class="icon-font icon-rd-my-class"></i>
+              </span>
+            </div>
+            <div>
+              <p>My Class</p>
+            </div>
+          </a>
+
+
+
+
+          <a href="/makecode" class="rd-sidebar__nav-btn ">
+            <div>
+              <span>
+                <i class="icon-font icon-robot"></i>
+              </span>
+            </div>
+            <div>
+              <p>Makecode</p>
+            </div>
+          </a>
+
+
+
+          <a href="/projects/" class="rd-sidebar__nav-btn ">
+            <div>
+              <span>
+                <i class="icon-font icon-rd-projects"></i>
+              </span>
+            </div>
+            <div>
+              <p>Projects</p>
+              <!-- <u>2</u> -->
+            </div>
+          </a>
+          <!-- <a href="#" class="rd-sidebar__nav-btn">
+            <div>
+                <span>
+                  <i class="icon-font icon-rd-competitions"></i>
+                </span>
+            </div>
+            <div>
+              <p>Competitions</p>
+            </div>
+          </a> -->
+
+
+          <a href="https://community.robotify.com" class="rd-sidebar__nav-btn">
+            <div>
+                  <span>
+                    <i class="icon-font icon-rd-community"></i>
+                  </span>
+            </div>
+            <div>
+              <p>Community</p>
+            </div>
+          </a>
+
+
+
+          <a href="/roboduel" class="rd-sidebar__nav-btn ">
+            <div>
+                  <span>
+                    <i class="icon-font icon-rd-courses"></i>
+                  </span>
+            </div>
+            <div>
+              <p>Roboduel</p>
+              <!-- <u>new!</u> -->
+            </div>
+          </a>
+
+          <a href="/logout/" class="rd-sidebar__nav-btn">
+            <div>
+                  <span>
+                    <i class="icon-font icon-rd-sign-out"></i>
+                  </span>
+            </div>
+            <div>
+              <p>Sign Out</p>
+            </div>
+          </a>
+
+        </nav>
+
+      </div>
+      <div class="rd-sidebar__wrapper-bottom" style="margin-block-start: 60px;">
+
+          <div class="rd-sidebar__btn">
+            <img src="https://robotify-dev.s3.amazonaws.com/static/img/organization_logos/1.png" style="overflow: hidden; max-width: 200px; max-height: 200px; margin-bottom: 8px;">
+          </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <section id="enabled" class="enabled">
+    <div class="enabled__container">
+
+      <div class="enabled__wrapper">
+
+        <div class="enabled__content">
+          <h1 class="enabled__title">Course Creation Dashboard<span></span></h1>
+          <p class="enabled__desc">Create, view and edit your Robotify courses!</p>
+          <div class="enabled__btn">
+            <a href="#createNewCourse" data-effect="mfp-slide-in" popup-js>
+              <span>Create New Course</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="enabled__filter">
+          <div>
+            <label>
+              <input type="text" name="" placeholder="Search..." search-js>
+            </label>
+          </div>
+          <div>
+            <label>
+              <select name="" sort-js>
+                <option value="0">Sort By</option>
+                <option value="recent">Most Recent</option>
+                <option value="alphabetically">Alphabetically</option>
+                <option value="learning_path">Learning Path</option>
+                <option value="environment">Environment</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <div class="enabled-courses">
+
+          <div class="enabled-courses__table">
+            <div class="enabled-courses__table-head">
+              <div class="enabled-courses__table-row">
+                <div class="enabled-courses__table-col enabled-courses__table-col-1">
+                  <p>Course Name</p>
+                </div>
+                <div class="enabled-courses__table-col enabled-courses__table-col-2" style="max-width: 170px;justify-content: center;padding-right: 20px;">
+                  <p>Content</p>
+                </div>
+                <div class="enabled-courses__table-col enabled-courses__table-col-3">
+                  <p>Is Published?</p>
+                </div>
+                <div class="enabled-courses__table-col enabled-courses__table-col-4">
+                  <p>Learning Paths</p>
+                </div>
+                <div class="enabled-courses__table-col enabled-courses__table-col-5" style="max-width: 170px;justify-content: center;padding-right: 20px;">
+                  <p>Details</p>
+                </div>
+              </div>
+            </div>
+            <div class="enabled-courses__table-body">
+
+
+                <div class="enabled-courses__table-row" data-course-pk=154>
+                  <div class="enabled-courses__table-col enabled-courses__table-col-1">
+                    <h6 class="course-list--name">Camera</h6>
+                  </div>
+                  <div class="enabled-courses__table-col enabled-courses__table-col-2" style="max-width: 170px;">
+                    <div class="enabled__btn">
+                      <a target="_blank" href="/content/admin/dashboard/180/1" class="green">
+                        <span>Edit Content</span>
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="enabled-courses__table-col enabled-courses__table-col-3">
+                    <i class="publishedCheck icon-font icon-checked"></i>
+                  </div>
+
+                  <div class="enabled-courses__table-col enabled-courses__table-col-4">
+
+                      <ul>
+
+                        <li style="display: flex; flex-wrap: wrap; align-items: center;list-style-type: disc;">
+                          <span style="padding-right: 10px;">Drone Park</span>
+                          <!-- <span style="padding-left: 5px;padding-right: 5px;">|</span> -->
+
+                          <div class="enabled__btn">
+                            <a class="green" style="pointer-events: none;height: auto;">
+                              <span>public</span>
+                            </a>
+                          </div>
+
+
+                        </li>
+
+                    </ul>
+
+                  </div>
+                  <div class="enabled-courses__table-col enabled-courses__table-col-5" style="max-width: 170px;">
+                    <div class="enabled__btn">
+                      <a href="#editCourse"
+                          data-course-name="Camera"
+                          data-course-pk="154"
+                          data-course-env="drone-park"
+                          data-course-env-pk="112"
+                          data-course-desc="Drone park camera"
+                          data-course-is_published="True"
+                          data-course-thumbnail="https://robotify-production-media.s3-eu-west-1.amazonaws.com/thumbnails/drone-park-camera.png"
+                          data-course-lpaths="Drone Park,"
+                          data-lpaths-published="Drone Park,"
+                          onclick="prefillCourseDetail(this)"class="blue" data-effect="mfp-slide-in" popup-js>
+                        <span>View Details</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <div class="enabled-courses__table-row" data-course-pk=263>
+                  <div class="enabled-courses__table-col enabled-courses__table-col-1">
+                    <h6 class="course-list--name">Phobos Episode 2</h6>
+                  </div>
+                  <div class="enabled-courses__table-col enabled-courses__table-col-2" style="max-width: 170px;">
+                    <div class="enabled__btn">
+                      <a target="_blank" href="/content/admin/dashboard/191/1" class="green">
+                        <span>Edit Content</span>
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="enabled-courses__table-col enabled-courses__table-col-3">
+                    <i class="publishedCheck icon-font icon-checked"></i>
+                  </div>
+
+                  <div class="enabled-courses__table-col enabled-courses__table-col-4">
+
+                      <ul>
+
+                        <li style="display: flex; flex-wrap: wrap; align-items: center;list-style-type: disc;">
+                          <span style="padding-right: 10px;">Phobos: Mission to Mars</span>
+                          <!-- <span style="padding-left: 5px;padding-right: 5px;">|</span> -->
+
+                          <div class="enabled__btn">
+                            <a class="green" style="pointer-events: none;height: auto;">
+                              <span>public</span>
+                            </a>
+                          </div>
+
+
+                        </li>
+
+                    </ul>
+
+                  </div>
+                  <div class="enabled-courses__table-col enabled-courses__table-col-5" style="max-width: 170px;">
+                    <div class="enabled__btn">
+                      <a href="#editCourse"
+                          data-course-name="Phobos Episode 2"
+                          data-course-pk="263"
+                          data-course-env=""
+                          data-course-env-pk=""
+                          data-course-desc="Description"
+                          data-course-is_published="True"
+                          data-course-thumbnail="https://robotify-production-media.s3-eu-west-1.amazonaws.com/phobos/thumbnails/Screenshot+2020-05-08+at+17.45.46.png"
+                          data-course-lpaths="Phobos: Mission to Mars,"
+                          data-lpaths-published="Phobos: Mission to Mars,"
+                          onclick="prefillCourseDetail(this)"class="blue" data-effect="mfp-slide-in" popup-js>
+                        <span>View Details</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+                <div class="enabled-courses__table-row" data-course-pk=41>
+                  <div class="enabled-courses__table-col enabled-courses__table-col-1">
+                    <h6 class="course-list--name">Navigation Imagination - Hour of Code</h6>
+                  </div>
+                  <div class="enabled-courses__table-col enabled-courses__table-col-2" style="max-width: 170px;">
+                    <div class="enabled__btn">
+                      <a target="_blank" href="/content/admin/dashboard/19/1" class="green">
+                        <span>Edit Content</span>
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="enabled-courses__table-col enabled-courses__table-col-3">
+                    <i class="publishedCheck icon-font icon-checked"></i>
+                  </div>
+
+                  <div class="enabled-courses__table-col enabled-courses__table-col-4">
+
+                        <p>None</p>
+
+                  </div>
+                  <div class="enabled-courses__table-col enabled-courses__table-col-5" style="max-width: 170px;">
+                    <div class="enabled__btn">
+                      <a href="#editCourse"
+                          data-course-name="Navigation Imagination - Hour of Code"
+                          data-course-pk="41"
+                          data-course-env="robotify-basics"
+                          data-course-env-pk="49"
+                          data-course-desc="Our contribution to the fantastic hour of code initiative"
+                          data-course-is_published="True"
+                          data-course-thumbnail="https://robotify-live-83f43e29a3304ac5876d00c85-b2d7ee2.divio-media.net/filer_public/a2/2d/a22dfd32-4327-4438-90a6-5cdd01b1d851/navimag.png"
+                          data-course-lpaths=""
+                          data-lpaths-published=""
+                          onclick="prefillCourseDetail(this)"class="blue" data-effect="mfp-slide-in" popup-js>
+                        <span>View Details</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <div class="enabled-courses__table-row" data-course-pk=90>
+                  <div class="enabled-courses__table-col enabled-courses__table-col-1">
+                    <h6 class="course-list--name">CoderDojo</h6>
+                  </div>
+                  <div class="enabled-courses__table-col enabled-courses__table-col-2" style="max-width: 170px;">
+                    <div class="enabled__btn">
+                      <a target="_blank" href="/content/admin/dashboard/85/1" class="green">
+                        <span>Edit Content</span>
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="enabled-courses__table-col enabled-courses__table-col-3">
+                    <i class="publishedCheck icon-font icon-checked"></i>
+                  </div>
+
+                  <div class="enabled-courses__table-col enabled-courses__table-col-4">
+
+                        <p>None</p>
+
+                  </div>
+                  <div class="enabled-courses__table-col enabled-courses__table-col-5" style="max-width: 170px;">
+                    <div class="enabled__btn">
+                      <a href="#editCourse"
+                          data-course-name="CoderDojo"
+                          data-course-pk="90"
+                          data-course-env=""
+                          data-course-env-pk=""
+                          data-course-desc="This module will walk you through creating a sumo robot in the Robotify workspace. Learn how to increase your robot’s speed and strength so that you can take on an AI robot. Use the basics to get to grips with each set of concepts one by one beforehand."
+                          data-course-is_published="True"
+                          data-course-thumbnail="https://robotify-live-83f43e29a3304ac5876d00c85-b2d7ee2.divio-media.net/filer_public/21/38/213869f2-31c7-4c2b-b64a-05101193ee49/thumb.png"
+                          data-course-lpaths=""
+                          data-lpaths-published=""
+                          onclick="prefillCourseDetail(this)"class="blue" data-effect="mfp-slide-in" popup-js>
+                        <span>View Details</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+                <div class="enabled-courses__table-row" data-course-pk=148>
+                  <div class="enabled-courses__table-col enabled-courses__table-col-1">
+                    <h6 class="course-list--name">YSI 1</h6>
+                  </div>
+                  <div class="enabled-courses__table-col enabled-courses__table-col-2" style="max-width: 170px;">
+                    <div class="enabled__btn">
+                      <a target="_blank" href="/content/admin/dashboard/185/1" class="green">
+                        <span>Edit Content</span>
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="enabled-courses__table-col enabled-courses__table-col-3">
+                    <i class="publishedCheck icon-font icon-checked"></i>
+                  </div>
+
+                  <div class="enabled-courses__table-col enabled-courses__table-col-4">
+
+                        <p>None</p>
+
+                  </div>
+                  <div class="enabled-courses__table-col enabled-courses__table-col-5" style="max-width: 170px;">
+                    <div class="enabled__btn">
+                      <a href="#editCourse"
+                          data-course-name="YSI 1"
+                          data-course-pk="148"
+                          data-course-env=""
+                          data-course-env-pk=""
+                          data-course-desc="By the end of YSI 1 you&#39;ll...
+&lt;ul class=&quot;catalog__desc&quot; style=&quot;padding-left:20px;&quot;&gt;
+&lt;li&gt;Be able to identify the sense, compute, and act parts of a robot. &lt;/li&gt;
+
+&lt;li&gt;Be able to code a robot to collect some trash.&lt;/li&gt;
+
+&lt;li&gt;Be able to sketch out a flowchart for a robot program.&lt;/li&gt;
+&lt;/ul&gt;"
+                          data-course-is_published="True"
+                          data-course-thumbnail="https://robotify-production-media.s3-eu-west-1.amazonaws.com/thumbnails/course/Robotics4Good1.jpg"
+                          data-course-lpaths=""
+                          data-lpaths-published=""
+                          onclick="prefillCourseDetail(this)"class="blue" data-effect="mfp-slide-in" popup-js>
+                        <span>View Details</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+
+
+            </div>
+          </div>
+
+        </div>
+
+        <div class="enabled__btn">
+          <a href="#createNewCourse" data-effect="mfp-slide-in" popup-js>
+            <span>Add New Course</span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MODALS -->
+  <div id="createNewCourse" class="c-modal mfp-hide mfp-with-anim">
+    <div class="c-modal__head">
+      <p class="c-modal__title">Create New Course</p>
+    </div>
+    <div class="c-modal__body c-modal__body--split">
+      <div>
+
+        <form autocomplete="off" class="c-modal__form" name="createNewCourseForm">
+          <div class="c-modal__form-field">
+            <label>
+              <span>Course Name</span>
+              <input data-course-name type="text" placeholder="Enter Course Name..." required>
+            </label>
+          </div>
+          <div class="c-modal__form-field">
+            <label>
+              <span>Description</span>
+              <textarea data-course-description placeholder=""></textarea>
+            </label>
+          </div>
+          <div class="c-modal__form-field">
+            <label class="checkbox">
+              <div>
+                <label>
+                  <input type="checkbox" data-course-is_published> Is Published?
+                </label>
+              </div>
+            </label>
+          </div>
+          <div class="c-modal__form-field">
+            <select data-course-environment class="selectFilter">
+
+              <option value="112">drone-park</option>
+
+              <option value="116">aus-underwater</option>
+
+              <option value="114">underwater</option>
+
+              <option value="1">robot-pod</option>
+
+              <option value="2">get-moving</option>
+
+              <option value="4">level1-maze</option>
+
+              <option value="5">circular-maze</option>
+
+              <option value="6">boss-maze</option>
+
+              <option value="3">robot-lab</option>
+
+              <option value="7">robot-lab-low-res</option>
+
+              <option value="8">get-moving-robot-lab</option>
+
+              <option value="9">code-cracker</option>
+
+              <option value="43">code-slalom-project</option>
+
+              <option value="45">ramp-project</option>
+
+              <option value="44">football-project</option>
+
+              <option value="42">code-maze-project</option>
+
+              <option value="48">underwater-environment</option>
+
+              <option value="49">robotify-basics</option>
+
+              <option value="102">DronePark</option>
+
+              <option value="97">dronepark</option>
+
+              <option value="50">mars-environment</option>
+
+              <option value="52">ysi</option>
+
+              <option value="53">coderdojo</option>
+
+              <option value="51">avishkaar-lines</option>
+
+              <option value="110">robot-lab</option>
+
+              <option value="54">ysi2</option>
+
+              <option value="55">ysi3</option>
+
+              <option value="58">underwater-marinesurvey</option>
+
+              <option value="56">ysi4</option>
+
+              <option value="94">underwater-environment</option>
+
+              <option value="93">underwater-environment</option>
+
+              <option value="95">underwater-environment</option>
+
+              <option value="91">underwater-environment</option>
+
+              <option value="98">root-robot</option>
+
+              <option value="104">underwater-environment</option>
+
+              <option value="108">Phobos</option>
+
+              <option value="107">Phobos</option>
+
+              <option value="109">Phobos</option>
+
+              <option value="105">Phobos</option>
+
+              <option value="115">drawing-robot</option>
+
+              <option value="120">educational</option>
+
+              <option value="131">educational</option>
+
+              <option value="113">robotify-basics-severus</option>
+
+              <option value="47">sem2Edu</option>
+
+              <option value="117">human-alien-comp</option>
+
+              <option value="111">human-alien-maze</option>
+
+              <option value="118">vrad</option>
+
+              <option value="119">vrad-sp</option>
+
+            </select>
+          </div>
+          <div class="c-modal__form-field">
+            <label>
+              <span>Thumbnail</span>
+              <input id="newCourseThumb" data-parent-id="createNewCourse" type="file" placeholder="">
+            </label>
+          </div>
+        </form>
+
+      </div>
+      <div>
+
+        <div class="c-modal__preview">
+          <img id="courseThumbPreview" data-course-thumbnail src="" alt="">
+        </div>
+
+      </div>
+    </div>
+    <div class="c-modal__footer">
+      <a href="#" class="c-modal__btn silver" popup-close-js>
+        <span>Close</span>
+      </a>
+      <button type="button" class="red editor__header__button saved" onclick='event.preventDefault(); createCourse(this);'>
+        <span class="editer__header__button__text">Create</span>
+        <div class="checkmark draw"></div>
+      </button>
+    </div>
+  </div>
+  <div id="editCourse" class="c-modal mfp-hide mfp-with-anim">
+    <div class="c-modal__head">
+      <p class="c-modal__title">Edit Course</p>
+    </div>
+    <div class="c-modal__body">
+      <div>
+
+        <form autocomplete="off" class="c-modal__form" name="editCourseForm">
+          <div class="c-modal__form-field">
+            <label>
+              <span>Course Name</span>
+              <input data-course-name type="text" placeholder="Enter Course Name..." required>
+            </label>
+          </div>
+          <div class="c-modal__form-field">
+            <label>
+              <span>Description</span>
+              <textarea data-course-description placeholder=""></textarea>
+            </label>
+          </div>
+          <div class="c-modal__form-field">
+            <label class="checkbox">
+              <div>
+                <label>
+                  <input type="checkbox" data-course-is_published> Is Published?
+                </label>
+              </div>
+            </label>
+          </div>
+          <div class="c-modal__form-field">
+            <select id="editCourseEnvSelect" data-course-environment class="selectFilter">
+
+              <option value="112">drone-park</option>
+
+              <option value="116">aus-underwater</option>
+
+              <option value="114">underwater</option>
+
+              <option value="1">robot-pod</option>
+
+              <option value="2">get-moving</option>
+
+              <option value="4">level1-maze</option>
+
+              <option value="5">circular-maze</option>
+
+              <option value="6">boss-maze</option>
+
+              <option value="3">robot-lab</option>
+
+              <option value="7">robot-lab-low-res</option>
+
+              <option value="8">get-moving-robot-lab</option>
+
+              <option value="9">code-cracker</option>
+
+              <option value="43">code-slalom-project</option>
+
+              <option value="45">ramp-project</option>
+
+              <option value="44">football-project</option>
+
+              <option value="42">code-maze-project</option>
+
+              <option value="48">underwater-environment</option>
+
+              <option value="49">robotify-basics</option>
+
+              <option value="102">DronePark</option>
+
+              <option value="97">dronepark</option>
+
+              <option value="50">mars-environment</option>
+
+              <option value="52">ysi</option>
+
+              <option value="53">coderdojo</option>
+
+              <option value="51">avishkaar-lines</option>
+
+              <option value="110">robot-lab</option>
+
+              <option value="54">ysi2</option>
+
+              <option value="55">ysi3</option>
+
+              <option value="58">underwater-marinesurvey</option>
+
+              <option value="56">ysi4</option>
+
+              <option value="94">underwater-environment</option>
+
+              <option value="93">underwater-environment</option>
+
+              <option value="95">underwater-environment</option>
+
+              <option value="91">underwater-environment</option>
+
+              <option value="98">root-robot</option>
+
+              <option value="104">underwater-environment</option>
+
+              <option value="108">Phobos</option>
+
+              <option value="107">Phobos</option>
+
+              <option value="109">Phobos</option>
+
+              <option value="105">Phobos</option>
+
+              <option value="115">drawing-robot</option>
+
+              <option value="120">educational</option>
+
+              <option value="131">educational</option>
+
+              <option value="113">robotify-basics-severus</option>
+
+              <option value="47">sem2Edu</option>
+
+              <option value="117">human-alien-comp</option>
+
+              <option value="111">human-alien-maze</option>
+
+              <option value="118">vrad</option>
+
+              <option value="119">vrad-sp</option>
+
+            </select>
+          </div>
+          <div class="c-modal__form-field">
+            <label>
+              <span>Thumbnail</span>
+              <input id="editCourseThumb" data-parent-id="editCourse" type="file" placeholder="">
+            </label>
+          </div>
+        </form>
+
+      </div>
+      <div>
+
+        <div class="c-modal__preview">
+          <img id="editCourseThumbPreview" data-course-thumbnail src="" alt="">
+        </div>
+
+      </div>
+    </div>
+    <div class="c-modal__footer">
+
+      <button type="button" class="silver editor__header__button saved" onclick='event.preventDefault(); deleteCourse(this)'>
+        <span class="editer__header__button__text">Delete Course</span>
+        <div class="checkmark draw"></div>
+      </button>
+      <!-- <a onclick="event.preventDefault(); deleteCourse(this)" class="c-modal__btn silver">
+        <span>Delete Course</span>
+      </a> -->
+<!--
+      <div class="enabled__btn">
+        <a href="#isPublish" class="" data-effect="mfp-slide-in" popup-js>
+          <span>Is-Published?</span>
+        </a>
+      </div> -->
+
+      <button type="button" class="red editor__header__button saved" onclick='event.preventDefault(); editCourse();'>
+        <span class="editer__header__button__text">Save</span>
+        <div class="checkmark draw"></div>
+      </button>
+    </div>
+  </div>
+  <div id="isPublish" class="c-modal mfp-hide mfp-with-anim">
+    <div class="c-modal__head">
+      <p class="c-modal__title">Publish (Course Name)</p>
+      <p class="c-modal__subtitle">Select Path to Publish to</p>
+    </div>
+    <div class="c-modal__body">
+      <div class="c-modal__path-wrapper">
+        <div>
+          <a href="#" class="c-modal__path is-active">
+            <div>
+              <img src="https://robotify-production-media.s3-eu-west-1.amazonaws.com/course_thumnbnails/vrad.jpg" alt="">
+            </div>
+            <div><p class="c-modal__subtitle">Axel's Mars Adventure</p></div>
+          </a>
+          <a href="#" class="c-modal__path">
+            <div>
+              <img src="https://robotify-production-media.s3-eu-west-1.amazonaws.com/course_thumnbnails/vrad.jpg" alt="">
+            </div>
+            <div><p class="c-modal__subtitle">Basics</p></div>
+          </a>
+          <a href="#" class="c-modal__path">
+            <div>
+              <img src="https://robotify-production-media.s3-eu-west-1.amazonaws.com/course_thumnbnails/vrad.jpg" alt="">
+            </div>
+            <div><p class="c-modal__subtitle">YSI</p></div>
+          </a>
+        </div>
+        <div>
+          <div class="enabled__btn">
+            <a href="#addNewPath" data-effect="mfp-slide-in" popup-js>
+              <span>Add New Path</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="c-modal__footer">
+      <a href="#" class="c-modal__btn silver" popup-close-js>
+        <span>Close</span>
+      </a>
+      <a href="#" class="c-modal__btn green">
+        <span>Publish</span>
+      </a>
+    </div>
+  </div>
+  <div id="addNewPath" class="c-modal mfp-hide mfp-with-anim">
+    <div class="c-modal__head">
+      <p class="c-modal__title">New Path</p>
+    </div>
+    <div class="c-modal__body">
+      <form action="" autocomplete="off" class="c-modal__form">
+        <div class="c-modal__form-field">
+          <label>
+            <span>Path Name</span>
+            <input type="text" placeholder="">
+          </label>
+        </div>
+        <div class="c-modal__form-field">
+          <label>
+            <span>Thumbnail</span>
+            <input type="file" placeholder="">
+          </label>
+        </div>
+      </form>
+    </div>
+    <div class="c-modal__footer">
+      <a href="#" class="c-modal__btn silver" popup-close-js>
+        <span>Close</span>
+      </a>
+      <a href="#" class="c-modal__btn green">
+        <span>Save</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- <div id="viewDetails" class="c-modal mfp-hide mfp-with-anim">
+    <div class="c-modal__head">
+      <p class="c-modal__title">(Course Name) Details</p>
+      <p class="c-modal__subtitle">Environment Name</p>
+      <p class="c-modal__label c-modal__label--icon">
+        Publish [Name of Learning Path]<i style="margin-left: 15px;color: #38f3a2;font-size: 20px;" class="icon-font icon-checked"></i>
+        Publish [Name of Learning Path]<i style="margin-left: 15px;color: #38f3a2;font-size: 20px;" class="icon-font icon-checked"></i>
+      </p>
+      <p class="c-modal__desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam architecto corporis, error hic necessitatibus quos sit suscipit ullam! Nostrum, vitae.</p>
+    </div>
+    <div class="c-modal__body">
+
+      <div style="height: auto;" class="c-modal__preview c-modal__preview--small">
+        <img style="position: relative;" course-detail-thumbnail src="https://robotify-production-media.s3-eu-west-1.amazonaws.com/course_thumnbnails/vrad.jpg" alt="">
+      </div>
+
+
+
+    </div>
+    <div class="c-modal__footer">
+      <a onclick="deleteCourse(this)" href="#" class="c-modal__btn red">
+        <span>Delete Course</span>
+      </a>
+      <a href="#" class="c-modal__btn green">
+        <span>Edit Course</span>
+      </a>
+    </div>
+  </div> -->
+
+</div>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<script src="https://robotify.s3.amazonaws.com/static/assets/js/jquery.magnific-popup.min.js"></script>
+<script src="https://robotify.s3.amazonaws.com/static/new-js/enabled-content.js"></script>
+
+<script>
+	function createCourse(elm){
+		let form = $(document.createNewCourseForm),
+			submitBtn = form.find('input[type="submit"]');
+
+		submitBtn.trigger('click');
+
+		if(form[0].checkValidity()) {
+			var courseForm = new FormData();
+
+			var createCourseForm = document.querySelector('#createNewCourse');
+			var selectedEnvPk = parseInt(createCourseForm.querySelector('[data-course-environment]').options[createCourseForm.querySelector('[data-course-environment]').selectedIndex].value);
+			var courseName = createCourseForm.querySelector('[data-course-name]');
+			var courseDesc = createCourseForm.querySelector('[data-course-description]');
+      var courseIsPublished = createCourseForm.querySelector('[data-course-is_published]');
+
+			var courseThumb = document.querySelector('#newCourseThumb')
+			var dismissModal = createCourseForm.querySelector('.mfp-close');
+
+			var startTime = Date.now();
+			$('.editor__header__button').toggleClass('saving saved');
+			$('.checkmark').toggle();
+
+			courseForm.append("thumbnail_file", courseThumb.files[0]);
+			courseForm.append("name", courseName.value);
+			courseForm.append("description", courseDesc.value);
+      courseForm.append("is_published", (courseIsPublished.checked ? 1 : 0));
+			courseForm.append("env", selectedEnvPk);
+			courseForm.append("csrfmiddlewaretoken", "t3apJuhdkL1kuQItDh9cZJEMKeiswXuvAhwMDsTodtuJiNR70WNHWBk9zquCjjNJ");
+
+		}
+	}
+
+	function editCourse(){
+		let form = $(document.editCourseForm),
+			submitBtn = form.find('input[type="submit"]');
+
+		submitBtn.trigger('click');
+
+		if(form[0].checkValidity()) {
+			var courseForm = new FormData();
+
+			var createCourseForm = document.querySelector('#editCourse');
+			var selectedEnvPk = parseInt(createCourseForm.querySelector('[data-course-environment]').options[createCourseForm.querySelector('[data-course-environment]').selectedIndex].value);
+			var courseName = createCourseForm.querySelector('[data-course-name]');
+			var courseDesc = createCourseForm.querySelector('[data-course-description]');
+      var courseIsPublished = createCourseForm.querySelector('[data-course-is_published]');
+			var coursePk = createCourseForm.getAttribute('data-course-pk');
+			var courseThumb = document.querySelector('#editCourseThumb')
+			var dismissModal = createCourseForm.querySelector('.mfp-close');
+
+			var startTime = Date.now();
+			$('#editCourse').toggleClass('saving saved');
+			$('#editCourse').find('.checkmark').toggle();
+
+			courseForm.append("thumbnail_file", courseThumb.files[0]);
+			courseForm.append("name", courseName.value);
+			courseForm.append("description", courseDesc.value);
+      courseForm.append("is_published", (courseIsPublished.checked ? 1 : 0));
+			courseForm.append("env", selectedEnvPk);
+			courseForm.append("course_pk", coursePk);
+			courseForm.append("csrfmiddlewaretoken", "t3apJuhdkL1kuQItDh9cZJEMKeiswXuvAhwMDsTodtuJiNR70WNHWBk9zquCjjNJ");
+		}
+	}
+
+
+	function readURL(input) {
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+
+			reader.onload = function(e) {
+				document.getElementById(input.getAttribute('data-parent-id')).querySelector('[data-course-thumbnail]').setAttribute('src', e.target.result);
+			}
+
+			reader.readAsDataURL(input.files[0]); // convert to base64 string
+		}
+	}
+
+	$("#newCourseThumb, #editCourseThumb").change(function() {
+		courseForm = new FormData();
+		var file = this.files[0];
+		readURL(this);
+	});
+
+	function prefillCourseDetail(elm){
+		var course_name = elm.getAttribute('data-course-name');
+		var course_pk = elm.getAttribute('data-course-pk');
+		var courseModal = document.querySelector('#editCourse');
+
+		var course_env_pk = (elm.getAttribute('data-course-env-pk') ? elm.getAttribute('data-course-env-pk') : '-1');
+		var course_description = elm.getAttribute('data-course-desc');
+		var course_published_path = elm.getAttribute('data-course-lpaths');
+    var course_is_published = false;
+    if( String(elm.getAttribute('data-course-is_published')).toLowerCase() == "true"){
+      course_is_published = true;
+    }
+		var course_thumbnail = elm.getAttribute('data-course-thumbnail');
+
+		var course_published_path_html = '';
+
+		if(course_is_published){
+			for(var i = 0; i< course_published_path.split(',').length; i++){
+				if(course_published_path.split(',')[i]){
+					course_published_path_html += `${course_published_path.split(',')[i]}<i style="margin-left: 15px;color: #38f3a2;font-size: 20px;" class="icon-font icon-checked"></i>`
+				}
+			}
+		}
+
+		courseModal.setAttribute('data-course-pk', course_pk);
+    $('#editCourseEnvSelect').val(course_env_pk.toString()); // Select the option with a value of '1'
+    $('#editCourseEnvSelect').trigger('change'); // Notify any JS components that the value changed
+		courseModal.querySelector("[data-course-name]").value = course_name;
+		// courseModal.querySelector(".c-modal__label.c-modal__label--icon").innerHTML = course_published_path_html;
+		courseModal.querySelector("[data-course-description]").innerHTML = course_description;
+    courseModal.querySelector("[data-course-is_published]").checked = course_is_published;
+		courseModal.querySelector("[data-course-thumbnail]").setAttribute('src', course_thumbnail);
+	}
+
+	function deleteCourse( elm ){
+		var course_pk = document.querySelector('#editCourse').getAttribute('data-course-pk');
+		var dismissModal = document.querySelector('#editCourse').querySelector('.mfp-close');
+
+    var startTime = Date.now();
+    $(elm).toggleClass('saving saved');
+    $(elm).find('.checkmark').toggle();
+	}
+</script>
+</html>

@@ -1,0 +1,188 @@
+@font-face {
+    font-family: "CircularStd";
+    src: url("../fonts/CircularStd-Bold.woff2") format("woff2"), url("../fonts/CircularStd-Bold.woff") format("woff"), url("../fonts/CircularStd-Bold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "CircularStd";
+    src: url("../fonts/CircularStd-Book.woff2") format("woff2"), url("../fonts/CircularStd-Book.woff") format("woff"), url("../fonts/CircularStd-Book.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "CircularStd";
+    src: url("../fonts/CircularStd-Medium.woff2") format("woff2"), url("../fonts/CircularStd-Medium.woff") format("woff"), url("../fonts/CircularStd-Medium.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "ProximaNova";
+    src: url("../fonts/ProximaNova-Regular.eot");
+    src: url("../fonts/ProximaNova-Regular.eot?iefix") format("embedded-opentype"), url("../fonts/ProximaNova-Regular.woff2") format("woff2"), url("../fonts/ProximaNova-Regular.woff") format("woff"), url("../fonts/ProximaNova-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "ProximaNova";
+    src: url("../fonts/ProximaNova-Black.eot");
+    src: url("../fonts/ProximaNova-Black.eot?iefix") format("embedded-opentype"), url("../fonts/ProximaNova-Black.woff2") format("woff2"), url("../fonts/ProximaNova-Black.woff") format("woff"), url("../fonts/ProximaNova-Black.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: "ProximaNova";
+    src: url("../fonts/ProximaNova-Bold.eot");
+    src: url("../fonts/ProximaNova-Bold.eot?iefix") format("embedded-opentype"), url("../fonts/ProximaNova-Bold.woff2") format("woff2"), url("../fonts/ProximaNova-Bold.woff") format("woff"), url("../fonts/ProximaNova-Bold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "ProximaNova";
+    src: url("../fonts/ProximaNova-Extrabld.eot");
+    src: url("../fonts/ProximaNova-Extrabld.eot?iefix") format("embedded-opentype"), url("../fonts/ProximaNova-Extrabld.woff2") format("woff2"), url("../fonts/ProximaNova-Extrabld.woff") format("woff"), url("../fonts/ProximaNova-Extrabld.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: "ProximaNova";
+    src: url("../fonts/ProximaNova-Light.eot");
+    src: url("../fonts/ProximaNova-Light.eot?iefix") format("embedded-opentype"), url("../fonts/ProximaNova-Light.woff2") format("woff2"), url("../fonts/ProximaNova-Light.woff") format("woff"), url("../fonts/ProximaNova-Light.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "ProximaNova";
+    src: url("../fonts/ProximaNova-Medium.eot");
+    src: url("../fonts/ProximaNova-Medium.eot?iefix") format("embedded-opentype"), url("../fonts/ProximaNova-Medium.woff2") format("woff2"), url("../fonts/ProximaNova-Medium.woff") format("woff"), url("../fonts/ProximaNova-Medium.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "ProximaNova";
+    src: url("../fonts/ProximaNova-Semibold.eot");
+    src: url("../fonts/ProximaNova-Semibold.eot?iefix") format("embedded-opentype"), url("../fonts/ProximaNova-Semibold.woff2") format("woff2"), url("../fonts/ProximaNova-Semibold.woff") format("woff"), url("../fonts/ProximaNova-Semibold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "Noah";
+    src: url("../fonts/Noah-Regular.woff2") format("woff2"), url("../fonts/Noah-Regular.woff") format("woff"), url("../fonts/Noah-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Noah";
+    src: url("../fonts/Noah-Bold.woff2") format("woff2"), url("../fonts/Noah-Bold.woff") format("woff"), url("../fonts/Noah-Bold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "AvenirLTStd";
+    src: url("../fonts/AvenirLTStd-Book.woff2") format("woff2"), url("../fonts/AvenirLTStd-Book.woff") format("woff"), url("../fonts/AvenirLTStd-Book.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "AvenirLTStdR";
+    src: url("../fonts/AvenirLTStdR-Roman.woff2") format("woff2"), url("../fonts/AvenirLTStdR-Roman.woff") format("woff"), url("../fonts/AvenirLTStdR-Roman.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "AvenirLTStd";
+    src: url("../fonts/AvenirLTStd-Medium.woff2") format("woff2"), url("../fonts/AvenirLTStd-Medium.woff") format("woff"), url("../fonts/AvenirLTStd-Medium.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "AvenirNext";
+    src: url("../fonts/AvenirNext-Heavy.woff2") format("woff2"), url("../fonts/AvenirNext-Heavy.woff") format("woff"), url("../fonts/AvenirNext-Heavy.ttf") format("truetype"), url("../fonts/AvenirNext-Heavy.svg#AvenirNext") format("svg");
+    font-style: normal;
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: "AvenirNext";
+    src: url("../fonts/AvenirNext-DemiBold.woff2") format("woff2"), url("../fonts/AvenirNext-DemiBold.woff") format("woff"), url("../fonts/AvenirNext-DemiBold.ttf") format("truetype"), url("../fonts/AvenirNext-DemiBold.svg#AvenirNext") format("svg");
+    font-style: normal;
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: "AvenirNext";
+    src: url("../fonts/AvenirNext-UltraLight.woff2") format("woff2"), url("../fonts/AvenirNext-UltraLight.woff") format("woff"), url("../fonts/AvenirNext-UltraLight.ttf") format("truetype"), url("../fonts/AvenirNext-UltraLight.svg#AvenirNext") format("svg");
+    font-style: normal;
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "AvenirNext";
+    src: url("../fonts/AvenirNext-Bold.woff2") format("woff2"), url("../fonts/AvenirNext-Bold.woff") format("woff"), url("../fonts/AvenirNext-Bold.ttf") format("truetype"), url("../fonts/AvenirNext-Bold.svg#AvenirNext") format("svg");
+    font-style: normal;
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "AvenirNext";
+    src: url("../fonts/AvenirNext-Medium.woff2") format("woff2"), url("../fonts/AvenirNext-Medium.woff") format("woff"), url("../fonts/AvenirNext-Medium.ttf") format("truetype"), url("../fonts/AvenirNext-Medium.svg#AvenirNext") format("svg");
+    font-style: normal;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "AvenirNext";
+    src: url("../fonts/AvenirNext-Regular.woff2") format("woff2"), url("../fonts/AvenirNext-Regular.woff") format("woff"), url("../fonts/AvenirNext-Regular.ttf") format("truetype"), url("../fonts/AvenirNext-Regular.svg#AvenirNext") format("svg");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Bariol";
+    src: url("../fonts/Bariol-Thin.woff2") format("woff2"), url("../fonts/Bariol-Thin.woff") format("woff"), url("../fonts/Bariol-Thin.ttf") format("truetype"), url("../fonts/Bariol-Thin.svg#Bariol") format("svg");
+    font-style: normal;
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: "Bariol";
+    src: url("../fonts/Bariol-Light.woff2") format("woff2"), url("../fonts/Bariol-Light.woff") format("woff"), url("../fonts/Bariol-Light.ttf") format("truetype"), url("../fonts/Bariol-Light.svg#Bariol") format("svg");
+    font-style: normal;
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Bariol";
+    src: url("../fonts/Bariol-Regular.woff2") format("woff2"), url("../fonts/Bariol-Regular.woff") format("woff"), url("../fonts/Bariol-Regular.ttf") format("truetype"), url("../fonts/Bariol-Regular.svg#Bariol") format("svg");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Bariol";
+    src: url("../fonts/Bariol-Bold.woff2") format("woff2"), url("../fonts/Bariol-Bold.woff") format("woff"), url("../fonts/Bariol-Bold.ttf") format("truetype"), url("../fonts/Bariol-Bold.svg#Bariol") format("svg");
+    font-style: normal;
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "NoContinue";
+    src: url("../fonts/NoContinue.woff2") format("woff2"), url("../fonts/NoContinue.woff") format("woff"), url("../fonts/NoContinue.ttf") format("truetype"), url("../fonts/NoContinue.svg#NoContinue") format("svg");
+    font-style: normal;
+    font-weight: normal;
+}
