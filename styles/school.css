@@ -432,17 +432,26 @@ picture {
     .school__add.school__add--admin {
       margin-bottom: 30px; }
     .school__add.school__add--green {
-      background-color: #2ed573; }
+        background-color: rgba(46, 213, 115, 0.3);
+       }
+       .school__add.school__add--green span {
+        color: #2ed573; }
       .school__add.school__add--green:hover {
-        background-color: rgba(46, 213, 115, 0.3); }
+        background-color: #2ed573;
+         }
         .school__add.school__add--green:hover span {
-          color: #2ed573; }
+          color: white; }
     .school__add.school__add--blue {
-      background-color: #0984e3; }
+      background-color: rgba(9, 132, 227, 0.3);
+      }
+      .school__add.school__add--blue span {
+        color: #0984e3;
+      }
       .school__add.school__add--blue:hover {
-        background-color: rgba(9, 132, 227, 0.3); }
+        background-color: #0984e3; }
         .school__add.school__add--blue:hover span {
-          color: #0984e3; }
+          color: white;
+        }
     .school__add:hover {
       background-color: #EE5253;
       transition: background-color 0.3s ease-in-out; }
@@ -910,16 +919,16 @@ picture {
         border: none;
         box-shadow: none;
         border-radius: 8px;
-        background-color: #EE5253;
+        background-color: rgba(238, 82, 83, 0.1);
         transition: background-color 0.3s ease-in-out; }
         .school__form-field > button:hover {
-          background-color: rgba(238, 82, 83, 0.1);
+          background-color: #EE5253 !important;
           transition: background-color 0.3s ease-in-out; }
           .school__form-field > button:hover span {
-            color: #EE5253;
+            color: #ffffff !important;
             transition: color 0.3s ease-in-out; }
         .school__form-field > button span {
-          color: #ffffff;
+          color: #EE5253;
           font-weight: 600;
           font-size: 15px;
           transition: color 0.3s ease-in-out; }
@@ -1331,17 +1340,25 @@ picture {
       align-items: center;
       justify-content: center;
       width: 35px;
-      height: 35px; }
+      height: 35px; 
+      background-color: rgba(238, 82, 83, 0.1);
+      border-radius: 5px;
+      }
+      .school__excel-edit:hover {
+        background-color: #ee5253;
+      }
       .school__excel-edit:hover .icon-font {
-        color: #ee5253;
+        color: white;
         transform: scale(1.1);
-        transition: color 0.3s ease-in-out, transform 0.3s ease-in-out; }
+        transition: color 0.3s ease-in-out, transform 0.3s ease-in-out; 
+        transform: rotate(-90deg); }
       .school__excel-edit .icon-font {
         font-size: 14px;
-        color: #333;
+        color: #ee5253;
         transform-origin: center;
         backface-visibility: hidden;
-        transition: color 0.3s ease-in-out, transform 0.3s ease-in-out; }
+        transition: color 0.3s ease-in-out, transform 0.3s ease-in-out; 
+        transform: rotate(-90deg); }
   .school__box {
     display: flex;
     flex-direction: column;
@@ -1395,16 +1412,17 @@ picture {
       border: none;
       box-shadow: none;
       border-radius: 8px;
-      background-color: #EE5253;
+      color: #ffffff;
+      background-color: rgba(238, 82, 83, 0.1);
       transition: background-color 0.3s ease-in-out; }
       .school__box a:hover {
-        background-color: rgba(238, 82, 83, 0.1);
+        background-color: #EE5253;
         transition: background-color 0.3s ease-in-out; }
         .school__box a:hover span {
-          color: #EE5253;
+          color: #ffffff;
           transition: color 0.3s ease-in-out; }
       .school__box a span {
-        color: #ffffff;
+        color: #EE5253;
         font-weight: 600;
         font-size: 15px;
         transition: color 0.3s ease-in-out; }
