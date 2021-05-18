@@ -213,13 +213,17 @@
               <h1 class="school__title">All Schools</h1>
   
             </div>
-            <div>
+            <div style="display: inline-flex;">
   
               <a href="#createNewSchool" class="school__add" popup-js data-effect="mfp-zoom-in">
                 <span>Create new school</span>
               </a>
-  
+
+              <a href="#exportModal" class="school__add school__add--green" popup-js data-effect="mfp-zoom-in" style="margin-left: 10px;">
+                <span>Export</span>
+              </a>
             </div>
+
           </div>
   
           <div class="school__option">
@@ -505,7 +509,66 @@
   
       </div>
     </div>
+    
+    <div id="exportModal" class="c-modal mfp-hide mfp-with-anim">
+      <div class="c-modal__header">
+        <p>Export</p>
+      </div>
+      <div class="c-modal__body">
+        <div class="school">
+          <form method="post" action="/schools/" autocomplete="off" class="school__form">
+            <input type="hidden" name="csrfmiddlewaretoken" value="Q3wIAM7wTF1GCgBvITKExhErtCV18n8UXV8eiOWxjzSvoxubeFwRvMNzFf5Z5L5O" />
+              <div class="school__form-group">
+                <div class="school__export">
+                  <div class="school__form-field">
+                    <span class="school__form-label">Export type:</span>
+                    <label>
+                      <select name="partner" class="singleFastSelect" required>
+                        <option value="xlsx">.xlsx</option>
+                        <option value="csv">.csv</option>
+                        <option value="pdf">.pdf</option>
+                      </select>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            
+              <div class="school__form-group">
+                <div class="school__export">
+                  <div class="school__form-field">
+                    <span class="school__form-label">Filter by:</span>
+                    <label>
+                      <select name="partner" class="singleFastSelect" required>
+                        <option value="all">All</option>
+                      </select>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="school__form-group">
+                <div class="school__export">
+                  <div class="school__form-field">
+                    <span class="school__form-label">Time frame:</span>
+                    <label>
+                      <input type="text" name="subscription_end_date" placeholder="All time" required>
+                    </label>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="school__form-field">
+                <button type="submit">
+                  <span>Export</span>
+                </button>
+                <p style="font-size:small; color:red" id="createSchoolError"></p>
+              </div>
+          </form>
+        </div>
   
+      </div>
+    </div>
+
     <div id="editSchool" class="c-modal mfp-hide mfp-with-anim">
       <div class="c-modal__header">
         <p>Edit school</p>

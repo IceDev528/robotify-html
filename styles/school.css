@@ -1821,3 +1821,21 @@ picture {
       color: #EE5253; }
 
 /*# sourceMappingURL=school.css.map */
+
+.school__export {
+  max-width: 100% !important;
+}
+
+.school__export > .school__form-field {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+}
+
+.school__export > .school__form-field > span {
+  width: 30%;
+}
+
+.school__export > .school__form-field > label {
+  width: 70%;
+}
