@@ -1857,3 +1857,9 @@ picture {
 .enabled {
   overflow-x: auto;
 }
+
+.analytics-title {
+  font-weight: bold;
+  font-size: 18px;
+  color: black;
+}

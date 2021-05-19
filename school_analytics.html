@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- META TAGS-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=0">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="Description" content="Put your description here">
+  <meta name="robots" content="noindex">
+  <meta name="AdsBot-Google" content="noindex"/>
+  <script>
+    let root = document.documentElement;
+    root.style.setProperty('--brandColor', '#a3d162');
+    root.style.setProperty('--secondaryColor', '#a3d162');
+    root.style.setProperty('--sidebarBG', '#2796D3');
+  </script>
+
+  <!-- TITLE-->
+  <title>Robotify | Schools | Analytics</title>
+
+  <!-- FONTS :: START-->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <link rel="stylesheet" href="assets/iconfont/css/iconfont.css">
+
+  <!-- STYLE :: START-->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/magnific-popup.css">
+  <link rel="stylesheet" href="assets/css/fastselect.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/school.css">
+  <!-- STYLE :: END-->
+
+  <!-- STYLE :: START-->
+  <link rel="stylesheet" href="css/vendor.css">
+  <link rel="stylesheet" href="css/app.css">
+  <!-- STYLE :: END-->
+  
+  <!-- SCRIPT :: START-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.2.1/dist/chart.min.js"></script>
+  <!-- SCRIPT :: END-->
+
+</head>
+<body>
+  <div class="body body--start body--sidebar">
+    <!-- SIDENAV BEGIN -->
+    <section id="rd-sidebar" class="rd-sidebar">
+      <div class="rd-sidebar__wrapper">
+        <div class="rd-sidebar__wrapper-top">
+          <div class="rd-sidebar__ava" style='cursor:pointer;' onclick="window.open('/profile/evan', 'mywindow');">
+            <img src="https://robotify.s3.amazonaws.com/static/img/img-rd-user.png" srcset="https://robotify.s3.amazonaws.com/static/img/img-rd-user%402x.png 2x" alt="">
+          </div>
+          <div class="rd-sidebar__level">
+            <div>
+              <i class="icon-font icon-awards"></i>
+              <p><u>Level</u> <span>10</span></p>
+            </div>
+          </div>
+          <p class="rd-sidebar__name">evan</p>
+          <div class="rd-sidebar__btn">
+            <a href="/projects/create/" class="">
+              <span>CREATE PROJECT</span>
+              <i class="icon-font icon-extension-add"></i>
+            </a>
+          </div>
+        </div>
+        <div class="rd-sidebar__wrapper-middle">
+
+
+          <nav class="rd-sidebar__nav">
+
+            <div class="rd-sidebar__nav-btn-group">
+                <a class="rd-sidebar__nav-btn " href="/organisation/settings">
+                  <div>
+                  <span>
+                    <i class="icon-font icon-rd-courses"></i>
+                  </span>
+                  </div>
+                  <div>
+                    <p>Home Dashboard</p>
+                  </div>
+                </a>
+                <a class="rd-sidebar__nav-subbtn" href="#">
+                  <p>Courses</p>
+                </a>
+                <a class="rd-sidebar__nav-subbtn" href="#">
+                  <p>Learning Paths</p>
+                </a>
+                <a class="rd-sidebar__nav-subbtn" href="#">
+                  <p>Roboduel Administration</p>
+                </a>
+                <a class="rd-sidebar__nav-subbtn" href="#">
+                  <p>License Management</p>
+                </a>
+
+            </div>
+
+            <a class="rd-sidebar__nav-btn " href="/">
+              <div>
+                <span>
+                  <i class="icon-font icon-rd-courses"></i>
+                </span>
+              </div>
+              <div>
+                <p>Courses</p>
+              </div>
+            </a>
+
+            <a href="#"
+               class="rd-sidebar__nav-btn "
+            >
+              <div>
+                <span>
+                  <i class="icon-font icon-rd-my-class"></i>
+                </span>
+              </div>
+              <div>
+                <p>My Class</p>
+              </div>
+            </a>
+
+            <a href="#" class="rd-sidebar__nav-btn ">
+              <div>
+                <span>
+                  <i class="icon-font icon-robot"></i>
+                </span>
+              </div>
+              <div>
+                <p>Makecode</p>
+              </div>
+            </a>
+
+            <a href="#" class="rd-sidebar__nav-btn is-active">
+              <div>
+                <span>
+                  <i class="icon-font icon-rd-projects"></i>
+                </span>
+              </div>
+              <div>
+                <p>Projects</p>
+                <!-- <u>2</u> -->
+              </div>
+            </a>
+
+            <a href="#" class="rd-sidebar__nav-btn">
+              <div>
+                    <span>
+                      <i class="icon-font icon-rd-community"></i>
+                    </span>
+              </div>
+              <div>
+                <p>Community</p>
+              </div>
+            </a>
+
+            <a href="#" class="rd-sidebar__nav-btn ">
+              <div>
+                    <span>
+                      <i class="icon-font icon-rd-courses"></i>
+                    </span>
+              </div>
+              <div>
+                <p>Roboduel</p>
+                <!-- <u>new!</u> -->
+              </div>
+            </a>
+
+            <a href="#" class="rd-sidebar__nav-btn">
+              <div>
+                    <span>
+                      <i class="icon-font icon-rd-sign-out"></i>
+                    </span>
+              </div>
+              <div>
+                <p>Sign Out</p>
+              </div>
+            </a>
+
+          </nav>
+
+        </div>
+        <div class="rd-sidebar__wrapper-bottom" style="margin-block-start: 60px;">
+
+            <div class="rd-sidebar__btn">
+              <img src="https://robotify-dev.s3.amazonaws.com/static/img/organization_logos/1.png" style="overflow: hidden; max-width: 200px; max-height: 200px; margin-bottom: 8px;">
+            </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- SIDENAV END -->
+
+    <section id="enabled" class="enabled">
+      <div id="school" class="school">
+
+        <!-- <div class="school__bg">
+          <img src="https://robotify.s3.amazonaws.com/static/img/img-catalog-bg.png" srcset="https://robotify.s3.amazonaws.com/static/img/img-catalog-bg%402x.png 2x" alt="">
+        </div> -->
+  
+        <div class="school__container school__container--big">
+  
+          <div class="school__breadcrumbs">
+            <a href="/" class="">Home</a>
+            <span>/</span>
+            <p>Analytics</p>
+          </div>
+  
+          <div class="school__header">
+            <div>
+              <h1 class="school__title">Analytics</h1>
+  
+            </div>
+            <div style="display: inline-flex;">
+              <a href="#" class="school__add school__add--green" popup-js data-effect="mfp-zoom-in" style="margin-left: 10px;">
+                <span>Update</span>
+              </a>
+            </div>
+
+          </div>
+  
+          <div class="school__option">
+  
+            <div>
+              <div style="max-width: 100%;">
+                <select name="filberBySchool" id="filberBySchool" multiple>
+                  <optgroup label="Partner">
+                  </optgroup>
+
+                  <optgroup label="Account Owner">
+                    <option value="adam">adam</option>
+                    <option value="alex@robotify">alex@robotify</option>
+                    <option value="evan">evan</option>
+                    <option value="carroll_ronan">carroll_ronan</option>
+                    <option value="harryn1611">harryn1611</option>
+                  </optgroup>
+
+                  <optgroup label="Sub Type">
+                    <option value="Paid">Paid</option>
+                    <option value="Trial">Trial</option>
+                    <option value="Cancelled">Cancelled</option>
+                  </optgroup>
+
+                  <optgroup label="State">
+                      <option value="Alaska">Alaska</option>
+                      <option value="Alabama">Alabama</option>
+                  </optgroup>
+
+                  <optgroup label="Country">
+                      <option value="Afghanistan">Afghanistan</option>
+                      <option value="Åland Islands">Åland Islands</option>
+                  </optgroup>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="analytics-data row">
+            <div class="col-md-6 col-sm-6 col-12 analytics-data-left">
+              <div class="pt-3">
+                <label class="pl-4 analytics-title">Courses</label>
+
+                <div class="school__form-group">
+                  <div class="school__export">
+                    <div class="school__form-field pb-1">
+                      <span class="col-8 school__form-label">Daily Tasks Attempted</span>
+                      <label class="col-4">
+                        <input type="text" name="subscription_end_date" placeholder="All time" value="1" disabled>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="school__form-group">
+                  <div class="school__export">
+                    <div class="school__form-field pb-1">
+                      <span class="col-8 school__form-label">Daily Tasks Completed</span>
+                      <label class="col-4">
+                        <input type="text" name="subscription_end_date" placeholder="All time" value="1" disabled>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="school__form-group">
+                  <div class="school__export">
+                    <div class="school__form-field pb-1">
+                      <span class="col-8 school__form-label">Total Tasks Attempted</span>
+                      <label class="col-4">
+                        <input type="text" name="subscription_end_date" placeholder="All time" value="1" disabled>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="school__form-group">
+                  <div class="school__export">
+                    <div class="school__form-field pb-1">
+                      <span class="col-8 school__form-label">Total Tasks Completed</span>
+                      <label class="col-4">
+                        <input type="text" name="subscription_end_date" placeholder="All time" value="1" disabled>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="school__form-group">
+                  <div class="school__export">
+                    <div class="school__form-field pb-1">
+                      <span class="col-8 school__form-label">Task Competition Rate</span>
+                      <label class="col-4">
+                        <input type="text" name="subscription_end_date" placeholder="All time" value="1" disabled>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="school__form-group">
+                  <div class="school__export">
+                    <div class="school__form-field pb-1">
+                      <span class="col-8 school__form-label">Most Popular Course</span>
+                      <label class="col-4">
+                        <input type="text" name="subscription_end_date" placeholder="All time" value="1" disabled>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="school__form-group">
+                  <div class="school__export">
+                    <div class="school__form-field pb-1">
+                      <span class="col-8 school__form-label">Avg Time spend in Courses(per user)</span>
+                      <label class="col-4">
+                        <input type="text" name="subscription_end_date" placeholder="All time" value="1" disabled>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pt-3">
+                <label class="pl-4 analytics-title">RoboDuel</label>
+
+                <div class="school__form-group">
+                  <div class="school__export">
+                    <div class="school__form-field pb-1">
+                      <span class="col-8 school__form-label">Daily RoboDuel Games Played</span>
+                      <label class="col-4">
+                        <input type="text" name="subscription_end_date" placeholder="All time" value="1" disabled>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="school__form-group">
+                  <div class="school__export">
+                    <div class="school__form-field pb-1">
+                      <span class="col-8 school__form-label">Total RoboDuel Games Played</span>
+                      <label class="col-4">
+                        <input type="text" name="subscription_end_date" placeholder="All time" value="1" disabled>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="school__form-group">
+                  <div class="school__export">
+                    <div class="school__form-field pb-1">
+                      <span class="col-8 school__form-label">Most Popular RoboDuel Game</span>
+                      <label class="col-4">
+                        <input type="text" name="subscription_end_date" placeholder="All time" value="1" disabled>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pt-3">
+                <label class="pl-4 analytics-title">Website</label>
+
+                <div class="school__form-group">
+                  <div class="school__export">
+                    <div class="school__form-field pb-1">
+                      <span class="col-8 school__form-label">Login Attempts</span>
+                      <label class="col-4">
+                        <input type="text" name="subscription_end_date" placeholder="All time" value="1" disabled>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="school__form-group">
+                  <div class="school__export">
+                    <div class="school__form-field pb-1">
+                      <span class="col-8 school__form-label">Clicks per Visit</span>
+                      <label class="col-4">
+                        <input type="text" name="subscription_end_date" placeholder="All time" value="1" disabled>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="school__form-group">
+                  <div class="school__export">
+                    <div class="school__form-field pb-1">
+                      <span class="col-8 school__form-label">Avg Time spent on platform(per user)</span>
+                      <label class="col-4">
+                        <input type="text" name="subscription_end_date" placeholder="All time" value="1" disabled>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-12">
+              <div class="pt-3">
+                <label class="pl-4 analytics-title">Users</label>
+
+                <div class="school__form-group">
+                  <div class="school__export">
+                    <div class="school__form-field pb-1">
+                      <span class="col-8 school__form-label">Daily Signups</span>
+                      <label class="col-4">
+                        <input type="text" name="subscription_end_date" placeholder="All time" value="1" disabled>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="school__form-group">
+                  <div class="school__export">
+                    <div class="school__form-field pb-1">
+                      <span class="col-8 school__form-label">Total Users</span>
+                      <label class="col-4">
+                        <input type="text" name="subscription_end_date" placeholder="All time" value="1" disabled>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="school__form-group">
+                  <div class="school__export">
+                    <div class="school__form-field pb-1">
+                      <span class="col-8 school__form-label">Active Users(24 hours)</span>
+                      <label class="col-4">
+                        <input type="text" name="subscription_end_date" placeholder="All time" value="1" disabled>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="school__form-group">
+                  <div class="school__export">
+                    <div class="school__form-field pb-1">
+                      <div class="col-6 school__form-label" style="width: 100px; height:200px; border-radius: 50%;border: 1px solid black;">
+                      </div>
+                      <div class="col-6">
+                        <span class="school__form-label float-right">Trial Users</span>
+                        <br>
+                        <span class="school__form-label float-right">Premium Users</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pt-3">
+                <label class="pl-4 analytics-title">Revenue</label>
+
+                <div class="school__form-group">
+                  <div class="school__export">
+                    <div class="school__form-field pb-1">
+                      <span class="col-8 school__form-label">Revenue per user</span>
+                      <label class="col-4">
+                        <input type="text" name="subscription_end_date" placeholder="All time" value="1" disabled>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                
+                
+
+                <div class="school__form-group">
+                  <div class="school__export">
+                    <div class="school__form-field pb-1">
+                      <div style="width: 100%; border: 1px solid black;">
+                        <canvas id="myChart" width="400" height="400"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    </section>
+    
+
+</body>
+<script>
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+          labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+          datasets: [{
+              label: '# of Votes',
+              data: [12, 19, 3, 5, 2, 3],
+              backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(255, 159, 64, 0.2)'
+              ],
+              borderColor: [
+                  'rgba(255, 99, 132, 1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)'
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              y: {
+                  beginAtZero: true
+              }
+          }
+      }
+  });
+  </script>
+<script src="assets/js/jquery.magnific-popup.min.js"></script>
+<script src="assets/js/fastselect.standalone.min.js"></script>
+<script src="new-js/school.js"></script>
+</html>
