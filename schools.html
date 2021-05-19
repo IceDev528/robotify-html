@@ -299,16 +299,16 @@
                     <td class="school__list-col" >
                       <p>Account Owner</p>
                     </td>
-                    <td class="school__list-col" style="flex: unset;width: 100%;max-width: 125px;text-align: center;">
+                    <td class="school__list-col">
                       <p>Number <br>Of Licenses</p>
                     </td>
                     <td class="school__list-col" >
                       <p>Subscription <br>End Date</p>
                     </td>
-                    <td class="school__list-col" style="flex: unset;width: 100%;max-width: 125px;text-align: center;">
+                    <td class="school__list-col">
                       <p>Total Usages</p>
                     </td>
-                    <td class="school__list-col" style="flex: unset;width: 100%;max-width: 125px;text-align: center;">
+                    <td class="school__list-col">
                       <p>Sub Type</p>
                     </td>
                     <td class="school__list-col" >
@@ -317,7 +317,7 @@
                     <td class="school__list-col" >
                       <p>State</p>
                     </td>
-                    <td class="school__list-col option-btns"></td>
+                    <td class="school__list-col"></td>
                   </tr>
                 </thead>
 
@@ -335,16 +335,16 @@
                     <td class="school__list-col" >
                       <p class="school_account_owner">evan</p>
                     </td>
-                    <td class="school__list-col" style="flex: unset;width: 100%;max-width: 125px;text-align: center;">
+                    <td class="school__list-col">
                       <p class="school_num_of_licenses">5</p>
                     </td>
                     <td class="school__list-col" >
                       <p class="school_expiry_date">Jan. 14, 2021, midnight</p>
                     </td>
-                    <td class="school__list-col" style="flex: unset;width: 100%;max-width: 125px;text-align: center;">
+                    <td class="school__list-col">
                       <p class="">0</p>
                     </td>
-                    <td class="school__list-col" style="flex: unset;width: 100%;max-width: 125px;text-align: center;">
+                    <td class="school__list-col">
                       <p class="school_sub_status">Paid</p>
                     </td>
                     <td class="school__list-col" >
@@ -353,7 +353,7 @@
                     <td class="school__list-col" >
                       <p>-</p>
                     </td>
-                    <td class="school__list-col option-btns">
+                    <td class="school__list-col">
                       <button onclick="return false;" type="button" class="removeSchool" data-school_id="97">
                         <i class="icon-font icon-remove"></i>
                       </button>
@@ -707,6 +707,18 @@ $('.removeSchool').on('click', function(){
 function clickRow(id) {
   window.location='/schools/' + id;
 }
+
+// var mouseWheelEvt = function (event) {
+//     if (document.body.doScroll)
+//         document.body.doScroll(event.wheelDelta>0?"left":"right");
+//     else if ((event.wheelDelta || event.detail) > 0)
+//         document.body.scrollLeft -= 10;
+//     else
+//         document.body.scrollLeft += 10;
+
+//     return false;
+// }
+// document.body.addEventListener("mousewheel", mouseWheelEvt);
 
 </script>
 <script src="assets/js/jquery.magnific-popup.min.js"></script>
