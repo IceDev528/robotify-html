@@ -1,6 +1,8 @@
 div.paginate{
     padding: 5px 0px;
     margin: auto;
+    text-align: center;
+    margin-top: 20px;
 }
 div.paginate input[type='button']:hover{
     cursor: pointer;
@@ -8,22 +10,25 @@ div.paginate input[type='button']:hover{
 div.paginate input[type='button']{
     margin: 0px 2px;
     border: none;
-    color: #03A9F4;
+    color: #222139;
     background-color: transparent;
     border-radius: 50%;
     min-width: 1.5rem;
     min-height: 1.5rem;
     outline: none;
 }
-
+div.paginate input[type='button'] {
+    content: "→" / "" !important;
+}
 div.paginate input[type='button'].active{
-    background-color: #17a2b8;
+    background-color: #222139;
     color: #fff;
-    font-weight: bold;
+    font-weight: normal;
 }
 div.paginate input[type='button']:disabled{
     color: grey!important;
     cursor: not-allowed;
+    display: none;
 }
 
 div.paginate input[type='number']#paginate_page_to_go{

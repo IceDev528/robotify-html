@@ -43,6 +43,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <!-- SCRIPT :: START-->
+
+  <script src="new-js/paginate.js"></script>
+
 </head>
 <body>
   <div class="body body--start body--sidebar">
@@ -279,94 +282,88 @@
           </div>
   
           <div class="school__wrapper">
-  
             <div class="school__wrapper-left">
-              
-              <div class="school__list-container">
-                <div class="school__list-header">
-                  <div class="school__list-row">
-                    <div class="school__list-col" style="justify-content: center;flex: unset;width: 100%;max-width: 50px;padding-left: 0;padding-right: 0;text-align: center;">
+              <input hidden="" name="school_id" value="97">
+              <table class="school__list-container">
+                <thead class="school__list-header">
+                  <tr class="school__list-row">
+                    <td class="school__list-col" style="justify-content: center;flex: unset;width: 100%;max-width: 50px;padding-left: 0;padding-right: 0;text-align: center;">
                       <p>№</p>
-                    </div>
-                    <div class="school__list-col" >
+                    </td>
+                    <td class="school__list-col school__list-col-name">
                       <p>Name</p>
-                    </div>
-                    <div class="school__list-col" >
+                    </td>
+                    <td class="school__list-col" >
                       <p>Partner</p>
-                    </div>
-                    <div class="school__list-col" >
+                    </td>
+                    <td class="school__list-col" >
                       <p>Account Owner</p>
-                    </div>
-                    <div class="school__list-col" style="flex: unset;width: 100%;max-width: 125px;text-align: center;">
+                    </td>
+                    <td class="school__list-col" style="flex: unset;width: 100%;max-width: 125px;text-align: center;">
                       <p>Number <br>Of Licenses</p>
-                    </div>
-                    <div class="school__list-col" >
+                    </td>
+                    <td class="school__list-col" >
                       <p>Subscription <br>End Date</p>
-                    </div>
-                    <div class="school__list-col" style="flex: unset;width: 100%;max-width: 125px;text-align: center;">
+                    </td>
+                    <td class="school__list-col" style="flex: unset;width: 100%;max-width: 125px;text-align: center;">
                       <p>Total Usages</p>
-                    </div>
-                    <div class="school__list-col" style="flex: unset;width: 100%;max-width: 125px;text-align: center;">
+                    </td>
+                    <td class="school__list-col" style="flex: unset;width: 100%;max-width: 125px;text-align: center;">
                       <p>Sub Type</p>
-                    </div>
-                    <div class="school__list-col" >
+                    </td>
+                    <td class="school__list-col" >
                       <p>Country</p>
-                    </div>
-                    <div class="school__list-col" >
+                    </td>
+                    <td class="school__list-col" >
                       <p>State</p>
-                    </div>
-                    <div class="school__list-col">
-                      
-                    </div>
-                  </div>
-                </div>
-                <div class="school__list-wrapper">
-                  <div class="school__list-row" style="cursor: pointer;" href="/schools/97">
-                    <a href="/schools/97" class="school__list-link" school-list-js="">
-                      <input hidden="" name="school_id" value="97">
-                      <div class="school__list-col" style="justify-content: center;flex: unset;width: 100%;max-width: 50px;padding-left: 0;padding-right: 0;text-align: center;">
-                        <p style="font-size: 14px; font-weight: 600;">0</p>
-                      </div>
-                      <div class="school__list-col" >
-                        <p class="school_name" style="font-size: 14px; font-weight: 600;"> International School</p>
-                      </div>
-                      <div class="school__list-col" >
-                        <p class="school_partner">Robotify Direct</p>
-                      </div>
-                      <div class="school__list-col" >
-                        <p class="school_account_owner">evan</p>
-                      </div>
-                      <div class="school__list-col" style="flex: unset;width: 100%;max-width: 125px;text-align: center;">
-                        <p class="school_num_of_licenses">5</p>
-                      </div>
-                      <div class="school__list-col" >
-                        <p class="school_expiry_date">Jan. 14, 2021, midnight</p>
-                      </div>
-                      <div class="school__list-col" style="flex: unset;width: 100%;max-width: 125px;text-align: center;">
-                        <p class="">0</p>
-                      </div>
-                      <div class="school__list-col" style="flex: unset;width: 100%;max-width: 125px;text-align: center;">
-                        <p class="school_sub_status">Paid</p>
-                      </div>
-                      <div class="school__list-col" >
-                        <p>-</p>
-                      </div>
-                      <div class="school__list-col" >
-                        <p>-</p>
-                      </div>
-                      <div class="school__list-col">
-                        <button onclick="return false;" type="button" class="removeSchool" data-school_id="97">
-                          <i class="icon-font icon-remove"></i>
-                        </button>
-                        <button type="button" class="editSchoolButton" href="#editSchool" data-school_id="97" popup-js="" data-effect="mfp-zoom-in">
-                          <i class="icon-font icon-edit"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-  
+                    </td>
+                    <td class="school__list-col option-btns"></td>
+                  </tr>
+                </thead>
+
+                <tbody class="myTable school__list-wrapper">
+                  <tr class="school__list-row" style="cursor: pointer;" id="97" onclick="clickRow(id)">
+                    <td class="school__list-col" style="justify-content: center;flex: unset;width: 100%;max-width: 50px;padding-left: 0;padding-right: 0;text-align: center;">
+                      <p style="font-size: 14px; font-weight: 600;">0</p>
+                    </td>
+                    <td class="school__list-col school__list-col-name">
+                      <p class="school_name" style="font-size: 14px; font-weight: 600;"> International School</p>
+                    </td>
+                    <td class="school__list-col" >
+                      <p class="school_partner">Robotify Direct</p>
+                    </td>
+                    <td class="school__list-col" >
+                      <p class="school_account_owner">evan</p>
+                    </td>
+                    <td class="school__list-col" style="flex: unset;width: 100%;max-width: 125px;text-align: center;">
+                      <p class="school_num_of_licenses">5</p>
+                    </td>
+                    <td class="school__list-col" >
+                      <p class="school_expiry_date">Jan. 14, 2021, midnight</p>
+                    </td>
+                    <td class="school__list-col" style="flex: unset;width: 100%;max-width: 125px;text-align: center;">
+                      <p class="">0</p>
+                    </td>
+                    <td class="school__list-col" style="flex: unset;width: 100%;max-width: 125px;text-align: center;">
+                      <p class="school_sub_status">Paid</p>
+                    </td>
+                    <td class="school__list-col" >
+                      <p>-</p>
+                    </td>
+                    <td class="school__list-col" >
+                      <p>-</p>
+                    </td>
+                    <td class="school__list-col option-btns">
+                      <button onclick="return false;" type="button" class="removeSchool" data-school_id="97">
+                        <i class="icon-font icon-remove"></i>
+                      </button>
+                      <button type="button" class="editSchoolButton" href="#editSchool" data-school_id="97" popup-js="" data-effect="mfp-zoom-in">
+                        <i class="icon-font icon-edit"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
           <div>
@@ -678,7 +675,7 @@
 </body>
 <script>
 let options = {
-    numberPerPage:5, //Cantidad de datos por pagina
+    numberPerPage:2, //Cantidad de datos por pagina
     goBar:true, //Barra donde puedes digitar el numero de la pagina al que quiere ir
     pageCounter:true, //Contador de paginas, en cual estas, de cuantas paginas
 };
@@ -706,9 +703,13 @@ $('.removeSchool').on('click', function(){
     }
   })
 })
+
+function clickRow(id) {
+  window.location='/schools/' + id;
+}
+
 </script>
 <script src="assets/js/jquery.magnific-popup.min.js"></script>
 <script src="assets/js/fastselect.standalone.min.js"></script>
 <script src="new-js/school.js"></script>
-<script src="new-js/paginate.js"></script>
 </html>
