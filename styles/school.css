@@ -1556,6 +1556,8 @@ picture {
   color: #333333; }
   .c-modal#createNewSchool {
     max-width: 768px; }
+  .c-modal#exportModal {
+    max-width: 500px; }
   .c-modal#editSchool {
     max-width: 768px; }
   .c-modal#createNewAdmin {

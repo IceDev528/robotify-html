@@ -36,6 +36,7 @@
   <!-- STYLE :: START-->
   <link rel="stylesheet" href="css/vendor.css">
   <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/paginate.css">
   <!-- STYLE :: END-->
   
   <!-- SCRIPT :: START-->
@@ -272,7 +273,7 @@
             <div>
               <label class="school__filter">
                 <i class="icon-font icon-search"></i>
-                <input type="text" name="" placeholder="Search school..." search-filter-js>
+                <input type="text" name="" id="searchBox" placeholder="Search school..." search-filter-js>
               </label>
             </div>
           </div>
@@ -280,7 +281,7 @@
           <div class="school__wrapper">
   
             <div class="school__wrapper-left">
-  
+              
               <div class="school__list-container">
                 <div class="school__list-header">
                   <div class="school__list-row">
@@ -676,6 +677,18 @@
 
 </body>
 <script>
+let options = {
+    numberPerPage:5, //Cantidad de datos por pagina
+    goBar:true, //Barra donde puedes digitar el numero de la pagina al que quiere ir
+    pageCounter:true, //Contador de paginas, en cual estas, de cuantas paginas
+};
+
+let filterOptions = {
+    el:'#searchBox' //Caja de texto para filtrar, puede ser una clase o un ID
+};
+
+paginate.init('.myTable',options,filterOptions);
+
 $('.removeSchool').on('click', function(){
   var school_id = $(this).data('school_id')
   var school_name = document.getElementsByClassName("school_name")[0].innerHTML; 
@@ -697,4 +710,5 @@ $('.removeSchool').on('click', function(){
 <script src="assets/js/jquery.magnific-popup.min.js"></script>
 <script src="assets/js/fastselect.standalone.min.js"></script>
 <script src="new-js/school.js"></script>
+<script src="new-js/paginate.js"></script>
 </html>
