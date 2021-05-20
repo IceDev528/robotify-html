@@ -456,7 +456,8 @@
                 <div class="school__form-group">
                   <div class="school__export">
                     <div class="school__form-field pb-1">
-                      <div class="col-6 school__form-label" style="width: 100px; height:200px; border-radius: 50%;border: 1px solid black;">
+                      <div class="col-6 school__form-label">
+                        <canvas id="pieChart" width="400" height="400"></canvas>
                       </div>
                       <div class="col-6">
                         <span class="school__form-label float-right">Trial Users</span>
@@ -487,9 +488,7 @@
                 <div class="school__form-group">
                   <div class="school__export">
                     <div class="school__form-field pb-1">
-                      <div style="width: 100%; border: 1px solid black;">
-                        <canvas id="myChart" width="400" height="400"></canvas>
-                      </div>
+                      <canvas id="myChart" width="400" height="400"></canvas>
                     </div>
                   </div>
                 </div>
@@ -539,6 +538,26 @@
               }
           }
       }
+  });
+
+  var ctx = document.getElementById('pieChart').getContext('2d');
+  var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: [
+          'Trial Users',
+          'Premium Users',
+        ],
+        datasets: [{
+          label: 'My First Dataset',
+          data: [300, 100],
+          backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)'
+          ],
+          hoverOffset: 4
+        }]
+      },
   });
   </script>
 <script src="assets/js/jquery.magnific-popup.min.js"></script>
