@@ -1872,5 +1872,5 @@ picture {
 .school__partner {
   border: 1px solid black;
   border-radius: 15px;
-  padding: 15px;
+  padding: 15px !important;
 }

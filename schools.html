@@ -208,221 +208,124 @@
 
           <h1 class="enabled__title">Licence Management</h1>
 
-          <div class="school__header mb-3">
-            <h1 class="school__title">All Partners</h1>
-          </div>
-
-          <div class="school__option" style="position: relative;">
-            <div>
-              <label class="school__filter">
-                <i class="icon-font icon-search"></i>
-                <input type="text" name="" id="searchBox" placeholder="Search partner..." search-filter-js="">
-              </label>
-            </div>
-
-            <div style="display: inline-flex;">
-              <a href="#createNewSchool" class="school__add" popup-js data-effect="mfp-zoom-in">
-                <span>Create new Partner</span>
-              </a>
-            </div>
-          </div>
-
-          <div class="school__partner mt-3 mb-3">
-            <div class="enabled-learning">
-              <div class="enabled-learning__block-wrapper">
-                <div class="learning-path_container" data-id="16" data-order="0" data-name="Test 3"
-                  data-is-public="True">
-                  <div class="enabled-learning__block" data-id="1">
-                    <div class="enabled-learning__block-left">
-                      <div class="enabled-learning__block-preview">
-                        <img src="" alt="">
-                      </div>
-                    </div>
-                    <div class="enabled-learning__block-middle">
-                      <p>Test 3</p>
-                    </div>
-                    <div class="enabled-learning__block-right">
-                      <a href="#editPath" data-effect="mfp-slide-in" popup-js class="enabled-learning__block-edit">
-                        <i class="icon-font icon-edit"></i>
-                      </a>
-                      <div class="enabled-learning__block-toggle">
-                        <i class="icon-font icon-corner"></i>
-                      </div>
+          <div class="enabled-learning">
+            <div class="enabled-learning__block-wrapper">
+              <div class="learning-path_container" data-id="16" data-order="0" data-name="Test 3" data-is-public="True">
+                <div class="enabled-learning__block" data-id="1" style="justify-content: space-between;">
+                  <div class="enabled-learning__block-left">
+                    <h1 class="school__title">All Partners</h1>
+                  </div>
+                  <div class="enabled-learning__block-right">
+                    <div class="enabled-learning__block-toggle">
+                      <i class="icon-font icon-corner"></i>
                     </div>
                   </div>
-                  <div class="enabled-learning__box">
-                    <div>
-                      <div class="all-units-container">
-                        <div class="unit" data-id="29" data-order="1">
-                          <div class="enabled-learning__box-header">
-                            <div>
-                              <p class="unit-name">Semester 1</p>
-                              <p hidden class="unit-is-public">True</p>
-                            </div>
-                            <div>
-                              <a href="#addNewCourse" data-effect="mfp-slide-in" popup-js
-                                class="addCourseToUnitModalShow">
-                                <i class="icon-font icon-add"></i>
-                              </a>
-                              <a href="#changeTitleUnit" data-effect="mfp-slide-in" popup-js
-                                class="changeUnitTitleModalShow">
-                                <i class="icon-font icon-edit"></i>
-                              </a>
-                            </div>
-                          </div>
-                          <div class="enabled-learning__box-body" data-len="1" drag-parent-js>
-                            <div drag-path-js class="enabled-learning__content" data-course-id="38">
-                              <div>
-                                <img src="" alt="">
-                              </div>
-                              <div>
-                                <p>Onboarder</p>
-                              </div>
-                              <div>
-                                <a href="" data-effect="mfp-slide-in" popup-js="" class="removeCourseFromUnitModalShow">
-                                  <i class="icon-font icon-remove"></i>
-                                </a>
-                              </div>
-                            </div>
+                </div>
 
-                          </div>
-
-                        </div>
-
-                      </div>
-                      <div class="enabled__btn enabled__btn--end">
-                        <a href="#" class="green saveOrder is-disabled">
-                          <span>Save Order</span>
-                        </a>
-                        <a href="#addTitleUnit" data-effect="mfp-slide-in" popup-js class="addUnitModalShow">
-                          <span>Add Unit</span>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="learning-path_container" data-id="6" data-order="1" data-name="Phobos: Mission to Mars"
-                    data-is-public="True">
-                    <div class="enabled-learning__block" data-id="1">
-                      <div class="enabled-learning__block-left">
-
-                        <div class="enabled-learning__block-preview">
-                          <img src="" alt="">
-                        </div>
-
-                      </div>
-                      <div class="enabled-learning__block-middle">
-                        <p>Phobos: Mission to Mars</p>
-                      </div>
-                      <div class="enabled-learning__block-right">
-                        <a href="#editPath" data-effect="mfp-slide-in" popup-js class="enabled-learning__block-edit">
-                          <i class="icon-font icon-edit"></i>
-                        </a>
-                        <div class="enabled-learning__block-toggle">
-                          <i class="icon-font icon-corner"></i>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="enabled-learning__box">
+                <div class="enabled-learning__box">
+                  <div class="school__partner">
+                    <div class="school__option" style="position: relative;">
                       <div>
+                        <label class="school__filter">
+                          <i class="icon-font icon-search"></i>
+                          <input type="text" name="" id="searchBox" placeholder="Search partner..." search-filter-js="">
+                        </label>
+                      </div>
 
-                        <div class="all-units-container">
+                      <div style="display: inline-flex;">
+                        <a href="#createNewSchool" class="school__add" popup-js data-effect="mfp-zoom-in">
+                          <span>Create new Partner</span>
+                        </a>
+                      </div>
+                    </div>
 
-                          <div class="unit" data-id="7" data-order="0">
-                            <div class="enabled-learning__box-header">
-                              <div>
-                                <p class="unit-name">Semester 1</p>
-                                <p hidden class="unit-is-public">True</p>
-                              </div>
-                              <div>
-                                <a href="#addNewCourse" data-effect="mfp-slide-in" popup-js
-                                  class="addCourseToUnitModalShow">
-                                  <i class="icon-font icon-add"></i>
-                                </a>
-                                <a href="#changeTitleUnit" data-effect="mfp-slide-in" popup-js
-                                  class="changeUnitTitleModalShow">
+                    <div class="school__wrapper">
+                      <div class="school__wrapper-left">
+                        <input hidden="" name="school_id" value="97">
+                        <table class="school__list-container">
+                          <thead class="school__list-header">
+                            <tr class="school__list-row">
+                              <td class="school__list-col"
+                                style="justify-content: center;flex: unset;width: 100%;max-width: 50px;padding-left: 0;padding-right: 0;text-align: center;">
+                                <p>№</p>
+                              </td>
+                              <td class="school__list-col school__list-col-name">
+                                <p>Name</p>
+                              </td>
+                              <td class="school__list-col">
+                                <p>Admin</p>
+                              </td>
+                              <td class="school__list-col">
+                                <p>Account Owner</p>
+                              </td>
+                              <td class="school__list-col">
+                                <p>Number <br>Of Licenses</p>
+                              </td>
+                              <td class="school__list-col">
+                                <p>Subscription <br>End Date</p>
+                              </td>
+                              <td class="school__list-col">
+                                <p>Total Usages</p>
+                              </td>
+                              <td class="school__list-col">
+                                <p>Sub Type</p>
+                              </td>
+                              <td class="school__list-col">
+                                <p>Country</p>
+                              </td>
+                              <td class="school__list-col">
+                                <p>State</p>
+                              </td>
+                              <td class="school__list-col"></td>
+                            </tr>
+                          </thead>
+
+                          <tbody class="myTable school__list-wrapper">
+                            <tr class="school__list-row" style="cursor: pointer;" id="97" onclick="clickRow(id)">
+                              <td class="school__list-col"
+                                style="justify-content: center;flex: unset;width: 100%;max-width: 50px;padding-left: 0;padding-right: 0;text-align: center;">
+                                <p style="font-size: 14px; font-weight: 600;">0</p>
+                              </td>
+                              <td class="school__list-col school__list-col-name">
+                                <p class="school_name" style="font-size: 14px; font-weight: 600;"> International School
+                                </p>
+                              </td>
+                              <td class="school__list-col">
+                                <p class="school_partner">Robotify Direct</p>
+                              </td>
+                              <td class="school__list-col">
+                                <p class="school_account_owner">evan</p>
+                              </td>
+                              <td class="school__list-col">
+                                <p class="school_num_of_licenses">5</p>
+                              </td>
+                              <td class="school__list-col">
+                                <p class="school_expiry_date">Jan. 14, 2021, midnight</p>
+                              </td>
+                              <td class="school__list-col">
+                                <p class="">0</p>
+                              </td>
+                              <td class="school__list-col">
+                                <p class="school_sub_status">Paid</p>
+                              </td>
+                              <td class="school__list-col">
+                                <p>-</p>
+                              </td>
+                              <td class="school__list-col">
+                                <p>-</p>
+                              </td>
+                              <td class="school__list-col">
+                                <button onclick="return false;" type="button" class="removeSchool" data-school_id="97">
+                                  <i class="icon-font icon-remove"></i>
+                                </button>
+                                <button type="button" class="editSchoolButton" href="#editSchool" data-school_id="97"
+                                  popup-js="" data-effect="mfp-zoom-in">
                                   <i class="icon-font icon-edit"></i>
-                                </a>
-                              </div>
-                            </div>
-
-                            <div class="enabled-learning__box-body" data-len="4" drag-parent-js>
-
-                              <div drag-path-js class="enabled-learning__content" data-course-id="264">
-                                <div>
-                                  <img src="" alt="">
-                                </div>
-                                <div>
-                                  <p>Phobos Episode 3</p>
-                                </div>
-                                <div>
-                                  <a href="" data-effect="mfp-slide-in" popup-js=""
-                                    class="removeCourseFromUnitModalShow">
-                                    <i class="icon-font icon-remove"></i>
-                                  </a>
-                                </div>
-                              </div>
-
-                              <div drag-path-js class="enabled-learning__content" data-course-id="36">
-                                <div>
-                                  <img src="" alt="">
-                                </div>
-                                <div>
-                                  <p>evan&#39;s testing course</p>
-                                </div>
-                                <div>
-                                  <a href="" data-effect="mfp-slide-in" popup-js=""
-                                    class="removeCourseFromUnitModalShow">
-                                    <i class="icon-font icon-remove"></i>
-                                  </a>
-                                </div>
-
-                              </div>
-
-                              <div drag-path-js class="enabled-learning__content" data-course-id="265">
-                                <div>
-                                  <img src="" alt="">
-                                </div>
-                                <div>
-                                  <p>Phobos Episode 0</p>
-                                </div>
-                                <div>
-                                  <a href="" data-effect="mfp-slide-in" popup-js=""
-                                    class="removeCourseFromUnitModalShow">
-                                    <i class="icon-font icon-remove"></i>
-                                  </a>
-                                </div>
-
-                              </div>
-
-                              <div drag-path-js class="enabled-learning__content" data-course-id="262">
-                                <div>
-                                  <img src="" alt="">
-                                </div>
-                                <div>
-                                  <p>Phobos Episode 1</p>
-                                </div>
-                                <div>
-                                  <a href="" data-effect="mfp-slide-in" popup-js=""
-                                    class="removeCourseFromUnitModalShow">
-                                    <i class="icon-font icon-remove"></i>
-                                  </a>
-                                </div>
-
-                              </div>
-
-                            </div>
-
-                          </div>
-
-                        </div>
-                        <div class="enabled__btn enabled__btn--end">
-                          <a href="#" class="green saveOrder is-disabled">
-                            <span>Save Order</span>
-                          </a>
-                          <a href="#addTitleUnit" data-effect="mfp-slide-in" popup-js class="addUnitModalShow">
-                            <span>Add Unit</span>
-                          </a>
-                        </div>
+                                </button>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </div>
                   </div>
@@ -544,13 +447,13 @@
                   </thead>
 
                   <tbody class="myTable school__list-wrapper">
-                    <tr class="school__list-row" style="cursor: pointer;" id="97" onclick="clickRow(id)">
+                    <tr class="school__list-row school__list-link" style="cursor: pointer;" id="97" onclick="clickRow(id)">
                       <td class="school__list-col"
                         style="justify-content: center;flex: unset;width: 100%;max-width: 50px;padding-left: 0;padding-right: 0;text-align: center;">
                         <p style="font-size: 14px; font-weight: 600;">0</p>
                       </td>
                       <td class="school__list-col school__list-col-name">
-                        <p class="school_name" style="font-size: 14px; font-weight: 600;"> International School</p>
+                        <p class="school_name" style="font-size: 14px; font-weight: 600;">International School</p>
                       </td>
                       <td class="school__list-col">
                         <p class="school_partner">Robotify Direct</p>

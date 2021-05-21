@@ -58,25 +58,25 @@ var searchFilter = function searchFilter() {
 			onItemSelect: function($item, itemModel) {
 				const groupName = $($item).closest('.fstGroup').find('.fstGroupTitle').text().toLowerCase();
 				
-				for(let i = 0; i < $('.school__list-header > div p').length; i++) {
-					const el = $('.school__list-header > div p')[i],
+				for(let i = 0; i < $('.school__list-header > tr td p').length; i++) {
+					const el = $('.school__list-header > tr td p')[i],
 						elVal = $(el).text().toLowerCase();
 					
 					if(elVal.indexOf(groupName) > -1) {
-						cellIDX.push($('.school__list-header > div').index($(el).parent()));
+						cellIDX.push($('.school__list-header > tr td').index($(el).parent()));
 					}
 				}
 				
 				filterArr.push(itemModel.value.toLowerCase());
 				
 				for(let i = 0; i < filterArr.length; i++) {
-					for(let j = 0; j < $('.school__list-link li').length; j++) {
-						const cell = $('.school__list-link li')[j],
-							cellGroupNode = $(cell).find('div').eq(cellIDX[i]);
-						
+					for(let j = 0; j < $('.school__list-link').length; j++) {
+						const cell = $('.school__list-link')[j], cellGroupNode = $(cell).find('td').eq(cellIDX[i]);
 						if(filterArr[i].indexOf(cellGroupNode.find('p').text().toLowerCase()) === -1) {
+							console.log("-1");
 							$(cell).closest('.school__list-link').hide().removeClass('is-filter');
 						} else {
+							console.log("1");
 							$(cell).closest('.school__list-link').addClass('is-filter');
 						}
 					}
@@ -110,10 +110,10 @@ var searchFilter = function searchFilter() {
 				});
 				
 				for(let i = 0, k = i; i < filterArr.length; i++) {
-					for(let j = 0; j < $('.school__list-link li').length; j++) {
-						const cell = $('.school__list-link li')[j],
-							cellGroupNode = $(cell).find('div').eq(cellIDX[i]),
-							cellGroupNodeNext = $(cell).find('div').eq(cellIDX[k + 1]);
+					for(let j = 0; j < $('.school__list-link').length; j++) {
+						const cell = $('.school__list-link')[j],
+							cellGroupNode = $(cell).find('td').eq(cellIDX[i]),
+							cellGroupNodeNext = $(cell).find('td').eq(cellIDX[k + 1]);
 						
 						if(filterArr[k + 1] !== undefined) {
 							if(cellGroupNode.find('p').text().toLowerCase() !== cellGroupNodeNext.find('p').text().toLowerCase()) {
