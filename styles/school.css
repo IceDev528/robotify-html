@@ -152,7 +152,8 @@ picture {
       max-width: 1386px; }
   .school__wrapper {
     display: flex;
-    padding-top: 30px; }
+    padding-top: 30px; 
+	overflow-x: auto; }
     .school__wrapper-left {
       flex: 1;
       min-width: 1000px;
