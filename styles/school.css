@@ -1868,3 +1868,9 @@ picture {
   font-size: 18px;
   font-weight: bold;
 }
+
+.school__partner {
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 15px;
+}
