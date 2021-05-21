@@ -1863,3 +1863,8 @@ picture {
   font-size: 18px;
   color: black;
 }
+
+.partner-title {
+  font-size: 18px;
+  font-weight: bold;
+}

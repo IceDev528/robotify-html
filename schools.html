@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="assets/css/magnific-popup.css">
   <link rel="stylesheet" href="assets/css/fastselect.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles/school.css">
   <!-- STYLE :: END-->
 
@@ -95,10 +95,12 @@
                 <a class="rd-sidebar__nav-subbtn" href="#">
                   <p>Roboduel Administration</p>
                 </a>
-                <a class="rd-sidebar__nav-subbtn" href="#">
+                <a class="rd-sidebar__nav-subbtn is-active" href="schools.html">
                   <p>License Management</p>
                 </a>
-
+                <a class="rd-sidebar__nav-subbtn" href="school_analytics.html">
+                  <p>Analytics</p>
+                </a>
             </div>
 
             <a class="rd-sidebar__nav-btn " href="/">
@@ -136,7 +138,7 @@
               </div>
             </a>
 
-            <a href="#" class="rd-sidebar__nav-btn is-active">
+            <a href="#" class="rd-sidebar__nav-btn">
               <div>
                 <span>
                   <i class="icon-font icon-rd-projects"></i>
@@ -208,9 +210,116 @@
           <div class="school__breadcrumbs">
             <a href="/" class="">Home</a>
             <span>/</span>
-            <p>The list of Schools</p>
+            <p>Schools</p>
           </div>
-  
+
+          <h1 class="school__title">Licence Management</h1>
+
+          <div class="school__partner mt-3 mb-3" style="border: 1px solid black; border-radius: 15px; padding: 15px;">
+            <h2 class="partner-title">All Schools</h2>
+            <div class="school__option">
+              <div>
+                <label class="school__filter">
+                  <i class="icon-font icon-search"></i>
+                  <input type="text" name="" id="searchBox" placeholder="Search partner..." search-filter-js="">
+                </label>
+              </div>
+
+              <div style="display: inline-flex;">
+                <a href="#createNewSchool" class="school__add" popup-js data-effect="mfp-zoom-in">
+                  <span>Create new Partner</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="school__wrapper">
+            <div class="school__wrapper-left">
+              <input hidden="" name="school_id" value="97">
+              <table class="school__list-container">
+                <thead class="school__list-header">
+                  <tr class="school__list-row">
+                    <td class="school__list-col" style="justify-content: center;flex: unset;width: 100%;max-width: 50px;padding-left: 0;padding-right: 0;text-align: center;">
+                      <p>№</p>
+                    </td>
+                    <td class="school__list-col school__list-col-name">
+                      <p>Name</p>
+                    </td>
+                    <td class="school__list-col" >
+                      <p>Partner</p>
+                    </td>
+                    <td class="school__list-col" >
+                      <p>Account Owner</p>
+                    </td>
+                    <td class="school__list-col">
+                      <p>Number <br>Of Licenses</p>
+                    </td>
+                    <td class="school__list-col" >
+                      <p>Subscription <br>End Date</p>
+                    </td>
+                    <td class="school__list-col">
+                      <p>Total Usages</p>
+                    </td>
+                    <td class="school__list-col">
+                      <p>Sub Type</p>
+                    </td>
+                    <td class="school__list-col" >
+                      <p>Country</p>
+                    </td>
+                    <td class="school__list-col" >
+                      <p>State</p>
+                    </td>
+                    <td class="school__list-col"></td>
+                  </tr>
+                </thead>
+
+                <tbody class="myTable school__list-wrapper">
+                  <tr class="school__list-row" style="cursor: pointer;" id="97" onclick="clickRow(id)">
+                    <td class="school__list-col" style="justify-content: center;flex: unset;width: 100%;max-width: 50px;padding-left: 0;padding-right: 0;text-align: center;">
+                      <p style="font-size: 14px; font-weight: 600;">0</p>
+                    </td>
+                    <td class="school__list-col school__list-col-name">
+                      <p class="school_name" style="font-size: 14px; font-weight: 600;"> International School</p>
+                    </td>
+                    <td class="school__list-col" >
+                      <p class="school_partner">Robotify Direct</p>
+                    </td>
+                    <td class="school__list-col" >
+                      <p class="school_account_owner">evan</p>
+                    </td>
+                    <td class="school__list-col">
+                      <p class="school_num_of_licenses">5</p>
+                    </td>
+                    <td class="school__list-col" >
+                      <p class="school_expiry_date">Jan. 14, 2021, midnight</p>
+                    </td>
+                    <td class="school__list-col">
+                      <p class="">0</p>
+                    </td>
+                    <td class="school__list-col">
+                      <p class="school_sub_status">Paid</p>
+                    </td>
+                    <td class="school__list-col" >
+                      <p>-</p>
+                    </td>
+                    <td class="school__list-col" >
+                      <p>-</p>
+                    </td>
+                    <td class="school__list-col">
+                      <button onclick="return false;" type="button" class="removeSchool" data-school_id="97">
+                        <i class="icon-font icon-remove"></i>
+                      </button>
+                      <button type="button" class="editSchoolButton" href="#editSchool" data-school_id="97" popup-js="" data-effect="mfp-zoom-in">
+                        <i class="icon-font icon-edit"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          </div>
+          
+
           <div class="school__header">
             <div>
               <h1 class="school__title">All Schools</h1>
@@ -226,7 +335,6 @@
                 <span>Export</span>
               </a>
             </div>
-
           </div>
   
           <div class="school__option">
@@ -707,18 +815,6 @@ $('.removeSchool').on('click', function(){
 function clickRow(id) {
   window.location='/schools/' + id;
 }
-
-// var mouseWheelEvt = function (event) {
-//     if (document.body.doScroll)
-//         document.body.doScroll(event.wheelDelta>0?"left":"right");
-//     else if ((event.wheelDelta || event.detail) > 0)
-//         document.body.scrollLeft -= 10;
-//     else
-//         document.body.scrollLeft += 10;
-
-//     return false;
-// }
-// document.body.addEventListener("mousewheel", mouseWheelEvt);
 
 </script>
 <script src="assets/js/jquery.magnific-popup.min.js"></script>
